@@ -1,0 +1,24 @@
+{
+  "name": "sibe-api",
+  "version": "1.0.0",
+  "description": "Aplicacao SIBE",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amauri Leonel Klamas Jr & Heloise Bonato",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "knex": "^0.95.15",
+    "md5": "^2.3.0",
+    "reactjs-forms": "^1.0.6",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
