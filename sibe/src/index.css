@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
 body {
   background: #2D4297;
@@ -6,14 +6,18 @@ body {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  display: flex;
+  overflow-y: hidden;
 }
 
 .form-container {
   width: 360px;
   background-color: white;
   margin: auto;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   padding: 10px;
+  border-radius: 10px;
+  padding: 30px;
 }
 
 .register-form {
@@ -24,7 +28,7 @@ body {
 }
 
 .success-message {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #3f89f8;
   padding: 15px;
   color: white;
@@ -35,14 +39,16 @@ body {
   padding: 15px;
   font-size: 16px;
   border: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 span {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   color: red;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
 input {
@@ -54,12 +60,30 @@ input {
   border: 2px solid #ffa4a4;
 }
 
-button {
-  background: #4caf50;
-  color: white;
+.button-submit {
+  background-color: #FFFFFF;
+  border: 2px solid #2D4297;
+  color: #2D4297;
   cursor: pointer;
+  transition: 0.4s;
+  font-weight: 700;
+}
+.button-submit:hover{
+  background-color: #2D4297;
+  color: #FFFFFF;
+  transition: 0.4s;
 }
 
-button:disabled {
+.button-submit:disabled {
   cursor: default;
+}
+
+.register-form .title{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 10px;
 }
