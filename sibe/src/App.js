@@ -44,13 +44,6 @@ export default function App() {
       <form class="register-form">
         <h1 class="title">Faça seu login</h1>
         <input
-          id="name"
-          class="form-field"
-          type="text"
-          placeholder="Nome"
-          name="nomeCompleto"
-        />
-        <input
           id="logiin"
           class="form-field"
           type="text"
@@ -65,7 +58,7 @@ export default function App() {
           name="senha"
         />
         <button class="form-field button-submit" type="submit">
-          Registrar
+          Login
         </button>
       </form>
     </div>

@@ -67,6 +67,7 @@ input {
   cursor: pointer;
   transition: 0.4s;
   font-weight: 700;
+  margin-top: 30px;
 }
 .button-submit:hover{
   background-color: #2D4297;
