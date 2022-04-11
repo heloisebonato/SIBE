@@ -67,16 +67,10 @@ export default function App() {
   }
 
   return (
-    <div>
+  <div>
       <div class="form-container">
         <form class="register-form">
-          {/* <input
-            id="name"
-            class="form-field"
-            type="text"
-            placeholder="Nome"
-            name="nomeCompleto"
-          /> */}
+          <h1 class="title">Faça seu login</h1>
           <input
             id="logiin"
             class="form-field"
@@ -91,13 +85,10 @@ export default function App() {
             placeholder="Senha"
             name="senha"
           />
-          <button class="form-field" type="submit">
+          <button class="form-field button-submit" type="submit">
             Login
           </button>
         </form>
-        <br></br>
-        <br></br>
-        
       </div>
       <div id="app">
           <div className="list">
@@ -105,6 +96,6 @@ export default function App() {
                 <Content data={clienteList}></Content>
           </div>
         </div>
-    </div>
+  </div>
   );
 }
