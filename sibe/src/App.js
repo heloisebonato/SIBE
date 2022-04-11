@@ -3,15 +3,42 @@ import "./index.css";
 import axios from 'axios';
 
 
+/* Import custom components */
+import List from './components/list';
+
+import Header from './components/header';
+import Content from './components/content';
+
+
 export default function App() {
 
-  const [todoList, setTodoList] = useState([])
+    // this.state = {
+    //   headerList : ['Name'],
+    //   setClienteList: []
+    // }
+
+  const [funcionarioList, setFuncionarioList] = useState([])
+
+  const [clienteList, setClienteList] = useState([])
 
   useEffect(() => {
     axios.get('http://localhost:8888/funcionario', {})
       .then(res => {
-        console.log(res)
-        setTodoList(res.data)
+        //console.log(res)
+        setFuncionarioList(res.data)
+        //this.setState({setClienteList: res.data})
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get('http://localhost:8888/cliente', {})
+      .then(res => {
+        //console.log(res)
+        setClienteList(res.data)
+        //this.setState({setClienteList: res.data})
       })
       .catch(err => {
         console.log(err)
@@ -19,19 +46,19 @@ export default function App() {
   }, [])
   
   const deleteHandler = id => {
-      const newTodos = todoList.filter(item => {
+      const newFuncionario = funcionarioList.filter(item => {
           return item.id !== id
       })
 
-      setTodoList(newTodos)
+      setFuncionarioList(newFuncionario)
   }
 
-  const updateHandler = todo => {
-      setTodoList(todoList.map(item => {
-          if(item.id === todo.id) {
+  const updateHandler = funcionario => {
+    setFuncionarioList(funcionarioList.map(item => {
+          if(item.id === funcionario.id) {
               return {
                   ...item,
-                  message: todo.message
+                  nome: funcionario.nome
               }
           } else {
               return item
@@ -40,33 +67,44 @@ export default function App() {
   }
 
   return (
-    <div class="form-container">
-      <form class="register-form">
-        <input
-          id="name"
-          class="form-field"
-          type="text"
-          placeholder="Nome"
-          name="nomeCompleto"
-        />
-        <input
-          id="logiin"
-          class="form-field"
-          type="text"
-          placeholder="Login"
-          name="login"
-        />
-        <input
-          id="senha"
-          class="form-field"
-          type="password"
-          placeholder="Senha"
-          name="senha"
-        />
-        <button class="form-field" type="submit">
-          Registrar
-        </button>
-      </form>
+    <div>
+      <div class="form-container">
+        <form class="register-form">
+          {/* <input
+            id="name"
+            class="form-field"
+            type="text"
+            placeholder="Nome"
+            name="nomeCompleto"
+          /> */}
+          <input
+            id="logiin"
+            class="form-field"
+            type="text"
+            placeholder="Login"
+            name="login"
+          />
+          <input
+            id="senha"
+            class="form-field"
+            type="password"
+            placeholder="Senha"
+            name="senha"
+          />
+          <button class="form-field" type="submit">
+            Login
+          </button>
+        </form>
+        <br></br>
+        <br></br>
+        
+      </div>
+      <div id="app">
+          <div className="list">
+                <Header data={['Nome', 'CPF', 'Renavam', 'Placa', 'Editar', 'Deletar']}></Header>
+                <Content data={clienteList}></Content>
+          </div>
+        </div>
     </div>
   );
 }

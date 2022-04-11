@@ -12,6 +12,9 @@ server.use(express.json());
 
 //const testData = require('../testData');
 
+
+//--------------------------------------------------------------------------------------------------------BACK-END FUNCIONARIO------------------------------------------//
+
 server.get('/', (req,res) => {
     res.send('Welcome to the Funcionario app server!!!')
 });
@@ -68,6 +71,71 @@ server.delete('/funcionario/:id', async (req,res) => {
     const { id } = req.params;
     try {
         await db('funcionario').where({ id }).del();
+        res.status(200).json({ message: 'Delete successful!' });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+
+//--------------------------------------------------------------------------------------------------------BACK-END CLIENTE------------------------------------------//
+
+// server.get('/', (req,res) => {
+//     res.send('Welcome to the Cliente app server!!!')
+// });
+
+server.get('/cliente', async (req,res) => {
+    // GET all clientes
+    try {
+        const cliente = await db('cliente');
+        res.status(200).json(cliente);
+    } catch(err) {
+        console.log(err);
+    }
+});
+
+server.get('/cliente/:id', async (req,res) => {
+    // GET Cliente by id
+    const { id } = req.params;
+    try {
+        const currentCliente = await db('cliente').where({ id });
+        currentCliente.length === 0 ? res.status(404).json({ message: 'cliente not found'}) : res.status(200).json(currentFuncionario);
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+server.post('/cliente', async (req,res) => {
+    // POST a Cliente
+    const { message } = req.body;
+    if (!message) {
+        return res.status(400).json({ message: 'You must include a message in your request.' })
+    }
+    try {
+        await db('cliente').insert({ message });
+        res.status(201).json({ message: 'Cliente successfully stored!' });
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+server.put('/cliente/:id', async (req,res) => {
+    // UPDATE a Cliente
+    const { id } = req.params;
+    const { message } = req.body;
+    try {
+        const currentCliente = await db('cliente').where({ id }).update({ message });
+        res.status(200).json({ message: 'Update successful!' });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+server.delete('/cliente/:id', async (req,res) => {
+    // DELETE a Cliente
+    const { id } = req.params;
+    try {
+        await db('cliente').where({ id }).del();
         res.status(200).json({ message: 'Delete successful!' });
     } catch (err) {
         console.log(err)

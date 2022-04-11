@@ -63,3 +63,10 @@ button {
 button:disabled {
   cursor: default;
 }
+
+#app{
+  flex: 1;
+  box-sizing: border-box;
+  margin: 24px;
+  overflow: hidden;
+}

@@ -1,0 +1,18 @@
+.header {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    background-color: #e6e6e6;
+    border: 1px solid rgba(217, 217, 217, 0.5);
+}
+.headerItem {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #8c8c8c;
+    user-select: none;
+    font-weight: 300;
+}
+.headerItem:first-child {
+    text-align: left;
+}
