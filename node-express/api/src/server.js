@@ -1,8 +1,12 @@
+// import { routes } from "./routes";
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
-const db = require('./dbConfig');
+const mysql = require('mysql');
+
+const db = require('../dbConfig');
 
 const server = express();
 
@@ -10,7 +14,49 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 
+// routes(server);
+
+// const db = mysql.createConnection({
+//     user: "root",
+//     host: "localhost",
+//     password: "123456",
+//     database: "sibe",
+// });
+
 //const testData = require('../testData');
+
+// const db = SQLite.openDatabase(
+//     {
+//         name: 'sibe',
+//         location: 'sibe'
+//     },
+//     () => { },
+//     error => {console.log(error)}
+// );
+
+// const getData = () => {
+//     try {
+        
+//         db.transaction((tx) => {
+//             tx.executeSql(
+//                 "SELECT nome FROM Cliente",
+//                 [],
+//                 (tx, results) => {
+//                     var len = results.rows.length;
+//                     if (len > 0) {
+//                         var userName = results.rows.item(0).nome;
+//                         console.log(userName);
+//                         // setName(userName);
+//                         // setAge(userAge);
+//                     }
+//                 }
+//             )
+//         })
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
 
 
 //--------------------------------------------------------------------------------------------------------BACK-END FUNCIONARIO------------------------------------------//
@@ -88,6 +134,8 @@ server.get('/cliente', async (req,res) => {
     // GET all clientes
     try {
         const cliente = await db('cliente');
+        //const teste = getData();
+        console.log("teste");
         res.status(200).json(cliente);
     } catch(err) {
         console.log(err);

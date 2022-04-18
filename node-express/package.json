@@ -4,21 +4,35 @@
   "description": "Aplicacao SIBE",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon api/src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Amauri Leonel Klamas Jr & Heloise Bonato",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-validation": "^4.0.1",
     "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.15",
     "md5": "^2.3.0",
+    "mysql": "^2.18.1",
     "reactjs-forms": "^1.0.6",
-    "sqlite3": "^5.0.2"
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.3.6"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.24",
     "nodemon": "^2.0.15"
   }
 }

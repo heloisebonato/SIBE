@@ -1,6 +1,23 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+#app{
+    flex: 1;
+    box-sizing: border-box;
+    margin: 24px;
+    overflow: hidden;
+  }
+  
+  .register-form .title{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 10px;
+  }
 
-body {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+
+/* body {
   background: #2D4297;
   display: flex;
   min-height: 100vh;
@@ -8,6 +25,16 @@ body {
   align-items: center;
   display: flex;
   overflow-y: hidden;
+} */
+
+.login-box{
+    background: #2D4297;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow-y: hidden;
 }
 
 .form-container {
@@ -94,4 +121,4 @@ input {
   font-weight: 800;
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;
-} */
+}

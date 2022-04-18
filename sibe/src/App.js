@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "./index.css";
+import "./dashboard.css";
 import axios from 'axios';
+import Login from './pages/login';
 
 
 /* Import custom components */
@@ -8,6 +10,14 @@ import List from './components/list';
 
 import Header from './components/header';
 import Content from './components/content';
+
+import Nav from './components/nav';
+import Menu from './components/menu';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Funcionario from './pages/Funcionarios';
+import Register from './pages/Register';
+import CadastroCliente from './pages/CadastroCliente';
 
 
 export default function App() {
@@ -67,35 +77,28 @@ export default function App() {
   }
 
   return (
+  // <div>
+  //     <Login></Login>
+  //     <div id="app">
+  //         <div classNameName="list">
+  //               <Header data={['Nome', 'CPF', 'Renavam', 'Placa', 'Editar', 'Deletar']}></Header>
+  //               <Content data={clienteList}></Content>
+  //         </div>
+  //       </div>
+  // </div>
+
   <div>
-      <div class="form-container">
-        <form class="register-form">
-          <h1 class="title">Faça seu login</h1>
-          <input
-            id="logiin"
-            class="form-field"
-            type="text"
-            placeholder="Login"
-            name="login"
-          />
-          <input
-            id="senha"
-            class="form-field"
-            type="password"
-            placeholder="Senha"
-            name="senha"
-          />
-          <button class="form-field button-submit" type="submit">
-            Login
-          </button>
-        </form>
-      </div>
-      <div id="app">
-          <div className="list">
-                <Header data={['Nome', 'CPF', 'Renavam', 'Placa', 'Editar', 'Deletar']}></Header>
-                <Content data={clienteList}></Content>
-          </div>
-        </div>
+    <BrowserRouter>
+      <Route path={'/'} exact component={Dashboard}/>
+      <Route path={'/funcionarios'} component={Funcionario}/>
+      <Route path={'/registrar'} component={Register}/>   
+      <Route path={'/login'} component={Login}/>  
+      <Route path={'/cadastroCliente'} component={CadastroCliente}/>  
+
+      
+      </BrowserRouter>
   </div>
+
+
   );
 }
