@@ -14,21 +14,70 @@
 }
 
 .navbar{
-    .form-search{
-        width: 35%;
-        border: 1px solid #2D4297;
+    .search{
+        display: inline-flex;
         margin-right: auto;
+        border: 1px solid $blue;
+        border-radius: 20px;
+        justify-content: space-between;
+        align-items: center;
+        width: 35%;
+        .form-search{
+            font-family: "Montserrat";
+            font-size: $font--items;
+            margin-left: 13px;
+        }
+        .button-procurar{
+            color: $white;
+            font-size: $font--items;
+            font-weight: $weight--small;
+            width: 50px;
+            height: 40px;
+            padding-top: 5px;
+            padding-left: 10px;
+            font-family: "Montserrat";
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 0px 20px 20px 0px;
+            background-color: transparent;
+
+            &:hover{
+                transition: .4s;
+                background-color: $blue;
+                border: 1px solid $blue;
+            }
+        }
+        .searchIcon{
+            color: $blue;
+
+            &:hover{
+                color: $white;
+            }
+
+        }
     }
 }
 
 .navbar-item{
     display: block;
+    .css-zylse7-MuiButtonBase-root-MuiIconButton-root{
+        width: 5px;
+        height: 5px;
+        padding: 0px;
+        margin: 28px;
+        &:hover{
+            background-color: transparent;
+            border-radius: transparent;
+        }
+    }
 }
 .navbar-item.name-func{
-    color: #2D4297;
-    font-size: 15px;
+    color: $blue;
+    font-size: $font--items;
     font-family: "Montserrat";
-    font-weight: 400;
+    font-weight: $weight--small;
     text-decoration: none;
     transition: .3s;
     display: flex;
@@ -43,23 +92,22 @@
 }
 
 .BaseBadge-root{
-    color: #2D4297;
+    color: $blue;
     margin: 3px;
 }
 
 .MuiSvgIcon-root{
-    color: #2D4297;
+    color: $blue;
     margin: 5px;
 }
 
 .MuiButtonBase-root {
     .BaseBadge-badge{
-        background-color: #fdd13a;
+        background-color: $danger;
         font-family: "Montserrat";
         font-weight: 200;
     }
 }
-
 @media (max-width: 900px){
     .logo{
         width: 45%;
@@ -68,6 +116,8 @@
         .form-search{
             width: 100%;
             margin: 12px;
+            border: 1px solid $blue;
+            border-radius: 20px;
         }
     }
 }

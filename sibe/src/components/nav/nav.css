@@ -19,13 +19,52 @@ Text Definitions
   margin-right: auto;
   display: block; }
 
-.navbar .form-search {
-  width: 35%;
+.navbar .search {
+  display: inline-flex;
+  margin-right: auto;
   border: 1px solid #2D4297;
-  margin-right: auto; }
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%; }
+  .navbar .search .form-search {
+    font-family: "Montserrat";
+    font-size: 15px;
+    margin-left: 13px; }
+  .navbar .search .button-procurar {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    width: 50px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-family: "Montserrat";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 0px 20px 20px 0px;
+    background-color: transparent; }
+    .navbar .search .button-procurar:hover {
+      transition: .4s;
+      background-color: #2D4297;
+      border: 1px solid #2D4297; }
+  .navbar .search .searchIcon {
+    color: #2D4297; }
+    .navbar .search .searchIcon:hover {
+      color: #FFFFFF; }
 
 .navbar-item {
   display: block; }
+  .navbar-item .css-zylse7-MuiButtonBase-root-MuiIconButton-root {
+    width: 5px;
+    height: 5px;
+    padding: 0px;
+    margin: 28px; }
+    .navbar-item .css-zylse7-MuiButtonBase-root-MuiIconButton-root:hover {
+      background-color: transparent;
+      border-radius: transparent; }
 
 .navbar-item.name-func {
   color: #2D4297;
@@ -51,7 +90,7 @@ Text Definitions
   margin: 5px; }
 
 .MuiButtonBase-root .BaseBadge-badge {
-  background-color: #fdd13a;
+  background-color: #DA1E28;
   font-family: "Montserrat";
   font-weight: 200; }
 
@@ -61,6 +100,8 @@ Text Definitions
 
   .navbar .form-search {
     width: 100%;
-    margin: 12px; } }
+    margin: 12px;
+    border: 1px solid #2D4297;
+    border-radius: 20px; } }
 
 /*# sourceMappingURL=nav.css.map */

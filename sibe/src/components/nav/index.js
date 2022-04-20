@@ -9,7 +9,7 @@ import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
-
+import SearchIcon from '@mui/icons-material/Search';
 
 const Nav = () => {
     const [funcionario, setFuncionario] = useState({
@@ -38,7 +38,10 @@ const Nav = () => {
             <button className="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
-            <input className="form-control form-search" type="text" placeholder="Search" aria-label="Search"/>
+            <div className="search">
+                <input className="form-control form-search" type="text" placeholder="Pesquisar" aria-label="Search"/>
+                <button className="button-procurar"> <SearchIcon className="searchIcon" /> </button>
+            </div>
             <a className="navbar-item" href="#">
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">
