@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+@import "../../assets/css/colors.scss";
+
+
+.navbar-brand{
+    background-color: $blue;
+}
+.logo{
+    width: 75%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.navbar{
+    .form-search{
+        width: 35%;
+        border: 1px solid #2D4297;
+        margin-right: auto;
+    }
+}
+
+.navbar-item{
+    display: block;
+}
+.navbar-item.name-func{
+    color: #2D4297;
+    font-size: 15px;
+    font-family: "Montserrat";
+    font-weight: 400;
+    text-decoration: none;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        transition: .3s;
+        color: #22316f;
+        text-decoration: underline;
+    }
+}
+
+.BaseBadge-root{
+    color: #2D4297;
+    margin: 3px;
+}
+
+.MuiSvgIcon-root{
+    color: #2D4297;
+    margin: 5px;
+}
+
+.MuiButtonBase-root {
+    .BaseBadge-badge{
+        background-color: #fdd13a;
+        font-family: "Montserrat";
+        font-weight: 200;
+    }
+}
+
+@media (max-width: 900px){
+    .logo{
+        width: 45%;
+    }
+    .navbar{
+        .form-search{
+            width: 100%;
+            margin: 12px;
+        }
+    }
+}
