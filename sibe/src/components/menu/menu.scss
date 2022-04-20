@@ -1,0 +1,17 @@
+@import '../../assets/scss/variaveis.scss';
+
+.sidebar{
+    .nav{
+        .nav-item{
+            color: $primary-dark;
+            font-size: $font--items;
+            font-weight: $weight--small;
+            font-family: "Montserrat";
+        }
+        .nav-link.active{
+            color: $blue;
+            font-weight: $weight--medium;
+        }
+    }
+    
+}

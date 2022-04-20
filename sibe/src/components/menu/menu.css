@@ -1,0 +1,20 @@
+/**
+-------------------------
+Color Definitions
+-------------------------
+**/
+/**
+------------------
+Text Definitions
+------------------
+**/
+.sidebar .nav .nav-item {
+  color: #0F1D2B;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Montserrat"; }
+.sidebar .nav .nav-link.active {
+  color: #2D4297;
+  font-weight: 600; }
+
+/*# sourceMappingURL=menu.css.map */
