@@ -1,9 +1,32 @@
 import React, {Component} from 'react';
 import Nav from '../nav';
 import Menu from '../menu';
+import axios from "axios";
+import {useState, useEffect} from "react";
+import { Redirect } from 'react-router-dom';
 
-class Wrapper extends React.Component {
-    render () {
+const Wrapper = (props) => {
+    const [redirect, setRedirect] = useState(false);
+
+    useEffect( () => {
+        (
+            async () => {
+                try {
+                    const {data} = await axios.get('funcionario');
+                } catch (e){
+                    setRedirect(true);
+                }
+
+                //console.log(redirect)
+            }
+        )();
+    }, [])
+
+    if (redirect) {
+        return <Redirect to='/login'/>
+    }
+
+    // render () {
         return (
             <div>
                <Nav></Nav>
@@ -13,7 +36,7 @@ class Wrapper extends React.Component {
                     <Menu></Menu>
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 table-display">
-                        {this.props.children}
+                        {props.children}
                             
                     
                     {/* <Dashboard></Dashboard> */}
@@ -24,7 +47,7 @@ class Wrapper extends React.Component {
             </div>
 
         );
-    }
+    // }
 }
 
 export default Wrapper;

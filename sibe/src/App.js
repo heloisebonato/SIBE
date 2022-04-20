@@ -18,6 +18,7 @@ import Dashboard from './pages/Dashboard';
 import Funcionario from './pages/Funcionarios';
 import Register from './pages/Register';
 import CadastroCliente from './pages/CadastroCliente';
+import Clientes from './pages/Clientes';
 
 
 export default function App() {
@@ -27,54 +28,54 @@ export default function App() {
     //   setClienteList: []
     // }
 
-  const [funcionarioList, setFuncionarioList] = useState([])
+  // const [funcionarioList, setFuncionarioList] = useState([])
 
-  const [clienteList, setClienteList] = useState([])
+  // const [clienteList, setClienteList] = useState([])
 
-  useEffect(() => {
-    axios.get('http://localhost:8888/funcionario', {})
-      .then(res => {
-        //console.log(res)
-        setFuncionarioList(res.data)
-        //this.setState({setClienteList: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.get('http://localhost:8888/funcionario', {})
+  //     .then(res => {
+  //       //console.log(res)
+  //       setFuncionarioList(res.data)
+  //       //this.setState({setClienteList: res.data})
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
 
-  useEffect(() => {
-    axios.get('http://localhost:8888/cliente', {})
-      .then(res => {
-        //console.log(res)
-        setClienteList(res.data)
-        //this.setState({setClienteList: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.get('http://localhost:8888/cliente', {})
+  //     .then(res => {
+  //       //console.log(res)
+  //       setClienteList(res.data)
+  //       //this.setState({setClienteList: res.data})
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
   
-  const deleteHandler = id => {
-      const newFuncionario = funcionarioList.filter(item => {
-          return item.id !== id
-      })
+  // const deleteHandler = id => {
+  //     const newFuncionario = funcionarioList.filter(item => {
+  //         return item.id !== id
+  //     })
 
-      setFuncionarioList(newFuncionario)
-  }
+  //     setFuncionarioList(newFuncionario)
+  // }
 
-  const updateHandler = funcionario => {
-    setFuncionarioList(funcionarioList.map(item => {
-          if(item.id === funcionario.id) {
-              return {
-                  ...item,
-                  nome: funcionario.nome
-              }
-          } else {
-              return item
-          }
-      }))
-  }
+  // const updateHandler = funcionario => {
+  //   setFuncionarioList(funcionarioList.map(item => {
+  //         if(item.id === funcionario.id) {
+  //             return {
+  //                 ...item,
+  //                 nome: funcionario.nome
+  //             }
+  //         } else {
+  //             return item
+  //         }
+  //     }))
+  // }
 
   return (
   // <div>
@@ -93,7 +94,8 @@ export default function App() {
       <Route path={'/funcionarios'} component={Funcionario}/>
       <Route path={'/registrar'} component={Register}/>   
       <Route path={'/login'} component={Login}/>  
-      <Route path={'/cadastroCliente'} component={CadastroCliente}/>  
+      <Route path={'/cadastroCliente'} component={CadastroCliente}/>
+      <Route path={'/clientes'} component={Clientes}/>  
 
       
       </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Menu extends React.Component {
     render() {
@@ -9,24 +9,29 @@ class Menu extends React.Component {
                 <div className="position-sticky pt-3">
                     <ul className="nav flex-column">
                     <li className="nav-item">
-                        <Link to={'/'} className="nav-link">
+                        <NavLink to={'/'} exact className="nav-link">
                                 Dashboard
-                        </Link>
+                        </NavLink>
                     </li>
                     <li  className="nav-item">
-                        <Link to={'/funcionarios'} className="nav-link">
+                        <NavLink to={'/funcionarios'} className="nav-link">
                             Funcionarios
-                        </Link>
+                        </NavLink>
                     </li>
                     <li  className="nav-item">
-                        <Link to={'/registrar'} className="nav-link">
+                        <NavLink to={'/registrar'} className="nav-link">
                             Registrar
-                        </Link>
+                        </NavLink>
                     </li>
                     <li  className="nav-item">
-                        <Link to={'/cadastroCliente'} className="nav-link">
+                        <NavLink to={'/cadastroCliente'} className="nav-link">
                             Cadastro Cliente
-                        </Link>
+                        </NavLink>
+                    </li>
+                    <li  className="nav-item">
+                        <NavLink to={'/clientes'} className="nav-link">
+                            Clientes
+                        </NavLink>
                     </li>
                     </ul>
                 </div>

@@ -14,10 +14,10 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post('http://localhost:8888/login', {
+        await axios.post('login', {
             login,
             senha
-        }, {withCredentials: true});
+        });
 
         setRedirect(true);
     }

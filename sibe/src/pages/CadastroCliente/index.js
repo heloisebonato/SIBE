@@ -42,7 +42,7 @@ const CadastroCliente = (props) => {
     
           });
 
-          const response = await axios.post('http://localhost:8888/clientes/', {
+          const response = await axios.post('clientes/', {
             nome: nome,
             data_nascimento: data_nascimento,
             cnh: cnh,
