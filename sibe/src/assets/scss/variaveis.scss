@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+
 /**
 -------------------------
 Color Definitions
@@ -21,8 +23,10 @@ $blue--dark: #1d2b64;
 Text Definitions
 ------------------
 **/
+
 $font--items: 15px;
-$font--titles: 20px;
+$font--primary-title: 40px;
+$font--secondary-title: 25px;
 
 $weight--small: 400;
 $weight--medium: 600;

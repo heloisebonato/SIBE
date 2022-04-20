@@ -35,10 +35,9 @@ const Wrapper = (props) => {
                 <div className="row">
                     <Menu></Menu>
 
-                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 table-display">
+                    <main className="dashboard col-md-9 ms-sm-auto col-lg-10 px-md-4 table-display">
                         {props.children}
-                            
-                    
+
                     {/* <Dashboard></Dashboard> */}
                     </main>
                 </div>
