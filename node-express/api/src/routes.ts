@@ -3,7 +3,7 @@ import {AuthMiddleware} from "./middleware/auth.middleware";
 
 import {AuthenticatedFuncionario, Login, Logout, Register, UpdateInfoFuncionario, UpdateSenha } from "./controller/auth.controller";
 import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, UpdateFuncionario } from "./controller/funcionario.controller";
-import { Clientes, CreateCliente, DeleteCliente, GetCliente, UpdateCliente } from "./controller/cliente.controller";
+import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, UpdateCliente } from "./controller/cliente.controller";
 
 export const routes = (router: Router) => {
     router.post('/register', Register);
@@ -22,6 +22,7 @@ export const routes = (router: Router) => {
     router.get('/clientes', AuthMiddleware, Clientes);
     router.post('/clientes', CreateCliente);
     router.get('/clientes/:cliente_id', AuthMiddleware, GetCliente);
+    router.get('/clientes/cpf/:cpf', AuthMiddleware, GetClienteByCpf);
     router.put('/clientes/:cliente_id', AuthMiddleware, UpdateCliente);
     router.delete('/clientes/:cliente_id', AuthMiddleware, DeleteCliente);
 }

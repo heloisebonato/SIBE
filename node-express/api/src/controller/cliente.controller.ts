@@ -64,6 +64,19 @@ export const GetCliente = async (req: Request, res: Response) => {
     res.send(cliente);
 }
 
+export const GetClienteByCpf = async (req: Request, res: Response) => {
+    const repository = getManager().getRepository(Cliente);
+    //{relations: ['role']
+    const cliente = await repository.findOne({
+        where: { 
+            cpf: req.params.cpf 
+        }
+
+        });
+
+    res.send(cliente);
+}
+
 export const UpdateCliente = async (req: Request, res: Response) => {
     const body = req.body;
 

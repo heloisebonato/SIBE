@@ -17,7 +17,7 @@ const Clientes = () => {
 
                 setClientes(data);
                 //setLastPage(data.meta.last_page);
-                console.log(data.meta.last_page);
+                //console.log(data.meta.last_page);
             }
             
         )()
