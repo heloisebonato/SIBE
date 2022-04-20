@@ -4,7 +4,7 @@ import "./styleCadastroCliente.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-const CadastroCliente = (props) => {
+const EditarCliente = (props) => {
 
     const [nome, setNome] = useState("");
     const [data_nascimento, setDtNasc] = useState("");
@@ -20,37 +20,44 @@ const CadastroCliente = (props) => {
     const [renavam, setRenavam] = useState("");
     const [placa, setPlaca] = useState("");
 
-    const [redirectHome, setRedirectHome] = useState(false);
-    const [redirectCadastroCliente, setCadastroCliente] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
     const [clientes, setClientes] = useState([]);
 
-    const getClienteByCpf = async () => {
+    const getClientes = async () => {
         
-        const {data} = await axios.get('clientes/cpf/'+cpf);
+        const {data} = await axios.get('clientes/');
 
-        if(data){
-            
-            if(window.confirm('Esse cliente já está cadastrado, verificar seção "Clientes"')){
-                
-                setCadastroCliente(true);
-            }
-        }
-        else {
+        console.log("Clientes aqui");
+        console.log(data);
 
-            setClientes(data);
-        }
-
-        return data;
-
-        
+        setClientes(data);
         
     }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log({
+        console.log({
+            nome: nome,
+            data_nascimento: data_nascimento,
+            cnh: cnh,
+            cpf: cpf,
+            rg: rg,
+            cep: cep,
+            endereco: endereco,
+            n_casa: n_casa,
+            cidade: cidade,
+            estado: estado,
+            nome_mae: nome_mae,
+            renavam: renavam,
+            placa: placa
+
+            });
+
+        getClientes();      
+
+        //   const response = await axios.post('clientes/', {
         //     nome: nome,
         //     data_nascimento: data_nascimento,
         //     cnh: cnh,
@@ -63,50 +70,19 @@ const CadastroCliente = (props) => {
         //     estado: estado,
         //     nome_mae: nome_mae,
         //     renavam: renavam,
-        //     placa: placa
+        //     placa: placa,
+        // });
 
-        //     });
-            const {data} = await axios.get('clientes/cpf/'+cpf);
-            console.log(data);
-            if(!data){
-                const response = await axios.post('clientes/', {
-                    nome: nome,
-                    data_nascimento: data_nascimento,
-                    cnh: cnh,
-                    cpf: cpf,
-                    rg: rg,
-                    cep: cep,
-                    endereco: endereco,
-                    n_casa: n_casa,
-                    cidade: cidade,
-                    estado: estado,
-                    nome_mae: nome_mae,
-                    renavam: renavam,
-                    placa: placa,
-                });
-                console.log(response);
-                window.confirm('Cliente cadastrado com sucesso')
-            } else{
-                window.confirm('Esse cliente já está cadastrado, verificar seção "Clientes"')
-            }
-            
-            if(!redirectCadastroCliente) {
-                setRedirectHome(true);
-            }
-
-            
-
-        
+        // console.log(response)
+        setRedirect(true)
     }
 
       
 
     // render () {
 
-        if(redirectHome == true){
+        if(redirect == true){
             return <Redirect to={'/'}></Redirect>
-        } else if (redirectCadastroCliente == true){
-            return <Redirect to={'/cadastroCliente'}></Redirect>
         }
 
         return (
@@ -268,4 +244,4 @@ const CadastroCliente = (props) => {
     // }
 }
 
-export default CadastroCliente;
+export default EditarCliente;
