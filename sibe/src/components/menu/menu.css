@@ -8,13 +8,22 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-.sidebar .nav .nav-item {
-  color: #0F1D2B;
+#sidebarMenu.sidebar .nav .nav-item {
+  color: #2D4297;
   font-size: 15px;
   font-weight: 400;
   font-family: "Montserrat"; }
-.sidebar .nav .nav-link.active {
-  color: #2D4297;
-  font-weight: 600; }
+#sidebarMenu.sidebar .nav .MuiSvgIcon-root {
+  color: #2D4297; }
+#sidebarMenu.sidebar .nav .nav-link.active {
+  color: #FFFFFF;
+  background-color: #2D4297;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid #2D4297;
+  border-radius: 5px; }
+  #sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
+    color: #FFFFFF; }
 
 /*# sourceMappingURL=menu.css.map */

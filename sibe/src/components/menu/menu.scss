@@ -1,17 +1,27 @@
 @import '../../assets/scss/variaveis.scss';
 
-.sidebar{
+#sidebarMenu.sidebar{
     .nav{
         .nav-item{
-            color: $primary-dark;
+            color: $blue;
             font-size: $font--items;
             font-weight: $weight--small;
             font-family: "Montserrat";
         }
-        .nav-link.active{
+        .MuiSvgIcon-root{
             color: $blue;
-            font-weight: $weight--medium;
         }
+        .nav-link.active{
+            color: $white;
+            background-color: $blue;
+            font-weight: $weight--medium;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid $blue;
+            border-radius: 5px;
+            .MuiSvgIcon-root{
+                color: $white;
+                }
+          }
     }
-    
 }
