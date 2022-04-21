@@ -13,6 +13,9 @@
 }
 
 .navbar{
+        position: sticky;
+        top: 0;
+        background: $white;
     .search{
         display: inline-flex;
         margin-right: auto;

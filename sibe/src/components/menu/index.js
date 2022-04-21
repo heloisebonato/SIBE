@@ -4,14 +4,14 @@ import './menu.css'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 
 class Menu extends React.Component {
     render() {
         return (
             
-            <nav id="sidebarMenu" className="sidebar col-md-3 col-lg-2 d-md-block bg-light collapse mt-5">
+            <nav id="sidebarMenu" className="sidebar col-md-3 col-lg-2 d-md-block collapse mt-5">
                 <div className="position-sticky pt-3">
                     <ul className="nav flex-column">
                         <li className="nav-item">
@@ -34,8 +34,8 @@ class Menu extends React.Component {
                         </li>
                         <li  className="nav-item">
                             <NavLink to={'/cadastroCliente'} className="nav-link">
-                            <AddCircleIcon />
-                                Cadastro Cliente
+                            <GroupAddIcon />
+                                Cadastrar Clientes
                             </NavLink>
                         </li>
                         <li  className="nav-item">

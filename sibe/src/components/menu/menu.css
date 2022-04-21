@@ -23,7 +23,8 @@ Text Definitions
   margin-left: 10px;
   margin-right: 10px;
   border: 1px solid #2D4297;
-  border-radius: 5px; }
+  border-radius: 5px;
+  font-size: 13px; }
   #sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
     color: #FFFFFF; }
 
