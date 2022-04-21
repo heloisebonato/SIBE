@@ -1,10 +1,10 @@
-import React, {Component, SyntheticEvent, useState} from 'react';
+import React, {Component, SyntheticEvent, useEffect, useState} from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import "./styleCadastroCliente.css";
+import "./styleEditarClientes.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-const EditarCliente = (props) => {
+const ClienteEditar = (props) => {
 
     const [nome, setNome] = useState("");
     const [data_nascimento, setDtNasc] = useState("");
@@ -35,6 +35,29 @@ const EditarCliente = (props) => {
         
     }
 
+    useEffect(() => {
+        (
+            async () => {
+                ///clientes/:cliente_id
+                const {data} = await axios.get(`clientes/${props.match.params.cliente_id}`);
+
+                setNome(data.nome);
+                setDtNasc(data.data_nascimento);
+                setCnh(data.cnh);
+                setCpf(data.cpf);
+                setRg(data.rg);
+                setCep(data.cep);
+                setEndereco(data.endereco);
+                setN_casa(data.n_casa);
+                setCidade(data.cidade);
+                setEstado(data.estado);
+                setNomeMae(data.nome_mae);
+                setRenavam(data.renavam);
+                setPlaca(data.placa);
+            }
+        )()
+    }, [])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -55,25 +78,26 @@ const EditarCliente = (props) => {
 
             });
 
-        getClientes();      
-
-        //   const response = await axios.post('clientes/', {
-        //     nome: nome,
-        //     data_nascimento: data_nascimento,
-        //     cnh: cnh,
-        //     cpf: cpf,
-        //     rg: rg,
-        //     cep: cep,
-        //     endereco: endereco,
-        //     n_casa: n_casa,
-        //     cidade: cidade,
-        //     estado: estado,
-        //     nome_mae: nome_mae,
-        //     renavam: renavam,
-        //     placa: placa,
-        // });
-
-        // console.log(response)
+        getClientes();
+        
+        if(window.confirm('Você tem certeza que deseja editar este Cliente?')){
+                
+            const response = await axios.put(`clientes/${props.match.params.cliente_id}`, {
+                nome: nome,
+                data_nascimento: data_nascimento,
+                cnh: cnh,
+                cpf: cpf,
+                rg: rg,
+                cep: cep,
+                endereco: endereco,
+                n_casa: n_casa,
+                cidade: cidade,
+                estado: estado,
+                nome_mae: nome_mae,
+                renavam: renavam,
+                placa: placa,
+            });
+        }
         setRedirect(true)
     }
 
@@ -82,7 +106,7 @@ const EditarCliente = (props) => {
     // render () {
 
         if(redirect == true){
-            return <Redirect to={'/'}></Redirect>
+            return <Redirect to={'/clientes'}></Redirect>
         }
 
         return (
@@ -98,7 +122,8 @@ const EditarCliente = (props) => {
                       placeholder="Nome"
                       name="nome"
                       onChange={e => setNome(e.target.value)}  
-                      required  
+                      required
+                      defaultValue={nome}  
 
                   />
                   <input
@@ -108,6 +133,7 @@ const EditarCliente = (props) => {
                       name="data_nascimento"
                       onChange={e => setDtNasc(e.target.value)}
                       required  
+                      defaultValue={data_nascimento} 
                   />
                   <input
                       id="cnh"
@@ -118,6 +144,7 @@ const EditarCliente = (props) => {
                       maxlength="15"
                       onChange={e => setCnh(e.target.value)}
                       required  
+                      defaultValue={cnh} 
 
                   />
                   <input
@@ -129,6 +156,7 @@ const EditarCliente = (props) => {
                       maxlength="15"
                       onChange={e => setCpf(e.target.value)}  
                       required  
+                      defaultValue={cpf} 
 
                   />
                   <input
@@ -139,6 +167,7 @@ const EditarCliente = (props) => {
                       name="rg"
                       maxlength="15"
                       onChange={e => setRg(e.target.value)}  
+                      defaultValue={rg} 
                   />
                   <input
                       id="cep"
@@ -148,6 +177,7 @@ const EditarCliente = (props) => {
                       name="cep"
                       maxlength="10"
                       onChange={e => setCep(e.target.value)}  
+                      defaultValue={cep} 
                   />
                   <input
                       id="endereco"
@@ -156,6 +186,7 @@ const EditarCliente = (props) => {
                       placeholder="Endereço"
                       name="endereco"
                       onChange={e => setEndereco(e.target.value)}  
+                      defaultValue={endereco} 
                   />
                   <input
                       id="n_casa"
@@ -165,6 +196,7 @@ const EditarCliente = (props) => {
                       name="n_casa"
                       maxlength="10"
                       onChange={e => setN_casa(e.target.value)}  
+                      defaultValue={n_casa} 
                   />
                   <input
                       id="cidade"
@@ -172,9 +204,10 @@ const EditarCliente = (props) => {
                       type="text"
                       placeholder="Cidade"
                       name="cidade"
-                      onChange={e => setCidade(e.target.value)}  
+                      onChange={e => setCidade(e.target.value)} 
+                      defaultValue={cidade}  
                   />
-                  <select class="form-field select-box" name="estado" id="estado" onChange={e => setEstado(e.target.value)}  >
+                  <select class="form-field select-box" name="estado" id="estado" onChange={e => setEstado(e.target.value)}  defaultValue={estado} >
                     <option value="">Selecione</option>
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
@@ -212,6 +245,7 @@ const EditarCliente = (props) => {
                       placeholder="Nome Mãe"
                       name="nome_mae"
                       onChange={e => setNomeMae(e.target.value)}  
+                      defaultValue={nome_mae}  
                   />
                   <input
                       id="renavam"
@@ -221,6 +255,7 @@ const EditarCliente = (props) => {
                       name="renavam"
                       maxlength="11"
                       onChange={e => setRenavam(e.target.value)}  
+                      defaultValue={renavam}  
                   />
                   <input
                       id="placa"
@@ -230,10 +265,10 @@ const EditarCliente = (props) => {
                       name="placa"
                       maxlength="7"
                       onChange={e => setPlaca(e.target.value)}  
+                      defaultValue={placa}  
                   />
                   <button class="form-field button-submit" type="submit" >
-                  {/* onClick={this.onClickCadastrar} */}
-                      Cadastrar
+                      Atualizar
                   </button>
                   </form>
               </div>
@@ -244,4 +279,4 @@ const EditarCliente = (props) => {
     // }
 }
 
-export default EditarCliente;
+export default ClienteEditar;
