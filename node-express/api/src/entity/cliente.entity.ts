@@ -43,5 +43,6 @@ export class Cliente {
 
     @Column("varchar", { length: 7 })
     placa: string;
+    
 
 }

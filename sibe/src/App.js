@@ -5,11 +5,6 @@ import axios from 'axios';
 import Login from './pages/login';
 
 
-/* Import custom components */
-import List from './components/list';
-
-import Header from './components/header';
-import Content from './components/content';
 
 import Nav from './components/nav';
 import Menu from './components/menu';

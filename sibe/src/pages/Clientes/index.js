@@ -10,6 +10,8 @@ const Clientes = () => {
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
 
+    
+
     useEffect(() => {
         (
             async () => {
@@ -18,9 +20,12 @@ const Clientes = () => {
                 setClientes(data);
 
                 clientes.sort((a, b) => b.cliente_id - a.cliente_id);
-                console.log(clientes);
+                // console.log(clientes);
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
+                
+
+                
             }
             
         )()
@@ -56,9 +61,6 @@ const Clientes = () => {
 
     return (
         <Wrapper>
-            {/* <div className="pt-3 pb-2 mb-3 border-bottom">
-                <Link to="/users/create" className="btn btn-sm btn-outline-secondary">Add</Link>
-            </div> */}
 
             <div className="table-responsive">
                 <table className="table table-striped table-sm">
@@ -82,7 +84,9 @@ const Clientes = () => {
                     </thead>
                     <tbody>
                     {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
-                        return (
+                        
+                            return (
+                            
                             <tr key={cliente.cliente_id}>
                                 <td>{cliente.cliente_id}</td>
                                 <td>{cliente.nome}</td>
@@ -107,6 +111,7 @@ const Clientes = () => {
                                     </div>
                                 </td>        
                             </tr>
+                            
                         )
                     })}
                     </tbody>
