@@ -83,7 +83,7 @@ Text Definitions
       background-color: transparent; }
       .login-box .register-form .form-field:active {
         border: 2px;
-        box-shadow: #E2EAF0; }
+        box-shadow: #f1f2f3; }
     .login-box .register-form .forms-input {
       font-size: 13px;
       font-weight: 400;
