@@ -16,6 +16,9 @@ const Clientes = () => {
                 const {data} = await axios.get(`clientes?page=${page}`);
 
                 setClientes(data);
+
+                clientes.sort((a, b) => b.cliente_id - a.cliente_id);
+                console.log(clientes);
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
             }
@@ -78,7 +81,7 @@ const Clientes = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {clientes.map((cliente) => {
+                    {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
                         return (
                             <tr key={cliente.cliente_id}>
                                 <td>{cliente.cliente_id}</td>
@@ -97,6 +100,7 @@ const Clientes = () => {
                                 <td>{cliente.placa}</td>
                                 <td>
                                     <div className='btn-group mr-2'>
+                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-sm btn-outline-secondary'>Editar</Link>
                                         <a href='#' className='btn btn-sm btn-outline-secondary'
                                             onClick={() => del(cliente.cliente_id)}
                                         >Deletar</a>
