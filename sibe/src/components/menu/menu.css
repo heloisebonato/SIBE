@@ -11,7 +11,7 @@ Text Definitions
 **/
 #sidebarMenu.sidebar .nav .nav-item {
   color: #2D4297;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
   font-family: "Montserrat"; }
 #sidebarMenu.sidebar .nav .MuiSvgIcon-root {
@@ -24,7 +24,8 @@ Text Definitions
   margin-right: 10px;
   border: 1px solid #2D4297;
   border-radius: 5px;
-  font-size: 13px; }
+  display: flex;
+  align-items: center; }
   #sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
     color: #FFFFFF; }
 
