@@ -15,6 +15,7 @@ import Register from './pages/Register';
 import CadastroCliente from './pages/CadastroCliente';
 import Clientes from './pages/Clientes';
 import ClienteEditar from './pages/ClienteEditar';
+import CadastroCarreta from './pages/CadastroCarreta';
 
 
 export default function App() {
@@ -93,6 +94,8 @@ export default function App() {
       <Route path={'/cadastroCliente'} component={CadastroCliente}/>
       <Route path={'/clientes'} component={Clientes}/> 
       <Route path={'/cliente/:cliente_id/editar'} component={ClienteEditar}/> 
+
+      <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
 
       
       </BrowserRouter>

@@ -1,8 +1,14 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Cliente } from '../../models/cliente';
+import './ListarClientes.css';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 const Clientes = () => {
     //const [clientes, setClientes] = useState([]);
@@ -10,24 +16,19 @@ const Clientes = () => {
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
 
-    
-
     useEffect(() => {
         (
             async () => {
-                const {data} = await axios.get(`clientes?page=${page}`);
+                const { data } = await axios.get(`clientes?page=${page}`);
 
                 setClientes(data);
 
                 clientes.sort((a, b) => b.cliente_id - a.cliente_id);
-                // console.log(clientes);
+                console.log(clientes);
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
-                
-
-                
             }
-            
+
         )()
     }, [page]);
 
@@ -46,13 +47,13 @@ const Clientes = () => {
     }
 
     const prev = () => {
-        if (page >= 1){
+        if (page >= 1) {
             setPage(page - 1);
         }
     }
 
     const del = async (cliente_id) => {
-        if(window.confirm('Você tem certeza que deseja deletar o registro deste cliente?')){
+        if (window.confirm('Você tem certeza que deseja deletar o registro deste cliente?')) {
             await axios.delete(`clientes/${cliente_id}`);
 
             setClientes(clientes.filter(c => c.cliente_id !== cliente_id));
@@ -61,75 +62,73 @@ const Clientes = () => {
 
     return (
         <Wrapper>
+            {/* <div className="pt-3 pb-2 mb-3 border-bottom">
+                <Link to="/users/create" className="btn btn-sm btn-outline-secondary">Add</Link>
+            </div> */}
 
-            <div className="table-responsive">
-                <table className="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>Data de Nascimento</th>
-                        <th>CNH</th>
-                        <th>CPF</th>
-                        <th>RG</th>
-                        <th>CEP</th>
-                        <th>Endereço</th>
-                        <th>Nº</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>Mãe</th>
-                        <th>Renavam</th>
-                        <th>Placa</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
-                        
-                            return (
-                            
-                            <tr key={cliente.cliente_id}>
-                                <td>{cliente.cliente_id}</td>
-                                <td>{cliente.nome}</td>
-                                <td>{cliente.data_nascimento}</td>
-                                <td>{cliente.cnh}</td>
-                                <td>{cliente.cpf}</td>
-                                <td>{cliente.rg}</td>
-                                <td>{cliente.cep}</td>
-                                <td>{cliente.endereco}</td>
-                                <td>{cliente.n_casa}</td>
-                                <td>{cliente.cidade}</td>
-                                <td>{cliente.estado}</td>
-                                <td>{cliente.nome_mae}</td>
-                                <td>{cliente.renavam}</td>
-                                <td>{cliente.placa}</td>
-                                <td>
-                                    <div className='btn-group mr-2'>
-                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-sm btn-outline-secondary'>Editar</Link>
-                                        <a href='#' className='btn btn-sm btn-outline-secondary'
-                                            onClick={() => del(cliente.cliente_id)}
-                                        >Deletar</a>
-                                    </div>
-                                </td>        
-                            </tr>
-                            
-                        )
-                    })}
-                    </tbody>
-                </table>
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 py-5">
+                        <h2 className="subtitle">Clientes</h2>
+                    </div>
+                    <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
+                        <a className="btn btn-inadimplente"> <PersonOutlineIcon/>Clientes Inadimplentes</a>
+                        <NavLink to={'/cadastroCliente'} className="nav-link"><a className="btn btn-criar"> <PersonAddAltIcon/> Criar Cliente</a></NavLink>
+                    </div>
+                    <div className="col-12">
+                        <div className="table-responsive">
+                            <table className="table table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th className="text">#</th>
+                                        <th className="text">Nome</th>
+                                        <th className="text">CPF</th>
+                                        <th className="text">CNH</th>
+                                        <th className="text">Placa</th>
+                                        <th className="text">AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
+                                        return (
+                                            <tr key={cliente.cliente_id}>
+                                                <td>{cliente.cliente_id}</td>
+                                                <td>{cliente.nome}</td>
+                                                <td>{cliente.cpf}</td>
+                                                <td>{cliente.cnh}</td>
+                                                <td>{cliente.placa}</td>
+                                                <td>
+                                                    <div className='btn-group mr-2'>
+                                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>
+                                                        <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                            onClick={() => del(cliente.cliente_id)}
+                                                        ><DeleteIcon/></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                            <nav>
+                                <ul className='pagination'>
+                                    <li className='page-item'>
+                                        <a href='#' className='page-link'>Anterior</a>
+                                    </li>
+                                    <li className='page-item'>
+                                        <a href='#' className='page-link' onClick={next}>Próximo</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             {/* <Paginator page={page} lastPage={lastPage} pageChanged={setPage}/> */}
 
-            <nav>
-                <ul className='pagination'>
-                    <li className='page-item'>
-                        <a href='#' className='page-link'>Anterior</a>
-                    </li>
-                    <li className='page-item'>
-                        <a href='#' className='page-link' onClick={next}>Próximo</a>
-                    </li>
-                </ul>
-            </nav>
+            
         </Wrapper>
     );
 }

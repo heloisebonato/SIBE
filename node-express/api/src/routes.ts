@@ -4,6 +4,7 @@ import {AuthMiddleware} from "./middleware/auth.middleware";
 import {AuthenticatedFuncionario, Login, Logout, Register, UpdateInfoFuncionario, UpdateSenha } from "./controller/auth.controller";
 import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, UpdateFuncionario } from "./controller/funcionario.controller";
 import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, UpdateCliente } from "./controller/cliente.controller";
+import { Carretas, CreateCarreta, GetCarreta, UpdateCarreta, DeleteCarreta, GetCarretaByPlaca } from "./controller/carreta.controller";
 
 export const routes = (router: Router) => {
     router.post('/register', Register);
@@ -25,4 +26,11 @@ export const routes = (router: Router) => {
     router.get('/clientes/cpf/:cpf', AuthMiddleware, GetClienteByCpf);
     router.put('/clientes/:cliente_id', AuthMiddleware, UpdateCliente);
     router.delete('/clientes/:cliente_id', AuthMiddleware, DeleteCliente);
+
+    router.get('/carretas', AuthMiddleware, Carretas);
+    router.post('/carretas', CreateCarreta);
+    router.get('/carretas/:carreta_id', AuthMiddleware, GetCarreta);
+    router.get('/carretas/placa/:placa', AuthMiddleware, GetCarretaByPlaca);
+    router.put('/carretas/:carreta_id', AuthMiddleware, UpdateCarreta);
+    router.delete('/carretas/:carreta_id', AuthMiddleware, DeleteCarreta);
 }

@@ -21,6 +21,7 @@ import cookieParser from 'cookie-parser';
 import { Role } from './entity/role.entity';
 import { Permission } from './entity/permission.entity';
 import { Cliente } from './entity/cliente.entity';
+import { Carreta } from './entity/carreta.entity';
 
 createConnection({
     type: "mysql",
@@ -33,7 +34,8 @@ createConnection({
         Funcionario,
         Role,
         Permission,
-        Cliente
+        Cliente,
+        Carreta
     ],
     logging: false,
     synchronize: true
