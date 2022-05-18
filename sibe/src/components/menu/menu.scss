@@ -4,7 +4,7 @@
     .nav{
         .nav-item{
             color: $blue;
-            font-size: $font--items;
+            font-size: $font--items3;
             font-weight: $weight--small;
             font-family: "Montserrat";
         }
@@ -19,7 +19,8 @@
             margin-right: 10px;
             border: 1px solid $blue;
             border-radius: 5px;
-            font-size: 13px;
+            display: flex;
+            align-items: center;
             .MuiSvgIcon-root{
                 color: $white;
                 }

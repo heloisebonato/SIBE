@@ -43,12 +43,34 @@ Text Definitions
     color: #FFFFFF; }
 .container .btn-action:hover {
   background-color: #e7e8e9; }
-.container .table thead th {
-  border-bottom: #000; }
-.container .table .text {
+.container .table .infos-titles {
+  background-color: #2D4297; }
+  .container .table .infos-titles .text {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600; }
+  .container .table .infos-titles th {
+    border: none; }
+.container .table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase; }
+
+.pagination .page-item .page-link {
+  color: #2D4297;
+  border: 1px solid #2D4297;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Montserrat";
+  font-weight: 600; }
+  .pagination .page-item .page-link:hover {
+    background-color: #2D4297;
+    transition: .4s;
+    color: #FFFFFF; }
 
 /*# sourceMappingURL=ListarClientes.css.map */

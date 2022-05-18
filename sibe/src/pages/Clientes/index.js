@@ -78,7 +78,7 @@ const Clientes = () => {
                     <div className="col-12">
                         <div className="table-responsive">
                             <table className="table table-striped table-sm">
-                                <thead>
+                                <thead className="infos-titles">
                                     <tr>
                                         <th className="text">#</th>
                                         <th className="text">Nome</th>
@@ -88,15 +88,15 @@ const Clientes = () => {
                                         <th className="text">AÇÕES</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className="infos-body">
                                     {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
                                         return (
                                             <tr key={cliente.cliente_id}>
-                                                <td>{cliente.cliente_id}</td>
-                                                <td>{cliente.nome}</td>
-                                                <td>{cliente.cpf}</td>
-                                                <td>{cliente.cnh}</td>
-                                                <td>{cliente.placa}</td>
+                                                <td className="text">{cliente.cliente_id}</td>
+                                                <td className="text">{cliente.nome}</td>
+                                                <td className="text">{cliente.cpf}</td>
+                                                <td className="text">{cliente.cnh}</td>
+                                                <td className="text">{cliente.placa}</td>
                                                 <td>
                                                     <div className='btn-group mr-2'>
                                                         <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>
@@ -110,7 +110,7 @@ const Clientes = () => {
                                     })}
                                 </tbody>
                             </table>
-                            <nav>
+                            {/* <nav>
                                 <ul className='pagination'>
                                     <li className='page-item'>
                                         <a href='#' className='page-link'>Anterior</a>
@@ -119,7 +119,7 @@ const Clientes = () => {
                                         <a href='#' className='page-link' onClick={next}>Próximo</a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> */}
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,16 @@ const Clientes = () => {
 
             {/* <Paginator page={page} lastPage={lastPage} pageChanged={setPage}/> */}
 
-            
+            <nav>
+                <ul className='pagination mx-lg-3'>
+                    <li className='page-item'>
+                        <a href='#' className='page-link'>Anterior</a>
+                    </li>
+                    <li className='page-item'>
+                        <a href='#' className='page-link' onClick={next}>Próximo</a>
+                    </li>
+                </ul>
+            </nav>
         </Wrapper>
     );
 }
