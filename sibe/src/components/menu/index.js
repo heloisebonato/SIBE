@@ -50,6 +50,12 @@ class Menu extends React.Component {
                                 Clientes
                             </NavLink>
                         </li>
+                        <li  className="nav-item">
+                            <NavLink to={'/carretas'} exact className="nav-link">
+                            <GroupAddIcon />
+                                Carretas
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </nav>

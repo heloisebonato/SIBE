@@ -16,6 +16,8 @@ import CadastroCliente from './pages/CadastroCliente';
 import Clientes from './pages/Clientes';
 import ClienteEditar from './pages/ClienteEditar';
 import CadastroCarreta from './pages/CadastroCarreta';
+import Carretas from './pages/Carretas';
+import CarretaEditar from './pages/CarretaEditar';
 
 
 export default function App() {
@@ -96,6 +98,8 @@ export default function App() {
       <Route path={'/cliente/:cliente_id/editar'} component={ClienteEditar}/> 
 
       <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
+      <Route path={'/carretas'} component={Carretas}/>
+      <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/> 
 
       
       </BrowserRouter>
