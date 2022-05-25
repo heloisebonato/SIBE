@@ -9,6 +9,7 @@ const CarretaEditar = (props) => {
     const [tipo, setTipo] = useState("");
     const [preco, setPreco] = useState("");
     const [placa, setPlaca] = useState("");
+    const [status, setStatus] = useState("");
 
     const [redirect, setRedirect] = useState(false);
 
@@ -33,6 +34,7 @@ const CarretaEditar = (props) => {
                 setTipo(data.tipo);
                 setPreco(data.preco);
                 setPlaca(data.placa);
+                setStatus(data.status);
             }
         )()
     }, [])
@@ -48,7 +50,8 @@ const CarretaEditar = (props) => {
             const response = await axios.put(`carretas/${props.match.params.carreta_id}`, {
                 placa: placa,
                 tipo: tipo,
-                preco: preco
+                preco: preco,
+                status: status
             });
         }
         setRedirect(true)
@@ -114,6 +117,14 @@ const CarretaEditar = (props) => {
                                             defaultValue={preco}
                                         />
                                     </div>
+                                </div>
+                                <div className="forms-input">
+                                        <label className='labels'>Status</label>
+                                        <select class="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} >
+                                            <option value="">Selecione</option>
+                                            <option value="operante">Operante</option>
+                                            <option value="inoperante">Inoperante</option>
+                                        </select>
                                 </div>
                             </div>
                             <div className="row pt-lg-4">

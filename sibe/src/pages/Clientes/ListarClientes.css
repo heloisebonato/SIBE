@@ -74,3 +74,11 @@ Text Definitions
     color: #FFFFFF; }
 
 /*# sourceMappingURL=ListarClientes.css.map */
+
+.collapse.in {
+  display: block !important;
+}
+
+.table-carros{
+  width: 150% !important;
+}
