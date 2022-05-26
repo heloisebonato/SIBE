@@ -16,7 +16,7 @@ Text Definitions
   margin: 24px;
   overflow: hidden; }
 
-.register-form .title {
+#cadastro-carreta .register-form .title {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -24,39 +24,24 @@ Text Definitions
   font-weight: 800;
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px; }
-
-/* body {
-  background: #2D4297;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  overflow-y: hidden;
-} */
-.login-box {
+#cadastro-carreta .login-box {
   display: flex;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
   overflow-y: hidden; }
-  .login-box .form-cadastro {
-    width: 80%;
+  #cadastro-carreta .login-box .form-cadastro {
     background-color: #FFFFFF;
     margin: auto;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    padding: 10px;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px; }
-  .login-box .register-form {
+    padding: 70px; }
+  #cadastro-carreta .login-box .register-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 10px; }
-    .login-box .register-form .title {
+    #cadastro-carreta .login-box .register-form .title {
       justify-content: center;
       align-items: center;
       display: flex;
@@ -65,14 +50,14 @@ Text Definitions
       font-family: "Montserrat" sans-serif;
       padding: 10px 10px;
       color: #2D4297; }
-    .login-box .register-form .subtitle {
+    #cadastro-carreta .login-box .register-form .subtitle {
       font-size: 20px;
       font-weight: 600;
       font-family: "Montserrat", sans-serif;
       color: #0F1D2B;
       padding-bottom: 20px;
       padding-top: 30px; }
-    .login-box .register-form .form-field {
+    #cadastro-carreta .login-box .register-form .form-field {
       margin: 10px 0 10px 0;
       padding: 15px;
       font-size: 13px;
@@ -81,27 +66,27 @@ Text Definitions
       font-family: "Montserrat" sans-serif;
       font-weight: 400;
       background-color: transparent; }
-      .login-box .register-form .form-field:active {
+      #cadastro-carreta .login-box .register-form .form-field:active {
         border: 2px;
         box-shadow: #f1f2f3; }
-    .login-box .register-form .forms-input {
+    #cadastro-carreta .login-box .register-form .forms-input {
       font-size: 13px;
       font-weight: 400;
       font-family: "Montserrat", sans-serif;
       color: #0F1D2B;
       text-transform: uppercase;
       margin-top: .5rem; }
-    .login-box .register-form .form-xg {
+    #cadastro-carreta .login-box .register-form .form-xg {
       width: 93%; }
-    .login-box .register-form .form-lg {
+    #cadastro-carreta .login-box .register-form .form-lg {
       width: 85%; }
-    .login-box .register-form .form-md {
+    #cadastro-carreta .login-box .register-form .form-md {
       width: 60%; }
-    .login-box .register-form .form-sm {
+    #cadastro-carreta .login-box .register-form .form-sm {
       width: 40%; }
-    .login-box .register-form input {
+    #cadastro-carreta .login-box .register-form input {
       background: #f2f2f2; }
-    .login-box .register-form .button-submit {
+    #cadastro-carreta .login-box .register-form .button-submit {
       background-color: #FFFFFF;
       border: 2px solid #2D4297;
       color: #2D4297;
@@ -116,29 +101,29 @@ Text Definitions
       align-items: center;
       font-family: "Montserrat", sans-serif;
       font-size: 15px; }
-    .login-box .register-form .button-submit:hover {
+    #cadastro-carreta .login-box .register-form .button-submit:hover {
       background-color: #2D4297;
       color: #FFFFFF;
       transition: 0.4s; }
-    .login-box .register-form .button-submit:disabled {
+    #cadastro-carreta .login-box .register-form .button-submit:disabled {
       cursor: default; }
-    .login-box .register-form #app {
+    #cadastro-carreta .login-box .register-form #app {
       flex: 1;
       box-sizing: border-box;
       margin: 24px;
       overflow: hidden; }
-    .login-box .register-form .forms-input {
+    #cadastro-carreta .login-box .register-form .forms-input {
       display: flex;
       justify-content: center;
       align-items: start;
       flex-direction: column; }
-  .login-box .success-message {
+  #cadastro-carreta .login-box .success-message {
     font-family: 'Montserrat', sans-serif;
     background-color: #3f89f8;
     padding: 15px;
     color: white; }
-  .login-box .error {
+  #cadastro-carreta .login-box .error {
     border-style: solid;
     border: 2px solid #ffa4a4; }
 
-/*# sourceMappingURL=CadastroCliente.css.map */
+/*# sourceMappingURL=CadastroCarreta.css.map */

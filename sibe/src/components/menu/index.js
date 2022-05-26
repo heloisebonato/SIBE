@@ -4,9 +4,8 @@ import './menu.css'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
-
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 class Menu extends React.Component {
     render() {
         return (
@@ -23,25 +22,13 @@ class Menu extends React.Component {
                         <li  className="nav-item">
                             <NavLink to={'/funcionarios'} className="nav-link">
                             <PeopleIcon />
-                                Funcionarios
+                                Funcionários
                             </NavLink>
                         </li>
                         <li  className="nav-item">
                             <NavLink to={'/registrar'} className="nav-link">
                             <AppRegistrationIcon />
                                 Registrar
-                            </NavLink>
-                        </li>
-                        <li  className="nav-item">
-                            <NavLink to={'/cadastroCliente'} exact className="nav-link">
-                            <GroupAddIcon />
-                                Cadastro Cliente
-                            </NavLink>
-                        </li>
-                        <li  className="nav-item">
-                            <NavLink to={'/cadastroCarreta'} exact className="nav-link">
-                            <GroupAddIcon />
-                                Cadastro Carretas
                             </NavLink>
                         </li>
                         <li  className="nav-item">
@@ -52,7 +39,7 @@ class Menu extends React.Component {
                         </li>
                         <li  className="nav-item">
                             <NavLink to={'/carretas'} exact className="nav-link">
-                            <GroupAddIcon />
+                            <AddCircleIcon />
                                 Carretas
                             </NavLink>
                         </li>

@@ -7,8 +7,8 @@ import { Cliente } from '../../models/cliente';
 import './ListarCarretas.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Carretas = () => {
 
@@ -72,8 +72,8 @@ const Carretas = () => {
                         <h2 className="subtitle">Carretas</h2>
                     </div>
                     <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
-                        <a className="btn btn-inadimplente"> <PersonOutlineIcon/>Carretas Locadas</a>
-                        <NavLink to={'/cadastroCarreta'} className="nav-link"><a className="btn btn-criar"> <PersonAddAltIcon/> Criar Carreta</a></NavLink>
+                        <a className="btn btn-inadimplente"> <CheckCircleIcon/> Carretas Locadas</a>
+                        <NavLink to={'/cadastroCarreta'} className="nav-link"><a className="btn btn-criar"> <AddCircleIcon/> Criar Carreta</a></NavLink>
                     </div>
                     <div className="col-12">
                         <div className="table-responsive">
