@@ -11,10 +11,12 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 const Clientes = () => {
-    //const [clientes, setClientes] = useState([]);
     const [clientes, setClientes] = useState([]);
+    const [clientes_carros, setClientesCarros] = useState([]);
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
+
+    const [carros, setCarros] = useState([]);
 
     useEffect(() => {
         (
@@ -22,15 +24,19 @@ const Clientes = () => {
                 const { data } = await axios.get(`clientes?page=${page}`);
 
                 setClientes(data);
+                setClientesCarros(data);
 
                 clientes.sort((a, b) => b.cliente_id - a.cliente_id);
-                console.log(clientes);
-                //setLastPage(data.meta.last_page);
-                //console.log(data.meta.last_page);
+                console.log(data);
+
+                const data_carros  = await axios.get(`carros?page=${page}`);
+
+                setCarros(data_carros.data);
             }
 
         )()
     }, [page]);
+
 
     // const del = async (id: number) => {
     //     if (window.confirm('Are you sure you want to delete this record?')) {
@@ -60,6 +66,15 @@ const Clientes = () => {
         }
     }
 
+    const del_carro = async (carro_id) => {
+        if (window.confirm('Você tem certeza que deseja deletar o registro deste veículo?')) {
+            await axios.delete(`carros/${carro_id}`);
+
+            //setClientes(clientes.filter(c => c.cliente_id !== cliente_id));
+        }
+    }
+
+
     return (
         <Wrapper>
             {/* <div className="pt-3 pb-2 mb-3 border-bottom">
@@ -84,49 +99,119 @@ const Clientes = () => {
                                         <th className="text">Nome</th>
                                         <th className="text">CPF</th>
                                         <th className="text">CNH</th>
-                                        <th className="text">Placa</th>
+                                        {/* <th className="text">Placa</th> */}
                                         <th className="text">AÇÕES</th>
                                     </tr>
                                 </thead>
-                                <tbody className="infos-body">
-                                    {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
-                                        return (
-                                            <tr key={cliente.cliente_id}>
-                                                <td className="text">{cliente.cliente_id}</td>
-                                                <td className="text">{cliente.nome}</td>
-                                                <td className="text">{cliente.cpf}</td>
-                                                <td className="text">{cliente.cnh}</td>
-                                                <td className="text">{cliente.placa}</td>
-                                                <td>
-                                                    <div className='btn-group mr-2'>
-                                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>
-                                                        <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
-                                                            onClick={() => del(cliente.cliente_id)}
-                                                        ><DeleteIcon/></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
+
+
+                                {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
+                                return (
+                                    <tbody className="infos-body">
+                                        
+                                            
+                                                
+                                        <tr key={cliente.cliente_id}>
+                                            <td className="text">{cliente.cliente_id}</td>
+                                            <td className="text">{cliente.nome}</td>
+                                            <td className="text">{cliente.cpf}</td>
+                                            <td className="text">{cliente.cnh}</td>
+                                            {/* <td className="text">{cliente.placa}</td> */}
+                                            <td>
+                                                <div className='btn-group mr-2'>
+                                                    <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>
+                                                    <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                        onClick={() => del_carro(cliente.cliente_id)}
+                                                    ><DeleteIcon/></a>
+                                                    {/* <a class="btn btn-primary" data-toggle="collapse" href={`#collapse${cliente.cliente_id}`} role="button" aria-expanded="false" aria-controls={`#collapse${cliente.cliente_id}`}>
+                                                        Link with href
+                                                    </a> */}
+                                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target={`#collapse${cliente.cliente_id}`} aria-expanded="false" aria-controls={`collapse${cliente.cliente_id}`}>
+                                                        Carros
+                                                    </button>
+                                                    
+                                                </div>
+                                            </td>
+                                            
+                                            
+                                            
+                                        </tr>
+                                                
+                                            
+                                        <div class="collapse" id={`collapse${cliente.cliente_id}`}>
+
+                                            {clientes_carros.sort((a, b) => b.cliente_id - a.cliente_id).map((clientes_carro) => {
+                                                if(cliente.cliente_id == clientes_carro.cliente_id)
+                                                    return (
+                                                        <table className="table table-striped table-sm table-carros">
+                                                            <thead className="infos-titles">
+                                                                <tr>
+                                                                    <th className="text">Renavam</th>
+                                                                    <th className="text">Placa</th>
+                                                                    <th className="text">Tipo</th>
+                                                                    <th className="text">Status</th>
+                                                                    <th className="text">#</th>
+                                                                    {/* <th className="text">ID</th> */}
+                                   
+                                                                    <NavLink to={`/cadastroCarro/${cliente.cliente_id}`} className="nav-link"><a className="btn btn-criar"> Adicionar Veículo</a></NavLink>
+                                                                </tr>
+                                                                
+                                                            </thead>
+
+                                                            {carros.map((carro) => {
+                                                                if(carro.cliente_id == clientes_carro.cliente_id)
+                                                                    return (
+                                                                        <tbody className="infos-body">
+
+                                                                        <tr key={clientes_carro.cliente_id}>
+                                                                    
+                                                                
+                                                                        <td className="text">{carro.renavam}</td>
+                                                                        <td className="text">{carro.placa}</td>
+                                                                        <td className="text">{carro.tipo}</td>
+                                                                        <td className="text">{carro.status}</td>
+                                                                        <td className="text">{carro.cliente_id}</td>
+                                                                        {/* <td className="text">{carro.carro_id}</td> */}
+                                    
+                                                                        <td>
+                                                                            <div className='btn-group mr-2'>
+                                                                                <Link to={`/carro/${carro.carro_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>
+                                                                                <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                                                    onClick={() => del(carro.carro_id)}
+                                                                                ><DeleteIcon/></a>
+                                                                                
+                                                                            </div>
+                                                                        </td>
+                                                            
+                                                                        </tr>
+
+                                                                        </tbody>
+
+                                                                    )
+
+                                                            })} 
+
+                                                            </table>
+                                                
+                                                    )
+                                            })}
+
+                                        </div>
+                                        
+                                    </tbody>
+                                )
+
+                                })}
                             </table>
-                            {/* <nav>
-                                <ul className='pagination'>
-                                    <li className='page-item'>
-                                        <a href='#' className='page-link'>Anterior</a>
-                                    </li>
-                                    <li className='page-item'>
-                                        <a href='#' className='page-link' onClick={next}>Próximo</a>
-                                    </li>
-                                </ul>
-                            </nav> */}
+                                
+                                                    
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            {/* <Paginator page={page} lastPage={lastPage} pageChanged={setPage}/> */}
+            
 
             <nav>
                 <ul className='pagination mx-lg-3'>
@@ -138,18 +223,9 @@ const Clientes = () => {
                     </li>
                 </ul>
             </nav>
+
         </Wrapper>
     );
 }
-
-{/* <td>
-                                    <div className="btn-group mr-2">
-                                        <Link to={`/users/${user.id}/edit`}
-                                              className="btn btn-sm btn-outline-secondary">Edit</Link>
-                                        <a href="#" className="btn btn-sm btn-outline-secondary"
-                                           onClick={() => del(user.id)}
-                                        >Delete</a>
-                                    </div>
-                                </td> */}
 
 export default Clientes;

@@ -18,74 +18,13 @@ import ClienteEditar from './pages/ClienteEditar';
 import CadastroCarreta from './pages/CadastroCarreta';
 import Carretas from './pages/Carretas';
 import CarretaEditar from './pages/CarretaEditar';
+import CadastroCarro from './pages/CadastroCarro';
 
 
 export default function App() {
 
-    // this.state = {
-    //   headerList : ['Name'],
-    //   setClienteList: []
-    // }
-
-  // const [funcionarioList, setFuncionarioList] = useState([])
-
-  // const [clienteList, setClienteList] = useState([])
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:8888/funcionario', {})
-  //     .then(res => {
-  //       //console.log(res)
-  //       setFuncionarioList(res.data)
-  //       //this.setState({setClienteList: res.data})
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:8888/cliente', {})
-  //     .then(res => {
-  //       //console.log(res)
-  //       setClienteList(res.data)
-  //       //this.setState({setClienteList: res.data})
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }, [])
-  
-  // const deleteHandler = id => {
-  //     const newFuncionario = funcionarioList.filter(item => {
-  //         return item.id !== id
-  //     })
-
-  //     setFuncionarioList(newFuncionario)
-  // }
-
-  // const updateHandler = funcionario => {
-  //   setFuncionarioList(funcionarioList.map(item => {
-  //         if(item.id === funcionario.id) {
-  //             return {
-  //                 ...item,
-  //                 nome: funcionario.nome
-  //             }
-  //         } else {
-  //             return item
-  //         }
-  //     }))
-  // }
-
   return (
-  // <div>
-  //     <Login></Login>
-  //     <div id="app">
-  //         <div classNameName="list">
-  //               <Header data={['Nome', 'CPF', 'Renavam', 'Placa', 'Editar', 'Deletar']}></Header>
-  //               <Content data={clienteList}></Content>
-  //         </div>
-  //       </div>
-  // </div>
+ 
 
   <div>
     <BrowserRouter>
@@ -100,6 +39,10 @@ export default function App() {
       <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
       <Route path={'/carretas'} component={Carretas}/>
       <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/> 
+
+      {/* <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/>  */}
+
+      <Route path={'/cadastroCarro/:cliente_id'} component={CadastroCarro}/> 
 
       
       </BrowserRouter>

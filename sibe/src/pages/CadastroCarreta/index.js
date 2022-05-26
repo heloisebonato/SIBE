@@ -9,6 +9,7 @@ const CadastroCarreta = (props) => {
     const [tipo, setTipo] = useState("");
     const [preco, setPreco] = useState("");
     const [placa, setPlaca] = useState("");
+    const [status, setStatus] = useState("operante");
 
     const [redirectHome, setRedirectHome] = useState(false);
     const [redirectCadastroCarreta, setCadastroCarreta] = useState(false);
@@ -24,7 +25,8 @@ const CadastroCarreta = (props) => {
             const response = await axios.post('carretas/', {
                 placa: placa,
                 tipo: tipo,
-                preco: preco
+                preco: preco,
+                status: status,
             });
             console.log(response);
             window.confirm('Carreta cadastrada com sucesso')

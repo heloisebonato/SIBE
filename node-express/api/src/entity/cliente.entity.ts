@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Carro } from "./carro.entity";
 
 @Entity()
 export class Cliente {
@@ -43,6 +44,8 @@ export class Cliente {
 
     @Column("varchar", { length: 7 })
     placa: string;
-    
+
+    @OneToMany(() => Carro, carro => carro.cliente)
+    carros: Carro[];
 
 }

@@ -14,49 +14,6 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 
-// routes(server);
-
-// const db = mysql.createConnection({
-//     user: "root",
-//     host: "localhost",
-//     password: "123456",
-//     database: "sibe",
-// });
-
-//const testData = require('../testData');
-
-// const db = SQLite.openDatabase(
-//     {
-//         name: 'sibe',
-//         location: 'sibe'
-//     },
-//     () => { },
-//     error => {console.log(error)}
-// );
-
-// const getData = () => {
-//     try {
-        
-//         db.transaction((tx) => {
-//             tx.executeSql(
-//                 "SELECT nome FROM Cliente",
-//                 [],
-//                 (tx, results) => {
-//                     var len = results.rows.length;
-//                     if (len > 0) {
-//                         var userName = results.rows.item(0).nome;
-//                         console.log(userName);
-//                         // setName(userName);
-//                         // setAge(userAge);
-//                     }
-//                 }
-//             )
-//         })
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-
 
 
 //--------------------------------------------------------------------------------------------------------BACK-END FUNCIONARIO------------------------------------------//
@@ -196,6 +153,84 @@ server.get('/carreta', async (req,res) => {
         //const teste = getData();
         //console.log("teste");
         res.status(200).json(carreta);
+    } catch(err) {
+        console.log(err);
+    }
+});
+
+server.get('/carreta/:id', async (req,res) => {
+    // GET Cliente by id
+    const { id } = req.params;
+    try {
+        const currentCarreta = await db('carreta').where({ id });
+        currentCarreta.length === 0 ? res.status(404).json({ message: 'carreta not found'}) : res.status(200).json(currentCarreta);
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+server.get('/carreta/placa/:placa', async (req,res) => {
+    // GET Cliente by id
+    const { placa } = req.params;
+    try {
+        const currentCarreta = await db('carreta').where({ placa });
+        currentCarreta.length === 0 ? res.status(404).json({ message: 'carreta not found'}) : res.status(200).json(currentCarreta);
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+server.post('/carreta', async (req,res) => {
+    // POST a Carreta
+    const { message } = req.body;
+    if (!message) {
+        return res.status(400).json({ message: 'You must include a message in your request.' })
+    }
+    try {
+        await db('carreta').insert({ message });
+        res.status(201).json({ message: 'Carreta successfully stored!' });
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+server.put('/carreta/:id', async (req,res) => {
+    // UPDATE a Carreta
+    const { id } = req.params;
+    const { message } = req.body;
+    try {
+        const currentCarreta = await db('carreta').where({ id }).update({ message });
+        res.status(200).json({ message: 'Update successful!' });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+server.delete('/carreta/:id', async (req,res) => {
+    // DELETE a Carreta
+    const { id } = req.params;
+    try {
+        await db('carreta').where({ id }).del();
+        res.status(200).json({ message: 'Delete successful!' });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+
+
+module.exports = server;
+
+
+//--------------------------------------------------------------------------------------------------------BACK-END Carros------------------------------------------//
+
+server.get('/carros', async (req,res) => {
+    // GET all carretas
+    try {
+        const carro = await db('carros');
+        //const teste = getData();
+        //console.log("teste");
+        res.status(200).json(carro);
     } catch(err) {
         console.log(err);
     }

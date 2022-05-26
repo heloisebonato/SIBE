@@ -11,6 +11,9 @@ export class Carreta {
     @Column("varchar", { length: 55 })
     tipo: string;
 
+    @Column("varchar", { length: 55 })
+    status: string;
+
     // @Column("varchar", { length: 255 })
     // image: string;
 
