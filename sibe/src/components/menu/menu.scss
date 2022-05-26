@@ -11,19 +11,24 @@
         .MuiSvgIcon-root{
             color: $blue;
         }
-        .nav-link.active{
-            color: $white;
-            background-color: $blue;
-            font-weight: $weight--medium;
-            margin-left: 10px;
-            margin-right: 10px;
-            border: 1px solid $blue;
-            border-radius: 5px;
+        .nav-link{
             display: flex;
             align-items: center;
-            .MuiSvgIcon-root{
+            font-size: $font--items3;
+            font-family: $font--family, sans-serif;
+            color: $primary-dark;
+        }
+        .nav-link.active{
                 color: $white;
-                }
-          }
+                background-color: $blue;
+                font-weight: $weight--medium;
+                margin-left: 10px;
+                margin-right: 10px;
+                border: 1px solid $blue;
+                border-radius: 5px;
+                .MuiSvgIcon-root{
+                    color: $white;
+                    }
+            }
     }
 }
