@@ -20,10 +20,12 @@ const CadastroCarro= (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log('carros/placa/' + placa);
         const { data } = await axios.get('carros/placa/' + placa);
         
         //setClienteId(props.match.params.cliente_id);
-        //console.log(cliente_id);
+        console.log("Log AQUI!!!!");
+        console.log(data);
         if (!data) {
             const response = await axios.post('carros/', {
                 placa: placa,

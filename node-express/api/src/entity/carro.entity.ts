@@ -22,25 +22,6 @@ export class Carro {
     @Column()
     cliente_id: number;
 
-    // @ManyToOne(type => Cliente) @JoinColumn() 
-    // cliente: Cliente;
-
-    // @ManyToOne(() => Cliente)
-    // @JoinTable({
-    //     name: 'cliente_carro',
-    //     joinColumn: {name: 'carro_id', referencedColumnName: 'cliente_id'},
-        
-    // }) clientes: Cliente[];
-
-    // @ManyToMany(() => Cliente)
-    // @JoinTable({
-    //     name: 'carro_cliente',
-    //     joinColumn: {name: 'carro_id', referencedColumnName: 'carro_id'},
-    //     inverseJoinColumn: {name: 'cliente_id', referencedColumnName: 'cliente_id'}
-    // })
-    // clientes: Cliente[];
-
-
     @ManyToOne(() => Cliente, cliente => cliente.carros)
     cliente: Cliente;
 

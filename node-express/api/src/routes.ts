@@ -5,8 +5,8 @@ import {AuthenticatedFuncionario, Login, Logout, Register, UpdateInfoFuncionario
 import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, UpdateFuncionario } from "./controller/funcionario.controller";
 import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, UpdateCliente } from "./controller/cliente.controller";
 import { Carretas, CreateCarreta, GetCarreta, UpdateCarreta, DeleteCarreta, GetCarretaByPlaca } from "./controller/carreta.controller";
-import { Carros, CreateCarro, CreateCarroCliente, DeleteCarro, GetCarro, GetCarrosByCliente, UpdateCarro } from "./controller/carro.controller";
-import { CreateLocacao } from "./controller/locacao.controller";
+import { Carros, CreateCarro, CreateCarroCliente, DeleteCarro, GetCarro, GetCarroByPlaca, GetCarrosByCliente, UpdateCarro } from "./controller/carro.controller";
+import { CreateLocacao, Locacoes } from "./controller/locacao.controller";
 
 export const routes = (router: Router) => {
     router.post('/register', Register);
@@ -40,7 +40,7 @@ export const routes = (router: Router) => {
     router.post('/carros', CreateCarro);
     router.post('/carros/cliente', CreateCarroCliente);
     router.get('/carros/:carro_id', AuthMiddleware, GetCarro);
-    router.get('/carros/placa/:placa', AuthMiddleware, GetCarretaByPlaca);
+    router.get('/carros/placa/:placa', AuthMiddleware, GetCarroByPlaca);
     router.get('/carros/cliente/:cliente_id', AuthMiddleware, GetCarrosByCliente);
     
 
@@ -49,6 +49,7 @@ export const routes = (router: Router) => {
 
 
     router.post('/locacao/:placa_carro/:placa_carreta', CreateLocacao);
+    router.get('/locacao', Locacoes);
 
     //router.post('/carro', CreateCarro);
 }
