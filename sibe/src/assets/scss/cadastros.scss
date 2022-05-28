@@ -8,6 +8,7 @@
     overflow: hidden;
 }
 
+
 .register-form .title {
     justify-content: center;
     align-items: center;
@@ -18,16 +19,6 @@
     padding: 10px 10px;
 }
 
-/* body {
-  background: #2D4297;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  overflow-y: hidden;
-} */
-
 .login-box {
     display: flex;
     min-height: 100vh;
@@ -37,15 +28,10 @@
     overflow-y: hidden;
 
     .form-cadastro {
-        width: 80%;
         background-color: $white;
         margin: auto;
         box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-        padding: 10px;
-        border-radius: 20px;
-        padding: 30px;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        padding: 80px;
     }
 
     .register-form {
@@ -65,16 +51,16 @@
             color: $blue;
         }
 
-        .subtitle{
+        .subtitle {
             font-size: $font--items2;
             font-weight: $weight--medium;
-            font-family: $font--family,sans-serif;
+            font-family: $font--family, sans-serif;
             color: $primary-dark;
             padding-bottom: 20px;
             padding-top: 30px;
         }
 
-        .form-field{
+        .form-field {
             margin: 10px 0 10px 0;
             padding: 15px;
             font-size: $font--items3;
@@ -84,12 +70,13 @@
             font-weight: 400;
             background-color: transparent;
 
-            &:active{
+            &:active {
                 border: 2px;
                 box-shadow: $primary-light;
             }
         }
-        .forms-input{
+
+        .forms-input {
             font-size: $font--items3;
             font-weight: $weight--small;
             font-family: $font--family, sans-serif;
@@ -97,18 +84,23 @@
             text-transform: uppercase;
             margin-top: .5rem;
         }
-        .form-xg{
+
+        .form-xg {
             width: 93%;
         }
-        .form-lg{
+
+        .form-lg {
             width: 85%;
         }
-        .form-md{
+
+        .form-md {
             width: 60%;
         }
-        .form-sm{
-            width:40%;
+
+        .form-sm {
+            width: 40%;
         }
+
         input {
             background: #f2f2f2;
         }

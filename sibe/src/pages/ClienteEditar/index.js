@@ -1,6 +1,6 @@
 import React, { Component, SyntheticEvent, useEffect, useState } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import "./styleEditarClientes.css";
+import "../../assets/scss/cadastros.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -196,34 +196,8 @@ const ClienteEditar = (props) => {
                                             defaultValue={cnh}
                                         />
                                     </div>
-                                    <div className="forms-input">
-                                        <label className='labels'>Placa do Veículo</label>
-                                        <input
-                                            id="placa"
-                                            class="form-field form-md"
-                                            type="text"
-                                            placeholder="Digite a placa do veículo"
-                                            name="placa"
-                                            maxlength="7"
-                                            onChange={e => setPlaca(e.target.value)}
-                                            defaultValue={placa}
-                                        />
-                                    </div>
                                 </div>
                                 <div className='col-lg-6'>
-                                    <div className="forms-input">
-                                        <label className='labels'>RENAVAM</label>
-                                        <input
-                                            id="renavam"
-                                            class="form-field form-lg"
-                                            type="text"
-                                            placeholder="Digite o RENAVAM"
-                                            name="renavam"
-                                            maxlength="11"
-                                            onChange={e => setRenavam(e.target.value)}
-                                            defaultValue={renavam}
-                                        />
-                                    </div>
                                     <div className="forms-input">
                                         <label className='labels'>Nome da Mãe</label>
                                         <input

@@ -57,6 +57,14 @@ Text Definitions
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase; }
+.container .table .infos-body .btn-carros {
+  border: 1px solid #6c757d;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: #0F1D2B; }
+  .container .table .infos-body .btn-carros:hover {
+    background-color: #e7e8e9;
+    transition: .4s; }
 
 .pagination .page-item .page-link {
   color: #2D4297;
@@ -74,11 +82,3 @@ Text Definitions
     color: #FFFFFF; }
 
 /*# sourceMappingURL=ListarClientes.css.map */
-
-.collapse.in {
-  display: block !important;
-}
-
-.table-carros{
-  width: 150% !important;
-}

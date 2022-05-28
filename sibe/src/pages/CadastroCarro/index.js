@@ -1,6 +1,6 @@
 import React, { Component, SyntheticEvent, useState } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import "./CadastroCarro.css";
+import "../../assets/scss/cadastros.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
