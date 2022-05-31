@@ -45,7 +45,7 @@ class Menu extends React.Component {
                         </li>
                         <li  className="nav-item">
                             <NavLink to={'/locacoes'} exact className="nav-link">
-                            <GroupAddIcon />
+                            <AddCircleIcon />
                                 Agendamentos
                             </NavLink>
                         </li>

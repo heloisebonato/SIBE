@@ -127,7 +127,7 @@ const Clientes = () => {
                                                         Link with href
                                                     </a> */}
                                                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target={`#collapse${cliente.cliente_id}`} aria-expanded="false" aria-controls={`collapse${cliente.cliente_id}`}>
-                                                        Carros
+                                                        Veículos
                                                     </button>
                                                     
                                                 </div>

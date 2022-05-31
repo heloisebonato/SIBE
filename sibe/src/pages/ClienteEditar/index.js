@@ -20,6 +20,9 @@ const ClienteEditar = (props) => {
     const [renavam, setRenavam] = useState("");
     const [placa, setPlaca] = useState("");
 
+    const [telefone, setTelefone] = useState("");
+    const [celular, setCelular] = useState("");
+
     const [redirect, setRedirect] = useState(false);
 
     const [clientes, setClientes] = useState([]);
@@ -54,6 +57,8 @@ const ClienteEditar = (props) => {
                 setNomeMae(data.nome_mae);
                 setRenavam(data.renavam);
                 setPlaca(data.placa);
+                setTelefone(data.telefone);
+                setCelular(data.celular);
             }
         )()
     }, [])
@@ -61,22 +66,6 @@ const ClienteEditar = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log({
-            nome: nome,
-            data_nascimento: data_nascimento,
-            cnh: cnh,
-            cpf: cpf,
-            rg: rg,
-            cep: cep,
-            endereco: endereco,
-            n_casa: n_casa,
-            cidade: cidade,
-            estado: estado,
-            nome_mae: nome_mae,
-            renavam: renavam,
-            placa: placa
-
-        });
 
         getClientes();
 
@@ -96,6 +85,8 @@ const ClienteEditar = (props) => {
                 nome_mae: nome_mae,
                 renavam: renavam,
                 placa: placa,
+                telefone: telefone,
+                celular: celular
             });
         }
         setRedirect(true)
@@ -148,6 +139,19 @@ const ClienteEditar = (props) => {
                                             defaultValue={data_nascimento}
                                         />
                                     </div>
+                                    <div className="forms-input">
+                                        <label className='labels'>Celular</label>
+                                        <input
+                                            id="celular"
+                                            class="form-field"
+                                            type="text"
+                                            placeholder="Digite o telefone celular"
+                                            name="celular"
+                                            maxlength="10"
+                                            onChange={e => setCelular(e.target.value)}
+                                            required
+                                        />
+                                    </div>
                                 </div>
                                 <div className='col-lg-6'>
                                     <div className="forms-input">
@@ -175,6 +179,19 @@ const ClienteEditar = (props) => {
                                             maxlength="15"
                                             onChange={e => setRg(e.target.value)}
                                             defaultValue={rg}
+                                        />
+                                    </div>
+                                    <div className="forms-input">
+                                        <label className='labels'>Telefone Fixo (opcional)</label>
+                                        <input
+                                            id="telefone"
+                                            class="form-field"
+                                            type="text"
+                                            placeholder="Digite o telefone"
+                                            name="telefone"
+                                            maxlength="10"
+                                            onChange={e => setTelefone(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>

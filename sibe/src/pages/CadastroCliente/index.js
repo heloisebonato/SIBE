@@ -159,6 +159,7 @@ const CadastroCliente = (props) => {
                                                 type="text"
                                                 placeholder="Digite o telefone celular"
                                                 name="celular"
+                                                maxlength="10"
                                                 onChange={e => setCelular(e.target.value)}
                                                 required
                                             />
@@ -198,6 +199,7 @@ const CadastroCliente = (props) => {
                                                 type="text"
                                                 placeholder="Digite o telefone"
                                                 name="telefone"
+                                                maxlength="10"
                                                 onChange={e => setTelefone(e.target.value)}
                                                 required
                                             />

@@ -23,6 +23,9 @@ export class Locacao {
     @Column("float")
     preco_total: number;
 
+    @Column("varchar", { length: 55 })
+    status: string;
+
     // @Column()
     // carro_id: number;
 

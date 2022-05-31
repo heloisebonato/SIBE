@@ -75,14 +75,11 @@ const CadastroCarreta = (props) => {
                                         </div>
                                         <div className="forms-input">
                                             <label className='labels'>Tipo da Carreta</label>
-                                            <input
-                                                id="tipo"
-                                                class="form-field"
-                                                type="text"
-                                                name="tipo"
-                                                onChange={e => setTipo(e.target.value)}
-                                                required
-                                            />
+                                            <select class="form-field select-box" name="tipo" id="tipo" onChange={e => setTipo(e.target.value)}  >
+                                                <option value="">Selecione</option>
+                                                <option value="moto">Moto</option>
+                                                <option value="carro">Carro</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div className='col-lg-6'>
