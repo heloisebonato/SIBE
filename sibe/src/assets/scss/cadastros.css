@@ -16,7 +16,7 @@ Text Definitions
   margin: 24px;
   overflow: hidden; }
 
-#cadastro-cliente .register-form .title {
+.register-form .title {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -24,24 +24,25 @@ Text Definitions
   font-weight: 800;
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px; }
-#cadastro-cliente .login-box {
+
+.login-box {
   display: flex;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
   overflow-y: hidden; }
-  #cadastro-cliente .login-box .form-cadastro {
+  .login-box .form-cadastro {
     background-color: #FFFFFF;
     margin: auto;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    padding: 30px; }
-  #cadastro-cliente .login-box .register-form {
+    padding: 80px; }
+  .login-box .register-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 10px; }
-    #cadastro-cliente .login-box .register-form .title {
+    .login-box .register-form .title {
       justify-content: center;
       align-items: center;
       display: flex;
@@ -50,14 +51,14 @@ Text Definitions
       font-family: "Montserrat" sans-serif;
       padding: 10px 10px;
       color: #2D4297; }
-    #cadastro-cliente .login-box .register-form .subtitle {
+    .login-box .register-form .subtitle {
       font-size: 20px;
       font-weight: 600;
       font-family: "Montserrat", sans-serif;
       color: #0F1D2B;
       padding-bottom: 20px;
       padding-top: 30px; }
-    #cadastro-cliente .login-box .register-form .form-field {
+    .login-box .register-form .form-field {
       margin: 10px 0 10px 0;
       padding: 15px;
       font-size: 13px;
@@ -66,27 +67,27 @@ Text Definitions
       font-family: "Montserrat" sans-serif;
       font-weight: 400;
       background-color: transparent; }
-      #cadastro-cliente .login-box .register-form .form-field:active {
+      .login-box .register-form .form-field:active {
         border: 2px;
         box-shadow: #f1f2f3; }
-    #cadastro-cliente .login-box .register-form .forms-input {
+    .login-box .register-form .forms-input {
       font-size: 13px;
       font-weight: 400;
       font-family: "Montserrat", sans-serif;
       color: #0F1D2B;
       text-transform: uppercase;
       margin-top: .5rem; }
-    #cadastro-cliente .login-box .register-form .form-xg {
+    .login-box .register-form .form-xg {
       width: 93%; }
-    #cadastro-cliente .login-box .register-form .form-lg {
+    .login-box .register-form .form-lg {
       width: 85%; }
-    #cadastro-cliente .login-box .register-form .form-md {
+    .login-box .register-form .form-md {
       width: 60%; }
-    #cadastro-cliente .login-box .register-form .form-sm {
+    .login-box .register-form .form-sm {
       width: 40%; }
-    #cadastro-cliente .login-box .register-form input {
+    .login-box .register-form input {
       background: #f2f2f2; }
-    #cadastro-cliente .login-box .register-form .button-submit {
+    .login-box .register-form .button-submit {
       background-color: #FFFFFF;
       border: 2px solid #2D4297;
       color: #2D4297;
@@ -101,29 +102,29 @@ Text Definitions
       align-items: center;
       font-family: "Montserrat", sans-serif;
       font-size: 15px; }
-    #cadastro-cliente .login-box .register-form .button-submit:hover {
+    .login-box .register-form .button-submit:hover {
       background-color: #2D4297;
       color: #FFFFFF;
       transition: 0.4s; }
-    #cadastro-cliente .login-box .register-form .button-submit:disabled {
+    .login-box .register-form .button-submit:disabled {
       cursor: default; }
-    #cadastro-cliente .login-box .register-form #app {
+    .login-box .register-form #app {
       flex: 1;
       box-sizing: border-box;
       margin: 24px;
       overflow: hidden; }
-    #cadastro-cliente .login-box .register-form .forms-input {
+    .login-box .register-form .forms-input {
       display: flex;
       justify-content: center;
       align-items: start;
       flex-direction: column; }
-  #cadastro-cliente .login-box .success-message {
+  .login-box .success-message {
     font-family: 'Montserrat', sans-serif;
     background-color: #3f89f8;
     padding: 15px;
     color: white; }
-  #cadastro-cliente .login-box .error {
+  .login-box .error {
     border-style: solid;
     border: 2px solid #ffa4a4; }
 
-/*# sourceMappingURL=CadastroCliente.css.map */
+/*# sourceMappingURL=cadastros.css.map */

@@ -1,6 +1,6 @@
 import React, { Component, SyntheticEvent, useState } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import "./CadastroCliente.css";
+import "../../assets/scss/cadastros.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -108,14 +108,13 @@ const CadastroCliente = (props) => {
     // render () {
 
     if (redirectHome == true) {
-        return <Redirect to={'/'}></Redirect>
+        return <Redirect to={'/Clientes'}></Redirect>
     } else if (redirectCadastroCliente == true) {
         return <Redirect to={'/cadastroCliente'}></Redirect>
     }
 
     return (
         <Wrapper>
-            <div id="cadastro-cliente">
                 <div className="login-box bg-light">
                     <div className="form-cadastro">
                         <div class="container">
@@ -192,7 +191,7 @@ const CadastroCliente = (props) => {
                                             />
                                         </div>
                                         <div className="forms-input">
-                                            <label className='labels'>Telefone Fixo (opcional)</label>
+                                            <label className='labels'>Telefone (opcional)</label>
                                             <input
                                                 id="telefone"
                                                 class="form-field"
@@ -201,7 +200,6 @@ const CadastroCliente = (props) => {
                                                 name="telefone"
                                                 maxlength="10"
                                                 onChange={e => setTelefone(e.target.value)}
-                                                required
                                             />
                                         </div>
                                     </div>
@@ -222,32 +220,8 @@ const CadastroCliente = (props) => {
                                                 required
                                             />
                                         </div>
-                                        <div className="forms-input">
-                                            <label className='labels'>Placa do Veículo</label>
-                                            <input
-                                                id="placa"
-                                                class="form-field form-md"
-                                                type="text"
-                                                placeholder="Digite a placa do veículo"
-                                                name="placa"
-                                                maxlength="7"
-                                                onChange={e => setPlaca(e.target.value)}
-                                            />
-                                        </div>
                                     </div>
                                     <div className='col-lg-6'>
-                                        <div className="forms-input">
-                                            <label className='labels'>RENAVAM</label>
-                                            <input
-                                                id="renavam"
-                                                class="form-field form-lg"
-                                                type="text"
-                                                placeholder="Digite o RENAVAM"
-                                                name="renavam"
-                                                maxlength="11"
-                                                onChange={e => setRenavam(e.target.value)}
-                                            />
-                                        </div>
                                         <div className="forms-input">
                                             <label className='labels'>Nome da Mãe</label>
                                             <input
@@ -358,7 +332,6 @@ const CadastroCliente = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
         </Wrapper >
 
     );
