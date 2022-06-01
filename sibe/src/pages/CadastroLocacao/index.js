@@ -366,59 +366,6 @@ const CadastroLocacao= (props) => {
                                     <div className="col-12">
                                         <h2 className="subtitle">Dados Básicos</h2>
                                     </div>
-                                    <div className="col-lg-6">
-                                        <div className="forms-input">
-                                            <label className='labels'>Data Prevista de Saída</label>
-                                            <input
-                                                id="data_prevista_saida"
-                                                class="form-field"
-                                                type="date"
-                                                name="data_prevista_saida"
-                                                onChange={e => checarDatas_saida(e.target.value)}
-                                                required
-                                            />
-                                            
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="forms-input">
-                                        <label className='labels'>Data Prevista de Retorno</label>
-                                            <input
-                                                id="data_prevista_entrada"
-                                                class="form-field"
-                                                type="date"
-                                                name="data_prevista_entrada"
-                                                onChange={e => checarDatas_entrada(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-12">
-                                 
-                                            <Calendar
-                                                localizer={localizer}
-                                                defaultDate={new Date()}
-                                                defaultView="month"
-                                                events={eventos}
-                                                style={{ height: "30vh" }}
-                                            />
-                                      
-                                    </div>
-                                    <div className='col-lg-6'>
-                                        <div className="forms-input">
-                                            <label className="labels">Valor da Locação</label>
-                                            <input
-                                                id="preco_total"
-                                                class="form-field form-lg"
-                                                type="float"
-                                                placeholder="Informe o Preço da Locação"
-                                                name="preco_total"
-                                                maxlength="15"
-                                                onChange={e => setPrecoTotal(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
                                     <div className='col-lg-6'>
                                         <div className="forms-input">
                                             <label className="labels">Placa do Veículo do Cliente</label>
@@ -449,6 +396,61 @@ const CadastroLocacao= (props) => {
                                             />
                                         </div>
                                     </div>
+                                    <div className="col-lg-6">
+                                        <div className="forms-input">
+                                            <label className='labels'>Data Prevista de Saída</label>
+                                            <input
+                                                id="data_prevista_saida"
+                                                class="form-field"
+                                                type="date"
+                                                name="data_prevista_saida"
+                                                onChange={e => checarDatas_saida(e.target.value)}
+                                                required
+                                            />
+                                            
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="forms-input">
+                                        <label className='labels'>Data Prevista de Retorno</label>
+                                            <input
+                                                id="data_prevista_entrada"
+                                                class="form-field"
+                                                type="date"
+                                                name="data_prevista_entrada"
+                                                onChange={e => checarDatas_entrada(e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="col-lg-12">
+                                 
+                                            <Calendar
+                                                localizer={localizer}
+                                                defaultDate={new Date()}
+                                                defaultView="month"
+                                                events={eventos}
+                                                style={{ height: "50vh" }}
+                                            />
+                                      
+                                    </div>
+                                    <div className='col-lg-6'>
+                                        <div className="forms-input">
+                                            <label className="labels">Valor da Locação</label>
+                                            <input
+                                                id="preco_total"
+                                                class="form-field form-lg"
+                                                type="float"
+                                                placeholder="Informe o Preço da Locação"
+                                                name="preco_total"
+                                                maxlength="15"
+                                                onChange={e => setPrecoTotal(e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 <div className="row pt-lg-4">
                                     <div className="col d-flex justify-content-center">

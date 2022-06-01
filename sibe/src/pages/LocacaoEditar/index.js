@@ -305,7 +305,7 @@ const LocacaoEditar = (props) => {
                                                 defaultDate={new Date()}
                                                 defaultView="month"
                                                 events={eventos}
-                                                style={{ height: "30vh" }}
+                                                style={{ height: "50vh" }}
                                             />
                                       
                                     </div>
