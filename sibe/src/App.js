@@ -22,6 +22,7 @@ import CadastroCarro from './pages/CadastroCarro';
 import CadastroLocacao from './pages/CadastroLocacao';
 import Locacoes from './pages/Locacoes';
 import LocacaoEditar from './pages/LocacaoEditar';
+import CarroEditar from './pages/CarroEditar';
 
 
 export default function App() {
@@ -43,7 +44,7 @@ export default function App() {
       <Route path={'/carretas'} component={Carretas}/>
       <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/> 
 
-      {/* <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/>  */}
+      <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/> 
 
       <Route path={'/cadastroCarro/:cliente_id'} component={CadastroCarro}/>
 
