@@ -85,6 +85,7 @@ const Carretas = () => {
                                         <th className="text">Tipo</th>
                                         <th className="text">Preço</th>
                                         <th className="text">Status</th>
+                                        <th className="text">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody className="infos-body">

@@ -8,17 +8,7 @@
     overflow: hidden;
 }
 
-#cadastro-carreta {
-    .register-form .title {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        font-size: 18px;
-        font-weight: 800;
-        font-family: 'Montserrat', sans-serif;
-        padding: 10px 10px;
-    }
-
+#editar-locacao {
     .login-box {
         display: flex;
         min-height: 100vh;
@@ -145,6 +135,7 @@
                 align-items: start;
                 flex-direction: column;
             }
+
         }
 
         .success-message {

@@ -96,7 +96,7 @@ const ClienteEditar = (props) => {
 
     // render () {
 
-    if (redirect == true) {
+    if (redirect === true) {
         return <Redirect to={'/clientes'}></Redirect>
     }
 

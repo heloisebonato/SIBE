@@ -40,9 +40,9 @@ const CadastroCarreta = (props) => {
 
     }
 
-    if (redirectHome == true) {
-        return <Redirect to={'/'}></Redirect>
-    } else if (redirectCadastroCarreta == true) {
+    if (redirectHome === true) {
+        return <Redirect to={'/carretas'}></Redirect>
+    } else if (redirectCadastroCarreta === true) {
         return <Redirect to={'/cadastroCarreta'}></Redirect>
     }
 

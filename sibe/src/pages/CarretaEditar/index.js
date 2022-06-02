@@ -61,7 +61,7 @@ const CarretaEditar = (props) => {
 
     // render () {
 
-    if (redirect == true) {
+    if (redirect === true) {
         return <Redirect to={'/carretas'}></Redirect>
     }
 
@@ -83,7 +83,7 @@ const CarretaEditar = (props) => {
                                         <label className='labels'>Placa da Carreta</label>
                                         <input
                                             id="placa"
-                                            class="form-field form-lg"
+                                            className="form-field form-lg"
                                             type="text"
                                             placeholder="Digite a Placa"
                                             name="placa"
@@ -95,7 +95,7 @@ const CarretaEditar = (props) => {
                                         <label className='labels'>Tipo da Carreta</label>
                                         <input
                                             id="tipo"
-                                            class="form-field"
+                                            className="form-field"
                                             type="text"
                                             name="tipo"
                                             onChange={e => setTipo(e.target.value)}
@@ -108,7 +108,7 @@ const CarretaEditar = (props) => {
                                         <label className="labels">Preço da Locação</label>
                                         <input
                                             id="preco"
-                                            class="form-field form-lg"
+                                            className="form-field form-lg"
                                             type="float"
                                             placeholder="Informe o Preço da Locação"
                                             name="preco"
@@ -117,19 +117,19 @@ const CarretaEditar = (props) => {
                                             defaultValue={preco}
                                         />
                                     </div>
-                                </div>
-                                <div className="forms-input">
+                                    <div className="forms-input">
                                         <label className='labels'>Status</label>
-                                        <select class="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} >
+                                        <select className="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} >
                                             <option value="">Selecione</option>
                                             <option value="operante">Operante</option>
                                             <option value="inoperante">Inoperante</option>
                                         </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row pt-lg-4">
                                 <div className="col d-flex justify-content-center">
-                                    <button class="form-field button-submit" type="submit" >
+                                    <button className="form-field button-submit" type="submit" >
                                         {/* onClick={this.onClickCadastrar} */}
                                         Editar Carretas
                                     </button>
