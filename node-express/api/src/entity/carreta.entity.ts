@@ -5,7 +5,7 @@ export class Carreta {
     @PrimaryGeneratedColumn()
     carreta_id: number;
 
-    @Column("varchar", { length: 7 })
+    @Column("varchar", { length: 11 })
     placa: string;
 
     @Column("varchar", { length: 55 })
