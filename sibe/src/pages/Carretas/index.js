@@ -85,6 +85,7 @@ const Carretas = () => {
                                         <th className="text">Tipo</th>
                                         <th className="text">Preço</th>
                                         <th className="text">Status</th>
+                                        <th className="text">Volume(lt)</th>
                                         <th className="text">Ações</th>
                                     </tr>
                                 </thead>
@@ -97,6 +98,7 @@ const Carretas = () => {
                                                 <td className="text">{carreta.tipo}</td>
                                                 <td className="text">R$ {carreta.preco}</td>
                                                 <td className="text">{carreta.status}</td>
+                                                <td className="text">{carreta.volume}</td>
                                                 <td>
                                                     <div className='btn-group mr-2'>
                                                         <Link to={`/carreta/${carreta.carreta_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>

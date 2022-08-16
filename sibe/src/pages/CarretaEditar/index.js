@@ -51,7 +51,7 @@ const CarretaEditar = (props) => {
                 placa: placa,
                 tipo: tipo,
                 preco: preco,
-                status: status
+                status: status,
             });
         }
         setRedirect(true)

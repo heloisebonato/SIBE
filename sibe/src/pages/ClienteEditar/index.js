@@ -22,7 +22,6 @@ const ClienteEditar = (props) => {
 
     const [telefone, setTelefone] = useState("");
     const [celular, setCelular] = useState("");
-
     const [redirect, setRedirect] = useState(false);
 
     const [clientes, setClientes] = useState([]);
@@ -86,7 +85,7 @@ const ClienteEditar = (props) => {
                 renavam: renavam,
                 placa: placa,
                 telefone: telefone,
-                celular: celular
+                celular: celular,
             });
         }
         setRedirect(true)

@@ -63,9 +63,9 @@ const CarroEditar= (props) => {
 
     }
 
-    if (redirectHome == true) {
+    if (redirectHome === true) {
         return <Redirect to={'/'}></Redirect>
-    } else if (redirectCadastroCarreta == true) {
+    } else if (redirectCadastroCarreta === true) {
         return <Redirect to={'/clientes'}></Redirect>
     }
 
@@ -103,7 +103,7 @@ const CarroEditar= (props) => {
                                             value={props.match.params.carro_id}
                                             required
                                             hidden
-                                            
+
                                         />
                                     </div>
                                     <div className="forms-input">
@@ -133,7 +133,7 @@ const CarroEditar= (props) => {
                                     </div>
                                 </div>
                                 <div className="forms-input">
-                                        <label className='labels'>Tipo do Veículo</label>
+                                        <label className='labels'>Status do Veículo</label>
 
                                         <select class="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)}  defaultValue={status}>
                                             <option value="">Selecione</option>
