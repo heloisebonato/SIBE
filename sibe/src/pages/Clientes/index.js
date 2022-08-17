@@ -11,7 +11,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
-const Clientes = () => {
+const Clientes = (props) => {
     const [clientes, setClientes] = useState([]);
     const [clientes_carros, setClientesCarros] = useState([]);
     const [page, setPage] = useState(1);
@@ -22,13 +22,21 @@ const Clientes = () => {
     useEffect(() => {
         (
             async () => {
-                const { data } = await axios.get(`clientes?page=${page}`);
 
+                if (props.match.params.cpf == null){
+
+                var { data } = await axios.get(`clientes?page=${page}`);
                 setClientes(data);
                 setClientesCarros(data);
+                }
+
+                if (props.match.params.cpf != null){
+                    data = await axios.get(`clientes/cpf/${props.match.params.cpf}`);
+                    setClientes(data.data);
+                    setClientesCarros(data.data);
+                }
 
                 clientes.sort((a, b) => b.cliente_id - a.cliente_id);
-                console.log(data);
 
                 const data_carros = await axios.get(`carros?page=${page}`);
 
@@ -37,15 +45,6 @@ const Clientes = () => {
 
         )()
     }, [page]);
-
-
-    // const del = async (id: number) => {
-    //     if (window.confirm('Are you sure you want to delete this record?')) {
-    //         await axios.delete(`users/${id}`);
-
-    //         setUsers(users.filter((u: User) => u.id !== id));
-    //     }
-    // }
 
     const next = () => {
         if (page <= lastPage) {

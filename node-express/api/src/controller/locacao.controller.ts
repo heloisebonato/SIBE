@@ -3,6 +3,7 @@ import { stat } from "fs";
 import {getManager} from "typeorm";
 import {Carreta} from "../entity/carreta.entity";
 import { Carro } from "../entity/carro.entity";
+import { Cliente } from "../entity/cliente.entity";
 import {Locacao} from "../entity/locacao.entity";
 //import bcyptjs from "bcryptjs";
 
@@ -230,4 +231,35 @@ export const DeleteCarreta = async (req: Request, res: Response) => {
     await repository.delete(req.params.carreta_id);
 
     res.status(204).send(null);
+}
+
+export const GetInfoPesquisar = async (req: Request, res: Response) => {
+
+    const repository_carreta = getManager().getRepository(Carreta);
+    
+    const carreta = await repository_carreta.findOne({
+        where: { 
+            placa: req.params.valor 
+        }
+
+        });
+    
+    if (carreta != null){
+        res.send(carreta);
+    }
+    
+    const repository_cliente = getManager().getRepository(Cliente);
+
+    const cliente = await repository_cliente.findOne({
+        where: { 
+            cpf: req.params.valor 
+        }
+
+        });
+    
+    if (cliente != null){
+        res.send(cliente);
+    }
+
+    //res.status(404).send(null);
 }

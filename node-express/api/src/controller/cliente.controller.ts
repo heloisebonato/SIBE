@@ -64,17 +64,39 @@ export const GetCliente = async (req: Request, res: Response) => {
     res.send(cliente);
 }
 
+// export const GetClienteByCpf = async (req: Request, res: Response) => {
+//     // const take = 15;
+//     // const page = parseInt(req.query.page as string || '1');
+
+
+//     const repository = getManager().getRepository(Cliente);
+
+//     const clientes = await repository.find();
+
+
+//     res.send(clientes.map(U => {
+//         const data = U;
+
+//         return data;
+//     }));
+
 export const GetClienteByCpf = async (req: Request, res: Response) => {
     const repository = getManager().getRepository(Cliente);
     //{relations: ['role']
-    const cliente = await repository.findOne({
+    const cliente = await repository.find({
         where: { 
             cpf: req.params.cpf 
         }
 
         });
+    
+    res.send(cliente.map(U => {
+        const data = U;
 
-    res.send(cliente);
+        return data;
+    }));
+
+    //res.send(cliente);
 }
 
 export const UpdateCliente = async (req: Request, res: Response) => {

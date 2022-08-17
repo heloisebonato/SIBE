@@ -10,11 +10,14 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
     const [funcionario, setFuncionario] = useState({
         nome: ''
     });
+
+    const [rota, setRota] = useState("");
 
     useEffect( () => {
         (
@@ -31,6 +34,37 @@ const Nav = () => {
         await axios.post('logout', {});
     }
 
+    const search = async () => {
+
+        const value = document.getElementById('search').value;
+
+        const result = await axios.get(`pesquisar/${value}`);
+
+        console.log(result.data);
+
+
+        if (result.data.hasOwnProperty('carreta_id')){
+            var rota = '/carretas/placa/' + result.data.placa
+            console.log("CARRETA");
+        }
+
+        if (result.data.hasOwnProperty('cliente_id')){
+            var rota = '/clientes/cpf/' + result.data.cpf
+            console.log("CLIENTE");
+        }
+
+        setRota(rota)
+        
+        
+        
+        //await axios.delete(`carretas/${carreta_id}`);
+
+            
+
+        //setCarretas(carretas.filter(c => c.carreta_id !== carreta_id));
+        
+    }
+
     // render() {
         return (
             <header className="navbar sticky-top flex-md-nowrap p-0 shadow">
@@ -39,8 +73,9 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="search">
-                <input className="form-control form-search" type="text" placeholder="Pesquisar" aria-label="Search"/>
-                <button className="button-procurar"> <SearchIcon className="searchIcon" /> </button>
+                <input className="form-control form-search" type="text" placeholder="Pesquisar" aria-label="Search" id="search" onChange={() => search()}/>
+                {/* <Link to={`/carreta/${carreta.carreta_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link> */}
+                <NavLink to={`${rota}`} className="button-procurar"> <SearchIcon className="searchIcon" /> </NavLink>
             </div>
             <a className="navbar-item" href="#">
                 <IconButton color="inherit">
@@ -51,7 +86,7 @@ const Nav = () => {
             </a>
             <a className="navbar-item name-func px-3" href="#">
                 <PersonIcon color="white" />
-                {funcionario?.nome}
+                {funcionario.nome}
             </a>
             <div className="navbar-nav">
             <div className="nav-item text-nowrap">

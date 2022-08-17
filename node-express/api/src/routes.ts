@@ -6,7 +6,7 @@ import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, Upd
 import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, UpdateCliente } from "./controller/cliente.controller";
 import { Carretas, CreateCarreta, GetCarreta, UpdateCarreta, DeleteCarreta, GetCarretaByPlaca } from "./controller/carreta.controller";
 import { Carros, CreateCarro, CreateCarroCliente, DeleteCarro, GetCarro, GetCarroByPlaca, GetCarrosByCliente, UpdateCarro } from "./controller/carro.controller";
-import { CreateLocacao, Locacoes, Locacoes_, Locacoes_por_Id, UpdateLocacao } from "./controller/locacao.controller";
+import { CreateLocacao, GetInfoPesquisar, Locacoes, Locacoes_, Locacoes_por_Id, UpdateLocacao } from "./controller/locacao.controller";
 
 export const routes = (router: Router) => {
     router.post('/register', Register);
@@ -52,6 +52,8 @@ export const routes = (router: Router) => {
     router.get('/locacoes', Locacoes_);
     router.get('/locacoes/:locacao_id', Locacoes_por_Id);
     router.put('/locacoes/:locacao_id', AuthMiddleware, UpdateLocacao);
+
+    router.get('/pesquisar/:valor', AuthMiddleware, GetInfoPesquisar);
 
     //router.post('/carro', CreateCarro);
 }

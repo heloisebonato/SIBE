@@ -37,11 +37,11 @@ export default function App() {
       <Route path={'/registrar'} component={Register}/>   
       <Route path={'/login'} component={Login}/>  
       <Route path={'/cadastroCliente'} component={CadastroCliente}/>
-      <Route path={'/clientes'} component={Clientes}/> 
+      <Route exact path={'/clientes'} component={Clientes}/> 
       <Route path={'/cliente/:cliente_id/editar'} component={ClienteEditar}/> 
 
       <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
-      <Route path={'/carretas'} component={Carretas}/>
+      <Route exact path={'/carretas'} component={Carretas}/>
       <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/> 
 
       <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/> 
@@ -50,7 +50,11 @@ export default function App() {
 
       <Route path={'/locacoes'} component={Locacoes}/> 
       <Route path={'/cadastroLocacao'} component={CadastroLocacao}/>
-      <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>    
+      <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>
+
+
+      <Route exact path={'/clientes/cpf/:cpf'} component={Clientes}/> 
+      <Route exact path={'/carretas/placa/:placa'} component={Carretas}/>      
 
       
       </BrowserRouter>
