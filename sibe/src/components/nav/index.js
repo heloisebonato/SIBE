@@ -40,18 +40,20 @@ const Nav = () => {
 
         const result = await axios.get(`pesquisar/${value}`);
 
-        console.log(result.data);
+        console.log(result.data[0][0]);
 
 
-        if (result.data.hasOwnProperty('carreta_id')){
-            var rota = '/carretas/placa/' + result.data.placa
+        if (result.data[0][0].hasOwnProperty('carreta_id')){
+            var rota = '/carretas/placa/' + result.data[0][0].placa
             console.log("CARRETA");
         }
 
-        if (result.data.hasOwnProperty('cliente_id')){
-            var rota = '/clientes/cpf/' + result.data.cpf
+        if (result.data[0][0].hasOwnProperty('cliente_id')){
+            var rota = '/clientes/cpf/' + result.data[0][0].cpf
             console.log("CLIENTE");
         }
+
+        console.log(rota);
 
         setRota(rota)
         

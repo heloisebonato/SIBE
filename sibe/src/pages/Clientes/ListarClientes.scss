@@ -1,110 +1,143 @@
 @import "../../assets/scss/variaveis.scss";
 
 
-.container {
-    .subtitle {
-        font-size: $font--primary-title;
-        font-weight: $weight--medium;
-        color: $primary-dark;
-        font-family: $font--family, sans-serif;
-    }
-
-    .btn {
-        font-size: $font--items;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
-        font-family: $font--family, sans-serif;
-        font-weight: $weight--small;
-    }
-
-    .btn-inadimplente {
-        background-color: $white;
-        color: $primary-dark;
-        border: 1px solid $primary-dark;
-        border-radius: 10px;
-
-        &:hover {
-            background-color: $primary-light;
+#listar-clientes {
+    .container {
+        .subtitle {
+            font-size: $font--primary-title;
+            font-weight: $weight--medium;
+            color: $primary-dark;
+            font-family: $font--family, sans-serif;
         }
 
-        .MuiSvgIcon-root {
-            color: $blue;
-        }
-    }
-
-    .btn-criar {
-        background-color: $blue;
-        color: $white;
-        border: 1px solid $blue;
-        border-radius: 10px;
-        transition: .4s;
-
-        &:hover {
-            background-color: $blue--dark;
+        .btn {
+            font-size: $font--items;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            font-family: $font--family, sans-serif;
+            font-weight: $weight--small;
         }
 
-        .MuiSvgIcon-root {
-            color: $white;
+        .btn-inadimplente {
+            background-color: $white;
+            color: $primary-dark;
+            border: 1px solid $primary-dark;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: $primary-light;
+            }
+
+            .MuiSvgIcon-root {
+                color: $blue;
+            }
         }
-    }
 
-    .btn-action:hover {
-        background-color: #e7e8e9;
-    }
-
-    .table {
-        .infos-titles {
+        .btn-criar {
             background-color: $blue;
+            color: $white;
+            border: 1px solid $blue;
+            border-radius: 10px;
+            transition: .4s;
 
-            .text {
-                color: $white;
-                font-size: $font--items;
-                font-family: $font--family, sans-serif;
-                font-weight: $weight--medium;
+            &:hover {
+                background-color: $blue--dark;
             }
 
-            th {
-                border: none;
+            .MuiSvgIcon-root {
+                color: $white;
             }
         }
 
-        .infos-body {
-            .text {
-                font-family: $font--family, sans-serif;
-                font-weight: $weight--small;
-                font-size: $font--items;
-                text-transform: uppercase;
-            }
-            .btn-carros{
-                border: 1px solid $primary-grey;
-                font-size: $font--items;
-                font-family: $font--family, sans-serif;
-                color: $primary-dark;
+        .btn-action:hover {
+            background-color: #e7e8e9;
+        }
 
-                &:hover{
-                    background-color: $grey;
-                    transition: .4s;
+        .table-responsive {
+            overflow-x: hidden;
+            padding-bottom: 30px;
+            .infos-titles{
+                background-color: $blue;
+
+                .text {
+                    color: $white;
+                    font-size: $font--items;
+                    font-family: $font--family, sans-serif;
+                    font-weight: $weight--medium;
+                }
+                .conf{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .infos-body {
+                .row:nth-of-type(2n+1){
+                    background-color: rgba(0,0,0,.05);
+                    padding-bottom: 8px;
+                    padding-top: 8px;
+                    border-bottom: 1px solid $white;
+                }
+                .text {
+                    font-family: $font--family, sans-serif;
+                    font-weight: $weight--small;
+                    font-size: $font--items;
+                    text-transform: uppercase;
+                }
+                .text-id{
+                    width: 20px;
+                }
+
+                .btn-carros {
+                    border: 1px solid $primary-grey;
+                    font-size: $font--items;
+                    font-family: $font--family, sans-serif;
+                    color: $primary-dark;
+
+                    &:hover {
+                        background-color: $grey;
+                        transition: .4s;
+                    }
+                }
+                .conf{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .in {
+                    display: block !important;
+                }
+                .collapse{
+                    .infos-collapse{
+                        background-color: $blue--dark;
+                        color: $white;
+                        font-size: $font--items2;
+                        font-family: $font--family, sans-serif;
+                    }
                 }
             }
         }
     }
-}
-.pagination .page-item .page-link{
-    color: $blue;
-    border: 1px solid $blue;
-    background-color: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: $font--items;
-    font-family: $font--family;
-    font-weight: $weight--medium;
 
-    &:hover{
-        background-color: $blue;
-        transition: .4s;
-        color: $white;
+    .pagination .page-item .page-link {
+        color: $blue;
+        border: 1px solid $blue;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font--items;
+        font-family: $font--family;
+        font-weight: $weight--medium;
+
+        &:hover {
+            background-color: $blue;
+            transition: .4s;
+            color: $white;
+        }
     }
 }

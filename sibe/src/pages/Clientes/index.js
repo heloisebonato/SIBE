@@ -25,9 +25,9 @@ const Clientes = (props) => {
 
                 if (props.match.params.cpf == null){
 
-                var { data } = await axios.get(`clientes?page=${page}`);
-                setClientes(data);
-                setClientesCarros(data);
+                    var { data } = await axios.get(`clientes?page=${page}`);
+                    setClientes(data);
+                    setClientesCarros(data);
                 }
 
                 if (props.match.params.cpf != null){
@@ -54,7 +54,7 @@ const Clientes = (props) => {
 
     const prev = () => {
         if (page >= 1) {
-            setPage(page - 1);
+            setLastPage(page - 1);
         }
     }
 
@@ -77,117 +77,121 @@ const Clientes = (props) => {
 
     return (
         <Wrapper>
-            {/* <div className="pt-3 pb-2 mb-3 border-bottom">
-                <Link to="/users/create" className="btn btn-sm btn-outline-secondary">Add</Link>
-            </div> */}
-
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6 py-5">
-                        <h2 className="subtitle">Clientes</h2>
+            <div id="listar-clientes">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 py-5">
+                            <h2 className="subtitle">Clientes</h2>
+                        </div>
+                        <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
+                            <a className="btn btn-inadimplente"> <PersonOutlineIcon />Clientes Inadimplentes</a>
+                            <NavLink to={'/cadastroCliente'} className="nav-link"><a className="btn btn-criar"> <PersonAddAltIcon /> Criar Cliente</a></NavLink>
+                        </div>
                     </div>
-                    <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
-                        <a className="btn btn-inadimplente"> <PersonOutlineIcon />Clientes Inadimplentes</a>
-                        <NavLink to={'/cadastroCliente'} className="nav-link"><a className="btn btn-criar"> <PersonAddAltIcon /> Criar Cliente</a></NavLink>
-                    </div>
-                    <div className="col-12">
-                        <div className="table-responsive">
-                            <table className="table table-striped table-sm">
-                                <thead className="infos-titles">
-                                    <tr>
-                                        <th className="text">#</th>
-                                        <th className="text">Nome</th>
-                                        <th className="text">CPF</th>
-                                        <th className="text">CNH</th>
-                                        {/* <th className="text">Placa</th> */}
-                                        <th className="text">AÇÕES</th>
-                                    </tr>
-                                </thead>
-
-
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="table-responsive">
+                                <div className="infos-titles">
+                                    <div className="row">
+                                        <div className="col-lg-1 conf">
+                                            <div className="text">#</div>
+                                        </div>
+                                        <div className="col-lg-3 conf">
+                                            <div className="text">Nome</div>
+                                        </div>
+                                        <div className="col-lg-2 conf">
+                                            <div className="text">CPF</div>
+                                        </div>
+                                        <div className="col-lg-2 conf">
+                                            <div className="text">CNH</div>
+                                        </div>
+                                        <div className="col-lg-4 conf">
+                                            <div className="text">Ações</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 {clientes.sort((a, b) => b.cliente_id - a.cliente_id).map((cliente) => {
                                     return (
-                                        <tbody className="infos-body">
-
-
-
-                                            <tr key={cliente.cliente_id}>
-                                                <td className="text">{cliente.cliente_id}</td>
-                                                <td className="text">{cliente.nome}</td>
-                                                <td className="text">{cliente.cpf}</td>
-                                                <td className="text">{cliente.cnh}</td>
-                                                {/* <td className="text">{cliente.placa}</td> */}
-                                                <td>
+                                        <div className="infos-body">
+                                            <div className="row" key={cliente.cliente_id}>
+                                                <div className="col-lg-1 conf">
+                                                    <div className="text">{cliente.cliente_id}</div>
+                                                </div>
+                                                <div className="col-lg-3 conf">
+                                                    <div className="text">{cliente.nome}</div>
+                                                </div>
+                                                <div className="col-lg-2 conf">
+                                                    <div className="text">{cliente.cpf}</div>
+                                                </div>
+                                                <div className="col-lg-2 conf">
+                                                    <div className="text">{cliente.cnh}</div>
+                                                </div>
+                                                <div className="col-lg-4 conf">
                                                     <div className='btn-group mr-2'>
                                                         <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
                                                         <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
                                                             onClick={() => del_carro(cliente.cliente_id)}
                                                         ><DeleteIcon /></a>
-                                                        {/* <a class="btn btn-primary" data-toggle="collapse" href={`#collapse${cliente.cliente_id}`} role="button" aria-expanded="false" aria-controls={`#collapse${cliente.cliente_id}`}>
-                                                        Link with href
-                                                    </a> */}
                                                         <button className="btn btn-carros" type="button" data-toggle="collapse" data-target={`#collapse${cliente.cliente_id}`} aria-expanded="false" aria-controls={`collapse${cliente.cliente_id}`}>
-                                                           <DirectionsCarIcon /> Veículos
+                                                            <DirectionsCarIcon /> Veículos
                                                         </button>
+                                                        <Link to={`/historico/${cliente.cliente_id}`} exact className="btn btn-action btn-sm btn-outline-secondary"> Histórico</Link>
                                                     </div>
-                                                </td>
-                                            </tr>
+                                                </div>
+                                            </div>
                                             <div className="collapse" id={`collapse${cliente.cliente_id}`}>
-
                                                 {clientes_carros.sort((a, b) => b.cliente_id - a.cliente_id).map((clientes_carro) => {
-                                                    if (cliente.cliente_id == clientes_carro.cliente_id)
+                                                    if (cliente.cliente_id === clientes_carro.cliente_id)
                                                         return (
-                                                            <table className="table table-striped table-sm table-carros">
-                                                                <thead className="infos-titles">
-                                                                    <tr>
-                                                                        <th className="text">Renavam</th>
-                                                                        <th className="text">Placa</th>
-                                                                        <th className="text">Tipo</th>
-                                                                        <th className="text">Status</th>
-                                                                        <th className="text">#</th>
-                                                                        {/* <th className="text">ID</th> */}
-
-                                                                        <NavLink to={`/cadastroCarro/${cliente.cliente_id}`} className="nav-link"><a className="btn btn-criar"> Adicionar Veículo</a></NavLink>
-                                                                    </tr>
-
-                                                                </thead>
+                                                            <div className="table table-carros">
+                                                                <div className="infos-titles">
+                                                                    <div className="row">
+                                                                        <div className="col-12 d-flex justify-content-around align-items-center">
+                                                                            <div className="text px-lg-3">Renavam</div>
+                                                                            <div className="text px-lg-3">Placa</div>
+                                                                            <div className="text px-lg-3">Tipo</div>
+                                                                            <div className="text px-lg-3">Status</div>
+                                                                            <div className="text px-lg-3">#</div>
+                                                                            <div className="text px-lg-3">Ações</div>
+                                                                            <NavLink to={`/cadastroCarro/${cliente.cliente_id}`} className="nav-link"><a className="btn btn-criar"> Adicionar Veículo</a></NavLink>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
                                                                 {carros.map((carro) => {
                                                                     if (carro.cliente_id === clientes_carro.cliente_id)
                                                                         return (
-                                                                            <tbody className="infos-body">
-
-                                                                                <tr key={clientes_carro.cliente_id}>
-
-
-                                                                                    <td className="text">{carro.renavam}</td>
-                                                                                    <td className="text">{carro.placa}</td>
-                                                                                    <td className="text">{carro.tipo}</td>
-                                                                                    <td className="text">{carro.status}</td>
-                                                                                    <td className="text">{carro.cliente_id}</td>
-                                                                                    {/* <td className="text">{carro.carro_id}</td> */}
-
-                                                                                    <td>
-                                                                                        <div className='btn-group mr-2'>
-                                                                                            <Link to={`/carro/${carro.carro_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
-                                                                                            <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
-                                                                                                onClick={() => del(carro.carro_id)}
-                                                                                            ><DeleteIcon /></a>
-
+                                                                            <div className="infos-body">
+                                                                                <div className="row" key={clientes_carro.cliente_id}>
+                                                                                    <div className="col-12 ml-3 d-flex justify-content-around align-items-center">
+                                                                                        <div className="text">{carro.renavam}</div>
+                                                                                        <div className="text">{carro.placa}</div>
+                                                                                        <div className="text">{carro.tipo}</div>
+                                                                                        <div className="text">{carro.status}</div>
+                                                                                        <div className="text">{carro.cliente_id}</div>
+                                                                                        <div>
+                                                                                            <div className='btn-group'>
+                                                                                                <Link to={`/carro/${carro.carro_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
+                                                                                                <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                                                                    onClick={() => del(carro.carro_id)}
+                                                                                                ><DeleteIcon /></a>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
+                                                                                        <div className="col-lg-2"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         )
                                                                 })}
-                                                            </table>
+                                                            </div>
                                                         )
                                                 })}
                                             </div>
-                                        </tbody>
+                                        </div>
                                     )
                                 })}
-                            </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,15 +199,14 @@ const Clientes = (props) => {
             <nav>
                 <ul className='pagination mx-lg-3'>
                     <li className='page-item'>
-                        <a href='#' className='page-link'>Anterior</a>
+                        <a href={prev} className='page-link' onClick={prev}>Anterior</a>
                     </li>
                     <li className='page-item'>
-                        <a href='#' className='page-link' onClick={next}>Próximo</a>
+                        <a href={next} className='page-link' onClick={next}>Próximo</a>
                     </li>
                 </ul>
             </nav>
-
-        </Wrapper>
+        </Wrapper >
     );
 }
 

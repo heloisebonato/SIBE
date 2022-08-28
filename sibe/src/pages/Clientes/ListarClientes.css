@@ -9,12 +9,12 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-.container .subtitle {
+#listar-clientes .container .subtitle {
   font-size: 40px;
   font-weight: 600;
   color: #0F1D2B;
   font-family: "Montserrat", sans-serif; }
-.container .btn {
+#listar-clientes .container .btn {
   font-size: 15px;
   display: flex;
   justify-content: center;
@@ -22,51 +22,73 @@ Text Definitions
   margin: 5px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400; }
-.container .btn-inadimplente {
+#listar-clientes .container .btn-inadimplente {
   background-color: #FFFFFF;
   color: #0F1D2B;
   border: 1px solid #0F1D2B;
   border-radius: 10px; }
-  .container .btn-inadimplente:hover {
+  #listar-clientes .container .btn-inadimplente:hover {
     background-color: #f1f2f3; }
-  .container .btn-inadimplente .MuiSvgIcon-root {
+  #listar-clientes .container .btn-inadimplente .MuiSvgIcon-root {
     color: #2D4297; }
-.container .btn-criar {
+#listar-clientes .container .btn-criar {
   background-color: #2D4297;
   color: #FFFFFF;
   border: 1px solid #2D4297;
   border-radius: 10px;
   transition: .4s; }
-  .container .btn-criar:hover {
+  #listar-clientes .container .btn-criar:hover {
     background-color: #1d2b64; }
-  .container .btn-criar .MuiSvgIcon-root {
+  #listar-clientes .container .btn-criar .MuiSvgIcon-root {
     color: #FFFFFF; }
-.container .btn-action:hover {
+#listar-clientes .container .btn-action:hover {
   background-color: #e7e8e9; }
-.container .table .infos-titles {
-  background-color: #2D4297; }
-  .container .table .infos-titles .text {
-    color: #FFFFFF;
+#listar-clientes .container .table-responsive {
+  overflow-x: hidden;
+  padding-bottom: 30px; }
+  #listar-clientes .container .table-responsive .infos-titles {
+    background-color: #2D4297; }
+    #listar-clientes .container .table-responsive .infos-titles .text {
+      color: #FFFFFF;
+      font-size: 15px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600; }
+    #listar-clientes .container .table-responsive .infos-titles .conf {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  #listar-clientes .container .table-responsive .infos-body .row:nth-of-type(2n+1) {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 1px solid #FFFFFF; }
+  #listar-clientes .container .table-responsive .infos-body .text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: uppercase; }
+  #listar-clientes .container .table-responsive .infos-body .text-id {
+    width: 20px; }
+  #listar-clientes .container .table-responsive .infos-body .btn-carros {
+    border: 1px solid #6c757d;
     font-size: 15px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600; }
-  .container .table .infos-titles th {
-    border: none; }
-.container .table .infos-body .text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  text-transform: uppercase; }
-.container .table .infos-body .btn-carros {
-  border: 1px solid #6c757d;
-  font-size: 15px;
-  font-family: "Montserrat", sans-serif;
-  color: #0F1D2B; }
-  .container .table .infos-body .btn-carros:hover {
-    background-color: #e7e8e9;
-    transition: .4s; }
-
-.pagination .page-item .page-link {
+    color: #0F1D2B; }
+    #listar-clientes .container .table-responsive .infos-body .btn-carros:hover {
+      background-color: #e7e8e9;
+      transition: .4s; }
+  #listar-clientes .container .table-responsive .infos-body .conf {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #listar-clientes .container .table-responsive .infos-body .in {
+    display: block !important; }
+  #listar-clientes .container .table-responsive .infos-body .collapse .infos-collapse {
+    background-color: #1d2b64;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif; }
+#listar-clientes .pagination .page-item .page-link {
   color: #2D4297;
   border: 1px solid #2D4297;
   background-color: #FFFFFF;
@@ -76,14 +98,9 @@ Text Definitions
   font-size: 15px;
   font-family: "Montserrat";
   font-weight: 600; }
-  .pagination .page-item .page-link:hover {
+  #listar-clientes .pagination .page-item .page-link:hover {
     background-color: #2D4297;
     transition: .4s;
     color: #FFFFFF; }
-
-
-  .in {
-      display: block !important;
-  }
 
 /*# sourceMappingURL=ListarClientes.css.map */

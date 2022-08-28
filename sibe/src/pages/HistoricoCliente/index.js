@@ -3,27 +3,36 @@ import React, { useEffect, useState } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import './ListarLocacoes.css';
+import './HistoricoCliente.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const Locacoes = () => {
+const HistoricoCliente = (props) => {
 
-    const [locacoes, setLocacoes] = useState([]);
+    const [historico, setHistorico] = useState([]);
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
 
     useEffect(() => {
         (
             async () => {
-                const { data } = await axios.get(`locacoes?page=${page}`);
 
-                setLocacoes(data);
+                console.log("historico")
+                console.log(props.match.params.cliente_id)
 
-                locacoes.sort((a, b) => b.locacao_id - a.locacao_id);
-                console.log(locacoes);
+                var { data } = await axios.get(`historico/${props.match.params.cliente_id}`)
+    
+                if (props.match.params.cliente_id != null){
+                    data = await axios.get(`historico/${props.match.params.cliente_id}`)
+                    setHistorico(data.data[0]);
+                }
+
+                
+
+                //historico.sort((a, b) => b.cliente_id - a.cliente_id);
+                //console.log(historico);
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
             }
@@ -68,48 +77,45 @@ const Locacoes = () => {
                 <div className="container tabela-lista-agendamentos">
                     <div className="row">
                         <div className="col-lg-6 py-5">
-                            <h2 className="subtitle">Agendamentos</h2>
+                            <h2 className="subtitle">Histórico do Cliente</h2>
                         </div>
                         <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
-                            <a className="btn btn-inadimplente"> <CheckCircleIcon />Agendamentos</a>
-                            <NavLink to={'/cadastroLocacao'} className="nav-link"><a className="btn btn-criar"> <AddCircleIcon /> Criar Agendamento</a></NavLink>
+                            {/* <a className="btn btn-inadimplente"> <CheckCircleIcon />Agendamentos</a> */}
+                            <NavLink to={'/clientes'}  className="nav-link"><a className="btn btn-criar"> Ir para Clientes</a></NavLink>
                         </div>
                         <div className="col-12">
+                            <h3>Agendamentos</h3>
                             <div className="table-responsive">
                                 <table className="table table-striped table-sm">
                                     <thead className="infos-titles">
                                         <tr>
-                                            <th className="text">#</th>
-                                            <th className="text">Nome do Cliente</th>
                                             <th className="text">Placa Carro</th>
                                             <th className="text">Placa Carreta</th>
                                             <th className="text">Data Prevista Saída</th>
                                             <th className="text">Data Prevista Entrada</th>
                                             <th className="text">Valor</th>
                                             <th className="text">Status</th>
-                                            <th className="text">Ações</th>
+                                            {/* <th className="text">Ações</th> */}
                                         </tr>
                                     </thead>
                                     <tbody className="infos-body">
-                                        {locacoes.sort((a, b) => b.locacao_id - a.locacao_id).map((locacao) => {
+                                        {historico.sort((a, b) => b.cliente_id - a.cliente_id).map((historico) => {
                                             return (
-                                                <tr key={locacao.locacao_id}>
-                                                    <td className="text">{locacao.locacao_id}</td>
-                                                    <td className="text">{locacao.nome}</td>
-                                                    <td className="text">{locacao.placa_carro}</td>
-                                                    <td className="text">{locacao.placa_carreta}</td>
-                                                    <td className="text">{locacao.data_prevista_saida}</td>
-                                                    <td className="text">{locacao.data_prevista_entrada}</td>
-                                                    <td className="text">R$ {locacao.preco_total}</td>
-                                                    <td className="text">{locacao.status}</td>
-                                                    <td>
+                                                <tr key={historico.cliente_id}>
+                                                    <td className="text">{historico.placa_carro}</td>
+                                                    <td className="text">{historico.placa_carreta}</td>
+                                                    <td className="text">{historico.data_prevista_saida}</td>
+                                                    <td className="text">{historico.data_prevista_entrada}</td>
+                                                    <td className="text">R$ {historico.preco_total}</td>
+                                                    <td className="text">{historico.status}</td>
+                                                    {/* <td>
                                                         <div className='btn-group mr-2'>
-                                                            <Link to={`/locacao/${locacao.locacao_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
+                                                            <Link to={`/locacao/${historico.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
                                                             <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
-                                                                onClick={() => del(locacao.locacao_id)}
+                                                                onClick={() => del(historico.cliente_id)}
                                                             ><DeleteIcon /></a>
                                                         </div>
-                                                    </td>
+                                                    </td> */}
                                                 </tr>
                                             )
                                         })}
@@ -148,4 +154,4 @@ const Locacoes = () => {
     );
 }
 
-export default Locacoes;
+export default HistoricoCliente;

@@ -1,6 +1,6 @@
 import React, { Component, SyntheticEvent, useState, useEffect } from 'react';
 import Wrapper from '../../components/wrapper/wrapper';
-import "./CadastroLocacao.css";
+import "../../assets/scss/cadastros.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -9,10 +9,10 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 
- 
+
 const localizer = momentLocalizer(moment)
 
-const CadastroLocacao= (props) => {
+const CadastroLocacao = (props) => {
 
     const [data_entrada, setDataEntrada] = useState("01/01/1900");
     const [data_prevista_entrada, setDataPrevistaEntrada] = useState("");
@@ -33,11 +33,11 @@ const CadastroLocacao= (props) => {
             async () => {
                 const { data } = await axios.get(`locacoes`);
 
-                var arrayLocacoesBlock= []
+                var arrayLocacoesBlock = []
                 data.forEach(function (arrayItem) {
                     var arrayDatasBloqueadas = []
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
-                        
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
+
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
                     var y = {
@@ -59,9 +59,9 @@ const CadastroLocacao= (props) => {
             async () => {
                 const { data } = await axios.get(`locacoes`);
 
-                var arrayDatasBloqueadas= []
+                var arrayDatasBloqueadas = []
                 data.forEach(function (arrayItem) {
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
                 });
@@ -76,22 +76,22 @@ const CadastroLocacao= (props) => {
         (
             async () => {
                 const { data } = await axios.get(`locacoes`);
-                
+
                 setLocacoes(data);
 
                 locacoes.sort((a, b) => b.locacao_id - a.locacao_id);
 
                 var arrayEvent = []
-                var arrayDatasBloqueadas= []
+                var arrayDatasBloqueadas = []
                 data.forEach(function (arrayItem) {
                     //var x = getDaysArray(new Date(arrayItem.data_prevista_saida),new Date(arrayItem.data_prevista_entrada));
                     var x = {
                         start: new Date(arrayItem.data_prevista_saida),
                         end: new Date(arrayItem.data_prevista_entrada),
-                        title: "Cliente: " + arrayItem.nome + " Carro: " + arrayItem.placa_carro + " Carreta: " +  arrayItem.placa_carreta
-                      }
+                        title: "Cliente: " + arrayItem.nome + " Carro: " + arrayItem.placa_carro + " Carreta: " + arrayItem.placa_carreta
+                    }
 
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
 
@@ -110,27 +110,27 @@ const CadastroLocacao= (props) => {
 
         )()
     });
-        
-       
+
+
 
     const state = {
         events: [
-          {
-            start: moment().toDate(),
-            end: moment()
-              .add(1, "days")
-              .toDate(),
-            title: "Some title"
-          }
+            {
+                start: moment().toDate(),
+                end: moment()
+                    .add(1, "days")
+                    .toDate(),
+                title: "Some title"
+            }
         ]
-      };
+    };
 
 
     useEffect(() => {
         (
             async () => {
                 const { data } = await axios.get(`locacoes`);
-                
+
                 setLocacoes(data);
 
                 locacoes.sort((a, b) => b.locacao_id - a.locacao_id);
@@ -158,7 +158,7 @@ const CadastroLocacao= (props) => {
 
                 // setEventos(arrayEvent);
                 //console.log(eventos);
-            
+
                 // const isBlocked = day => {
                 //     const availableDates = [];
                 //     locacoes.forEach(function (arrayItem) {
@@ -216,46 +216,46 @@ const CadastroLocacao= (props) => {
         //e.preventDefault()
         var data_prevista_saida_d = new Date(e);
         data_prevista_saida_d.setDate(data_prevista_saida_d.getDate() + 1);
-        var data_prevista_saida_s = data_prevista_saida_d.getFullYear()+'-'+(data_prevista_saida_d.getMonth()+1)+'-'+data_prevista_saida_d.getDate();
+        var data_prevista_saida_s = data_prevista_saida_d.getFullYear() + '-' + (data_prevista_saida_d.getMonth() + 1) + '-' + data_prevista_saida_d.getDate();
         console.log(data_prevista_saida_s);
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         //console.log(datasBloqueadas.indexOf(data_prevista_saida_d) >= 0);
         //console.log(datasBloqueadas);
 
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta){
+            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
                 // console.log(arrayItem.placa_carreta);
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
                     console.log("DATA: " + dataItem + "DATA_PRETENDIDA: " + data_prevista_saida_d);
-                    var data_alugada = dataItem.getFullYear()+'-'+(dataItem.getMonth()+1)+'-'+dataItem.getDate();
-                    if (data_prevista_saida_s == data_alugada){
+                    var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
+                    if (data_prevista_saida_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_saida').value = '';
                     }
-                    if (data_prevista_saida_s == data_alugada){
+                    if (data_prevista_saida_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_saida').value = '';
                     }
-                    
+
                 });
             }
-            
+
         });
 
         //console.log(flagDatas);
 
-        if (data_prevista_saida_d < today){
+        if (data_prevista_saida_d < today) {
             window.confirm('Data de Saída precisa ser maior ou igual a data atual.')
         } else if (flagDatas) {
             window.confirm('Data Bloqueada por Outro Agendamento Verificar Calendário.')
-            
+
         } else {
             setDataPrevistaSaida(e);
         }
-        
+
         // const { data } = await axios.get('carretas/placa/' + placa);
         // console.log(data);
         // if (!data) {
@@ -281,50 +281,50 @@ const CadastroLocacao= (props) => {
         //e.preventDefault()
         var data_prevista_entrada_d = new Date(e);
         data_prevista_entrada_d.setDate(data_prevista_entrada_d.getDate() + 1);
-        var data_prevista_entrada_s = data_prevista_entrada_d.getFullYear()+'-'+(data_prevista_entrada_d.getMonth()+1)+'-'+data_prevista_entrada_d.getDate();
+        var data_prevista_entrada_s = data_prevista_entrada_d.getFullYear() + '-' + (data_prevista_entrada_d.getMonth() + 1) + '-' + data_prevista_entrada_d.getDate();
         console.log(data_prevista_entrada_s);
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         //console.log(datasBloqueadas.indexOf(data_prevista_entrada_d) >= 0);
         //console.log(datasBloqueadas);
 
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta){
+            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
                 // console.log(arrayItem.placa_carreta);
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
                     console.log("DATA: " + dataItem + "DATA_PRETENDIDA: " + data_prevista_entrada_d);
-                    var data_alugada = dataItem.getFullYear()+'-'+(dataItem.getMonth()+1)+'-'+dataItem.getDate();
-                    if (data_prevista_entrada_s == data_alugada){
+                    var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
+                    if (data_prevista_entrada_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_entrada').value = '';
                     }
-                    if (data_prevista_entrada_s == data_alugada){
+                    if (data_prevista_entrada_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_entrada').value = '';
                     }
-                    
+
                 });
             }
-            
+
         });
 
         //console.log(flagDatas);
 
-        if (data_prevista_entrada_d < today){
+        if (data_prevista_entrada_d < today) {
             window.confirm('Data de Saída precisa ser maior ou igual a data atual.')
         } else if (flagDatas) {
             window.confirm('Data Bloqueada por Outro Agendamento Verificar Calendário.')
-            
-        } else if (document.getElementById('data_prevista_entrada').value < document.getElementById('data_prevista_saida').value){
+
+        } else if (document.getElementById('data_prevista_entrada').value < document.getElementById('data_prevista_saida').value) {
             window.confirm('Data de Retorno precisa ser maior ou igual a data de Saída.')
             document.getElementById('data_prevista_entrada').value = '';
 
         } else {
             setDataPrevistaEntrada(e);
         }
-        
+
         // const { data } = await axios.get('carretas/placa/' + placa);
         // console.log(data);
         // if (!data) {
@@ -346,122 +346,120 @@ const CadastroLocacao= (props) => {
 
     }
 
-    if (redirectHome == true) {
-        return <Redirect to={'/'}></Redirect>
-    } else if (redirectCadastroLocacao == true) {
+    if (redirectHome === true) {
+        return <Redirect to={'/locacoes'}></Redirect>
+    } else if (redirectCadastroLocacao === true) {
         return <Redirect to={'/cadastroLocacao'}></Redirect>
     }
 
     return (
         <Wrapper>
-            <div id="cadastro-carreta">
-                <div className="login-box bg-light">
-                    <div className="form-cadastro">
-                        <div class="container">
-                            <form className="register-form" onSubmit={handleSubmit}>
-                                <div className="row">
-                                    <div className="col-12">
-                                        <h1 className="title">Agendamento</h1>
+            <div className="login-box bg-light">
+                <div className="form-cadastro">
+                    <div className="container">
+                        <form className="register-form" onSubmit={handleSubmit}>
+                            <div className="row">
+                                <div className="col-12">
+                                    <h1 className="title">Agendamento</h1>
+                                </div>
+                                <div className="col-12">
+                                    <h2 className="subtitle">Dados Básicos</h2>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="forms-input">
+                                        <label className="labels">Placa do Veículo do Cliente</label>
+                                        <input
+                                            id="placa_veiculo"
+                                            className="form-field form-lg"
+                                            type="float"
+                                            placeholder="Informe a Placa do Cliente"
+                                            name="placa_veiculo"
+                                            maxlength="15"
+                                            onChange={e => setPlacaVeiculo(e.target.value)}
+                                            required
+                                        />
                                     </div>
-                                    <div className="col-12">
-                                        <h2 className="subtitle">Dados Básicos</h2>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="forms-input">
+                                        <label className="labels">Placa da Carreta</label>
+                                        <input
+                                            id="placa_carreta"
+                                            className="form-field form-lg"
+                                            type="float"
+                                            placeholder="Informe a Placa da Carreta"
+                                            name="placa_carreta"
+                                            maxlength="15"
+                                            onChange={e => setPlacaCarreta(e.target.value)}
+                                            required
+                                        />
                                     </div>
-                                    <div className='col-lg-6'>
-                                        <div className="forms-input">
-                                            <label className="labels">Placa do Veículo do Cliente</label>
-                                            <input
-                                                id="placa_veiculo"
-                                                class="form-field form-lg"
-                                                type="float"
-                                                placeholder="Informe a Placa do Cliente"
-                                                name="placa_veiculo"
-                                                maxlength="15"
-                                                onChange={e => setPlacaVeiculo(e.target.value)}
-                                                required
-                                            />
-                                        </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="forms-input">
+                                        <label className='labels'>Data Prevista de Saída</label>
+                                        <input
+                                            id="data_prevista_saida"
+                                            className="form-field"
+                                            type="date"
+                                            name="data_prevista_saida"
+                                            onChange={e => checarDatas_saida(e.target.value)}
+                                            required
+                                        />
+
                                     </div>
-                                    <div className='col-lg-6'>
-                                        <div className="forms-input">
-                                            <label className="labels">Placa da Carreta</label>
-                                            <input
-                                                id="placa_carreta"
-                                                class="form-field form-lg"
-                                                type="float"
-                                                placeholder="Informe a Placa da Carreta"
-                                                name="placa_carreta"
-                                                maxlength="15"
-                                                onChange={e => setPlacaCarreta(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="forms-input">
-                                            <label className='labels'>Data Prevista de Saída</label>
-                                            <input
-                                                id="data_prevista_saida"
-                                                class="form-field"
-                                                type="date"
-                                                name="data_prevista_saida"
-                                                onChange={e => checarDatas_saida(e.target.value)}
-                                                required
-                                            />
-                                            
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="forms-input">
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="forms-input">
                                         <label className='labels'>Data Prevista de Retorno</label>
-                                            <input
-                                                id="data_prevista_entrada"
-                                                class="form-field"
-                                                type="date"
-                                                name="data_prevista_entrada"
-                                                onChange={e => checarDatas_entrada(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="col-lg-12">
-                                 
-                                            <Calendar
-                                                localizer={localizer}
-                                                defaultDate={new Date()}
-                                                defaultView="month"
-                                                events={eventos}
-                                                style={{ height: "50vh" }}
-                                            />
-                                      
-                                    </div>
-                                    <div className='col-lg-6'>
-                                        <div className="forms-input">
-                                            <label className="labels">Valor da Locação</label>
-                                            <input
-                                                id="preco_total"
-                                                class="form-field form-lg"
-                                                type="float"
-                                                placeholder="Informe o Preço da Locação"
-                                                name="preco_total"
-                                                maxlength="15"
-                                                onChange={e => setPrecoTotal(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div className="row pt-lg-4">
-                                    <div className="col d-flex justify-content-center">
-                                        <button class="form-field button-submit" type="submit" >
-                                            {/* onClick={this.onClickCadastrar} */}
-                                            Cadastrar
-                                        </button>
+                                        <input
+                                            id="data_prevista_entrada"
+                                            className="form-field"
+                                            type="date"
+                                            name="data_prevista_entrada"
+                                            onChange={e => checarDatas_entrada(e.target.value)}
+                                            required
+                                        />
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+
+                                <div className="col-lg-12 py-lg-5 my-lg-3">
+
+                                    <Calendar
+                                        localizer={localizer}
+                                        defaultDate={new Date()}
+                                        defaultView="month"
+                                        events={eventos}
+                                        style={{ height: "100vh" }}
+                                    />
+
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="forms-input">
+                                        <label className="labels">Valor da Locação</label>
+                                        <input
+                                            id="preco_total"
+                                            className="form-field form-lg"
+                                            type="float"
+                                            placeholder="Informe o Preço da Locação"
+                                            name="preco_total"
+                                            maxlength="15"
+                                            onChange={e => setPrecoTotal(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="row pt-lg-4">
+                                <div className="col d-flex justify-content-center">
+                                    <button className="form-field button-submit" type="submit" >
+                                        {/* onClick={this.onClickCadastrar} */}
+                                        Cadastrar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

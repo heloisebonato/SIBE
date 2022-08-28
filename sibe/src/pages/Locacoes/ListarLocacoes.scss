@@ -1,99 +1,105 @@
 @import "../../assets/scss/variaveis.scss";
 
 
-.container {
-    .subtitle {
-        font-size: $font--primary-title;
-        font-weight: $weight--medium;
-        color: $primary-dark;
-        font-family: $font--family, sans-serif;
+#listar-agendamentos {
+    .container {
+        .subtitle {
+            font-size: $font--primary-title;
+            font-weight: $weight--medium;
+            color: $primary-dark;
+            font-family: $font--family, sans-serif;
+        }
+
+        .btn {
+            font-size: $font--items;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            font-family: $font--family, sans-serif;
+            font-weight: $weight--small;
+        }
+
+        .btn-inadimplente {
+            background-color: $white;
+            color: $primary-dark;
+            border: 1px solid $primary-dark;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: $primary-light;
+            }
+
+            .MuiSvgIcon-root {
+                color: $blue;
+            }
+        }
+
+        .btn-criar {
+            background-color: $blue;
+            color: $white;
+            border: 1px solid $blue;
+            border-radius: 10px;
+            transition: .4s;
+
+            &:hover {
+                background-color: $blue--dark;
+            }
+
+            .MuiSvgIcon-root {
+                color: $white;
+            }
+        }
+
+        .btn-action:hover {
+            background-color: #e7e8e9;
+        }
+
+        .table {
+            .infos-titles {
+                background-color: $blue;
+                width: 100%;
+
+                .text {
+                    color: $white;
+                    font-size: $font--items3;
+                    font-family: $font--family, sans-serif;
+                    font-weight: $weight--medium;
+                }
+
+                th {
+                    border: none;
+                }
+            }
+
+            .infos-body {
+                .text {
+                    font-family: $font--family, sans-serif;
+                    font-weight: $weight--small;
+                    font-size: $font--items;
+                    text-transform: uppercase;
+                    width: 300px;
+                    padding-top: 20px;
+                }
+            }
+        }
     }
 
-    .btn {
-        font-size: $font--items;
+    .pagination .page-item .page-link {
+        color: $blue;
+        border: 1px solid $blue;
+        background-color: $white;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 5px;
-        font-family: $font--family, sans-serif;
-        font-weight: $weight--small;
-    }
-
-    .btn-inadimplente {
-        background-color: $white;
-        color: $primary-dark;
-        border: 1px solid $primary-dark;
-        border-radius: 10px;
+        font-size: $font--items;
+        font-family: $font--family;
+        font-weight: $weight--medium;
 
         &:hover {
-            background-color: $primary-light;
-        }
-
-        .MuiSvgIcon-root {
-            color: $blue;
-        }
-    }
-
-    .btn-criar {
-        background-color: $blue;
-        color: $white;
-        border: 1px solid $blue;
-        border-radius: 10px;
-        transition: .4s;
-
-        &:hover {
-            background-color: $blue--dark;
-        }
-
-        .MuiSvgIcon-root {
+            background-color: $blue;
+            transition: .4s;
             color: $white;
         }
-    }
-
-    .btn-action:hover {
-        background-color: #e7e8e9;
-    }
-
-    .table {
-        .infos-titles {
-            background-color: $blue;
-
-            .text {
-                color: $white;
-                font-size: $font--items;
-                font-family: $font--family, sans-serif;
-                font-weight: $weight--medium;
-            }
-
-            th {
-                border: none;
-            }
-        }
-
-        .infos-body {
-            .text {
-                font-family: $font--family, sans-serif;
-                font-weight: $weight--small;
-                font-size: $font--items;
-                text-transform: uppercase;
-            }
-        }
-    }
-}
-.pagination .page-item .page-link{
-    color: $blue;
-    border: 1px solid $blue;
-    background-color: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: $font--items;
-    font-family: $font--family;
-    font-weight: $weight--medium;
-
-    &:hover{
-        background-color: $blue;
-        transition: .4s;
-        color: $white;
     }
 }

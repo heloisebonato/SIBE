@@ -235,31 +235,59 @@ export const DeleteCarreta = async (req: Request, res: Response) => {
 
 export const GetInfoPesquisar = async (req: Request, res: Response) => {
 
-    const repository_carreta = getManager().getRepository(Carreta);
-    
-    const carreta = await repository_carreta.findOne({
-        where: { 
-            placa: req.params.valor 
-        }
 
-        });
-    
-    if (carreta != null){
-        res.send(carreta);
-    }
-    
-    const repository_cliente = getManager().getRepository(Cliente);
+    const query = `call filterSearch('` + req.params.valor + `');`;
 
-    const cliente = await repository_cliente.findOne({
-        where: { 
-            cpf: req.params.valor 
-        }
+    const rawData = await getManager().query(query);
 
-        });
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+    // const repository_carreta = getManager().getRepository(Carreta);
     
-    if (cliente != null){
-        res.send(cliente);
-    }
+    // const carreta = await repository_carreta.findOne({
+    //     where: { 
+    //         placa: req.params.valor 
+    //     }
+
+    //     });
+    
+    // if (carreta != null){
+    //     res.send(carreta);
+    // }
+    
+    // const repository_cliente = getManager().getRepository(Cliente);
+
+    // const clienteCpf = await repository_cliente.findOne({
+    //     where: { 
+    //         cpf: req.params.valor
+    //     }
+
+    //     });
+    
+    // if (clienteCpf != null){
+    //     res.send(clienteCpf);
+    // }
+
+    // const clienteNome = await repository_cliente.findOne({
+    //     where: { 
+    //         nome: req.params.valor
+    //     }
+
+    //     });
+    
+    // if (clienteNome != null){
+    //     res.send(clienteNome);
+    // }
 
     //res.status(404).send(null);
 }

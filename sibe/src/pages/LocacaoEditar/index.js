@@ -9,7 +9,7 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 
- 
+
 const localizer = momentLocalizer(moment)
 
 const LocacaoEditar = (props) => {
@@ -34,11 +34,11 @@ const LocacaoEditar = (props) => {
             async () => {
                 const { data } = await axios.get(`locacoes`);
 
-                var arrayLocacoesBlock= []
+                var arrayLocacoesBlock = []
                 data.forEach(function (arrayItem) {
                     var arrayDatasBloqueadas = []
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
-                        
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
+
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
                     var y = {
@@ -60,9 +60,9 @@ const LocacaoEditar = (props) => {
             async () => {
                 const { data } = await axios.get(`locacoes`);
 
-                var arrayDatasBloqueadas= []
+                var arrayDatasBloqueadas = []
                 data.forEach(function (arrayItem) {
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
                 });
@@ -77,22 +77,22 @@ const LocacaoEditar = (props) => {
         (
             async () => {
                 const { data } = await axios.get(`locacoes`);
-                
+
                 setLocacoes(data);
 
                 locacoes.sort((a, b) => b.locacao_id - a.locacao_id);
 
                 var arrayEvent = []
-                var arrayDatasBloqueadas= []
+                var arrayDatasBloqueadas = []
                 data.forEach(function (arrayItem) {
                     //var x = getDaysArray(new Date(arrayItem.data_prevista_saida),new Date(arrayItem.data_prevista_entrada));
                     var x = {
                         start: new Date(arrayItem.data_prevista_saida),
                         end: new Date(arrayItem.data_prevista_entrada),
-                        title: "Cliente: " + arrayItem.nome + " Carro: " + arrayItem.placa_carro + " Carreta: " +  arrayItem.placa_carreta
-                      }
+                        title: "Cliente: " + arrayItem.nome + " Carro: " + arrayItem.placa_carro + " Carreta: " + arrayItem.placa_carreta
+                    }
 
-                    for(var arr=[],dt=new Date(arrayItem.data_prevista_saida); dt<=new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate()+1)){
+                    for (var arr = [], dt = new Date(arrayItem.data_prevista_saida); dt <= new Date(arrayItem.data_prevista_entrada); dt.setDate(dt.getDate() + 1)) {
                         arrayDatasBloqueadas.push(new Date(dt));
                     }
 
@@ -113,7 +113,7 @@ const LocacaoEditar = (props) => {
     });
 
 
-    const getLocacoes= async () => {
+    const getLocacoes = async () => {
 
         const { data } = await axios.get('locacoes/');
 
@@ -168,37 +168,37 @@ const LocacaoEditar = (props) => {
         //e.preventDefault()
         var data_prevista_saida_d = new Date(e);
         data_prevista_saida_d.setDate(data_prevista_saida_d.getDate() + 1);
-        var data_prevista_saida_s = data_prevista_saida_d.getFullYear()+'-'+(data_prevista_saida_d.getMonth()+1)+'-'+data_prevista_saida_d.getDate();
+        var data_prevista_saida_s = data_prevista_saida_d.getFullYear() + '-' + (data_prevista_saida_d.getMonth() + 1) + '-' + data_prevista_saida_d.getDate();
         console.log(data_prevista_saida_s);
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta){
+            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
                     console.log("DATA: " + dataItem + "DATA_PRETENDIDA: " + data_prevista_saida_d);
-                    var data_alugada = dataItem.getFullYear()+'-'+(dataItem.getMonth()+1)+'-'+dataItem.getDate();
-                    if (data_prevista_saida_s == data_alugada){
+                    var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
+                    if (data_prevista_saida_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_saida').value = '';
                     }
-                    if (data_prevista_saida_s == data_alugada){
+                    if (data_prevista_saida_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_saida').value = '';
                     }
-                    
+
                 });
             }
-            
+
         });
 
-        if (data_prevista_saida_d < today){
+        if (data_prevista_saida_d < today) {
             window.confirm('Data de Saída precisa ser maior ou igual a data atual.')
         } else if (flagDatas) {
             window.confirm('Data Bloqueada por Outro Agendamento Verificar Calendário.')
-            
+
         } else {
             setDataPrevistaSaida(e);
         }
@@ -209,37 +209,37 @@ const LocacaoEditar = (props) => {
         //e.preventDefault()
         var data_prevista_entrada_d = new Date(e);
         data_prevista_entrada_d.setDate(data_prevista_entrada_d.getDate() + 1);
-        var data_prevista_entrada_s = data_prevista_entrada_d.getFullYear()+'-'+(data_prevista_entrada_d.getMonth()+1)+'-'+data_prevista_entrada_d.getDate();
+        var data_prevista_entrada_s = data_prevista_entrada_d.getFullYear() + '-' + (data_prevista_entrada_d.getMonth() + 1) + '-' + data_prevista_entrada_d.getDate();
         console.log(data_prevista_entrada_s);
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta){
+            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
-                    var data_alugada = dataItem.getFullYear()+'-'+(dataItem.getMonth()+1)+'-'+dataItem.getDate();
-                    if (data_prevista_entrada_s == data_alugada){
+                    var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
+                    if (data_prevista_entrada_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_entrada').value = '';
                     }
-                    if (data_prevista_entrada_s == data_alugada){
+                    if (data_prevista_entrada_s === data_alugada) {
                         flagDatas = true;
                         document.getElementById('data_prevista_entrada').value = '';
                     }
-                    
+
                 });
             }
-            
+
         });
 
-        if (data_prevista_entrada_d < today){
+        if (data_prevista_entrada_d < today) {
             window.confirm('Data de Saída precisa ser maior ou igual a data atual.')
         } else if (flagDatas) {
             window.confirm('Data Bloqueada por Outro Agendamento Verificar Calendário.')
-            
-        } else if (document.getElementById('data_prevista_entrada').value < document.getElementById('data_prevista_saida').value){
+
+        } else if (document.getElementById('data_prevista_entrada').value < document.getElementById('data_prevista_saida').value) {
             window.confirm('Data de Retorno precisa ser maior ou igual a data de Saída.')
             document.getElementById('data_prevista_entrada').value = '';
 
@@ -249,15 +249,15 @@ const LocacaoEditar = (props) => {
 
     }
 
-    if (redirectHome == true) {
-        return <Redirect to={'/'}></Redirect>
-    } else if (redirectCadastroLocacao == true) {
+    if (redirectHome === true) {
+        return <Redirect to={'/locacoes'}></Redirect>
+    } else if (redirectCadastroLocacao === true) {
         return <Redirect to={'/cadastroLocacao'}></Redirect>
     }
 
     return (
         <Wrapper>
-            <div id="cadastro-carreta">
+            <div id="editar-locacao">
                 <div className="login-box bg-light">
                     <div className="form-cadastro">
                         <div class="container">
@@ -274,22 +274,22 @@ const LocacaoEditar = (props) => {
                                             <label className='labels'>Data Prevista de Saída</label>
                                             <input
                                                 id="data_prevista_saida"
-                                                class="form-field"
+                                                className="form-field"
                                                 type="date"
                                                 name="data_prevista_saida"
                                                 onChange={e => checarDatas_saida(e.target.value)}
                                                 defaultValue={data_prevista_saida}
                                                 required
                                             />
-                                            
+
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="forms-input">
-                                        <label className='labels'>Data Prevista de Retorno</label>
+                                            <label className='labels'>Data Prevista de Retorno</label>
                                             <input
                                                 id="data_prevista_entrada"
-                                                class="form-field"
+                                                className="form-field"
                                                 type="date"
                                                 name="data_prevista_entrada"
                                                 onChange={e => checarDatas_entrada(e.target.value)}
@@ -298,23 +298,23 @@ const LocacaoEditar = (props) => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="col-lg-12">
-                                 
-                                            <Calendar
-                                                localizer={localizer}
-                                                defaultDate={new Date()}
-                                                defaultView="month"
-                                                events={eventos}
-                                                style={{ height: "50vh" }}
-                                            />
-                                      
+                                    <div className="col-lg-12 py-lg-5 my-lg-4">
+
+                                        <Calendar
+                                            localizer={localizer}
+                                            defaultDate={new Date()}
+                                            defaultView="month"
+                                            events={eventos}
+                                            style={{height: "100vh"}}
+                                        />
+
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="forms-input">
                                             <label className="labels">Valor da Locação</label>
                                             <input
                                                 id="preco_total"
-                                                class="form-field form-lg"
+                                                className="form-field form-lg"
                                                 type="float"
                                                 placeholder="Informe o Preço da Locação"
                                                 name="preco_total"
@@ -330,7 +330,7 @@ const LocacaoEditar = (props) => {
                                             <label className="labels">Placa do Veículo do Cliente</label>
                                             <input
                                                 id="placa_veiculo"
-                                                class="form-field form-lg"
+                                                className="form-field form-lg"
                                                 type="float"
                                                 placeholder="Informe a Placa do Cliente"
                                                 name="placa_veiculo"
@@ -344,7 +344,7 @@ const LocacaoEditar = (props) => {
                                     <div className='col-lg-6'>
                                         <div className="forms-input">
                                             <label className="labels">Status</label>
-                                            <select class="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} required >
+                                            <select className="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} required >
                                                 <option value="">Selecione</option>
                                                 <option value="agendado">Agendado</option>
                                                 <option value="operante">Operante</option>

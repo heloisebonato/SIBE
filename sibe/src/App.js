@@ -23,6 +23,7 @@ import CadastroLocacao from './pages/CadastroLocacao';
 import Locacoes from './pages/Locacoes';
 import LocacaoEditar from './pages/LocacaoEditar';
 import CarroEditar from './pages/CarroEditar';
+import HistoricoCliente from './pages/HistoricoCliente';
 
 
 export default function App() {
@@ -54,7 +55,9 @@ export default function App() {
 
 
       <Route exact path={'/clientes/cpf/:cpf'} component={Clientes}/> 
-      <Route exact path={'/carretas/placa/:placa'} component={Carretas}/>      
+      <Route exact path={'/carretas/placa/:placa'} component={Carretas}/>  
+
+      <Route exact path={'/historico/:cliente_id'} component={HistoricoCliente}/>     
 
       
       </BrowserRouter>

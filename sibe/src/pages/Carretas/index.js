@@ -28,7 +28,7 @@ const Carretas = (props) => {
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
 
-                console.log(props.match.params.placa);
+                //console.log(props.match.params.placa);
 
                 var { data } = await axios.get(`carretas?page=${page}`);
 
@@ -105,6 +105,7 @@ const Carretas = (props) => {
                                         <th className="text">Tipo</th>
                                         <th className="text">Preço</th>
                                         <th className="text">Status</th>
+                                        <th className="text">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody className="infos-body">
