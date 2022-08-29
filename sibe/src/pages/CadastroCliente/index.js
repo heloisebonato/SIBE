@@ -1,9 +1,10 @@
-import React, { Component, SyntheticEvent, useState } from "react";
+import React, { useState } from "react";
 import Wrapper from "../../components/wrapper/wrapper";
 import "../../assets/scss/cadastros.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { TextField } from "@mui/material";
+import { Container, FormGroup } from "@material-ui/core";
+import { IMaskInput } from "react-imask";
 
 const CadastroCliente = (props) => {
   const [nome, setNome] = useState("");
@@ -19,8 +20,6 @@ const CadastroCliente = (props) => {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [nome_mae, setNomeMae] = useState("");
-  const [renavam, setRenavam] = useState("");
-  const [placa, setPlaca] = useState("");
 
   const [redirectHome, setRedirectHome] = useState(false);
   const [redirectCadastroCliente, setCadastroCliente] = useState(false);
@@ -46,32 +45,9 @@ const CadastroCliente = (props) => {
   };
   const [inputError, setInputError] = useState("");
 
-  function cpfIsValid() {
-    if (cpf.length !== 11) {
-      setInputError("CPF deve ter 11 dígitos");
-      return;
-    }
-    setInputError("");
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log({
-    //     nome: nome,
-    //     data_nascimento: data_nascimento,
-    //     cnh: cnh,
-    //     cpf: cpf,
-    //     rg: rg,
-    //     cep: cep,
-    //     endereco: endereco,
-    //     n_casa: n_casa,
-    //     cidade: cidade,
-    //     estado: estado,
-    //     nome_mae: nome_mae,
-    //     renavam: renavam,
-    //     placa: placa
 
-    //     });
     const { data } = await axios.get("clientes/cpf/" + cpf);
     console.log(data);
     if (!data) {
@@ -89,8 +65,6 @@ const CadastroCliente = (props) => {
         cidade: cidade,
         estado: estado,
         nome_mae: nome_mae,
-        renavam: renavam,
-        placa: placa,
       });
       console.log(response);
       window.confirm("Cliente cadastrado com sucesso");
@@ -105,8 +79,6 @@ const CadastroCliente = (props) => {
     }
   };
 
-  // render () {
-
   if (redirectHome === true) {
     return <Redirect to={"/Clientes"}></Redirect>;
   } else if (redirectCadastroCliente === true) {
@@ -117,8 +89,8 @@ const CadastroCliente = (props) => {
     <Wrapper>
       <div className="login-box bg-light">
         <div className="form-cadastro">
-          <div class="container">
-            <form className="register-form" onSubmit={handleSubmit}>
+          <Container>
+            <FormGroup className="register-form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-12">
                   <h1 className="title">Cadastro de Novo Cliente</h1>
@@ -158,7 +130,7 @@ const CadastroCliente = (props) => {
                       type="text"
                       placeholder="Digite o telefone celular"
                       name="celular"
-                      maxlength="10"
+                      maxLength="10"
                       onChange={(e) => setCelular(e.target.value)}
                       required
                     />
@@ -166,28 +138,26 @@ const CadastroCliente = (props) => {
                 </div>
                 <div className="col-lg-6">
                   <div className="forms-input">
-                    <TextField>
-                      required value={cpf}
-                      onChange={(e) => setCpf(e.target.value)}
-                      onBlur={cpfIsValid}
-                      error={!!inputError}
-                      helperText={inputError}
-                      label="CPF"
-                      variant="outlined"
-                      margin="normal"
+                    <label className="labels">CPF</label>
+                    <IMaskInput
                       id="cpf"
-                      class="form-field form-lg"
-                    </TextField>
+                      placeholder="Digite o CPF"
+                      className="form-field form-lg"
+                      type="text"
+                      name="cpf"
+                      mask="000.000.000-00"
+                      onChange={(e) => setCpf(e.target.value)}
+                    />
                   </div>
                   <div className="forms-input">
                     <label className="labels">RG</label>
                     <input
                       id="rg"
                       placeholder="Digite o RG"
-                      class="form-field form-md"
+                      className="form-field form-md"
                       type="text"
                       name="rg"
-                      maxlength="15"
+                      maxLength="15"
                       onChange={(e) => setRg(e.target.value)}
                     />
                   </div>
@@ -195,11 +165,11 @@ const CadastroCliente = (props) => {
                     <label className="labels">Telefone (opcional)</label>
                     <input
                       id="telefone"
-                      class="form-field"
+                      className="form-field"
                       type="text"
                       placeholder="Digite o telefone"
                       name="telefone"
-                      maxlength="10"
+                      maxLength="10"
                       onChange={(e) => setTelefone(e.target.value)}
                     />
                   </div>
@@ -212,11 +182,11 @@ const CadastroCliente = (props) => {
                     <label className="labels">CNH</label>
                     <input
                       id="cnh"
-                      class="form-field form-lg"
+                      className="form-field form-lg"
                       type="text"
                       placeholder="Digite a CNH"
                       name="cnh"
-                      maxlength="15"
+                      maxLength="15"
                       onChange={(e) => setCnh(e.target.value)}
                       required
                     />
@@ -227,7 +197,7 @@ const CadastroCliente = (props) => {
                     <label className="labels">Nome da Mãe</label>
                     <input
                       id="nome_mae"
-                      class="form-field form-lg"
+                      className="form-field form-lg"
                       placeholder="Digite o nome da mãe"
                       type="text"
                       name="nome_mae"
@@ -240,7 +210,7 @@ const CadastroCliente = (props) => {
                     <label className="labels">Endereço</label>
                     <input
                       id="endereco"
-                      class="form-field form-xg"
+                      className="form-field form-xg"
                       type="text"
                       placeholder="Digite o endereço"
                       name="endereco"
@@ -253,18 +223,18 @@ const CadastroCliente = (props) => {
                     <label className="labels">CEP</label>
                     <input
                       id="cep"
-                      class="form-field form-md"
+                      className="form-field form-md"
                       type="text"
                       placeholder="Digite o CEP"
                       name="cep"
-                      maxlength="10"
+                      maxLength="10"
                       onChange={(e) => setCep(e.target.value)}
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">Estado</label>
                     <select
-                      class="form-field select-box"
+                      className="form-field select-box"
                       name="estado"
                       id="estado"
                       onChange={(e) => setEstado(e.target.value)}
@@ -305,11 +275,12 @@ const CadastroCliente = (props) => {
                     <label className="labels">Número</label>
                     <input
                       id="n_casa"
-                      class="form-field form-sm"
+                      className="form-field form-sm"
                       type="text"
                       placeholder="Digite o número"
                       name="n_casa"
-                      maxlength="10"
+                      maxL
+                      ength="10"
                       onChange={(e) => setN_casa(e.target.value)}
                     />
                   </div>
@@ -317,7 +288,7 @@ const CadastroCliente = (props) => {
                     <label className="labels">Cidade</label>
                     <input
                       id="cidade"
-                      class="form-field form-md"
+                      className="form-field form-md"
                       type="text"
                       placeholder="Digite a cidade"
                       name="cidade"
@@ -328,14 +299,14 @@ const CadastroCliente = (props) => {
               </div>
               <div className="row pt-lg-4">
                 <div className="col d-flex justify-content-center">
-                  <button class="form-field button-submit" type="submit">
+                  <button className="form-field button-submit" type="submit">
                     {/* onClick={this.onClickCadastrar} */}
                     Cadastrar
                   </button>
                 </div>
               </div>
-            </form>
-          </div>
+            </FormGroup>
+          </Container>
         </div>
       </div>
     </Wrapper>
