@@ -46,54 +46,71 @@ const CadastroCliente = (props) => {
   };
   const [inputError, setInputError] = useState("");
 
-  function cpfIsValid() {
-    if (cpf.length !== 11) {
-      setInputError("CPF deve ter 11 dígitos");
-      return;
+  function cpfIsValid(strCPF) {
+
+    var Soma;
+    var Resto;
+    Soma = 0;
+    if (strCPF == "00000000000") {
+      return false;
     }
-    setInputError("");
+
+    for (var i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+      if ((Resto == 10) || (Resto == 11))  Resto = 0;
+      if (Resto != parseInt(strCPF.substring(9, 10)) ) {
+      return false;
+    }
+
+    Soma = 0;
+    for (var i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+      if ((Resto == 10) || (Resto == 11))  Resto = 0;
+      if (Resto != parseInt(strCPF.substring(10, 11) ) ) {
+      return false;
+    }
+
+    return true;
+
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log({
-    //     nome: nome,
-    //     data_nascimento: data_nascimento,
-    //     cnh: cnh,
-    //     cpf: cpf,
-    //     rg: rg,
-    //     cep: cep,
-    //     endereco: endereco,
-    //     n_casa: n_casa,
-    //     cidade: cidade,
-    //     estado: estado,
-    //     nome_mae: nome_mae,
-    //     renavam: renavam,
-    //     placa: placa
 
-    //     });
     const { data } = await axios.get("clientes/cpf/" + cpf);
     console.log(data);
-    if (!data) {
-      const response = await axios.post("clientes/", {
-        nome: nome,
-        data_nascimento: data_nascimento,
-        telefone: telefone,
-        celular: celular,
-        cnh: cnh,
-        cpf: cpf,
-        rg: rg,
-        cep: cep,
-        endereco: endereco,
-        n_casa: n_casa,
-        cidade: cidade,
-        estado: estado,
-        nome_mae: nome_mae,
-        renavam: renavam,
-        placa: placa,
-      });
-      console.log(response);
-      window.confirm("Cliente cadastrado com sucesso");
+    if (data.length === 0) {
+
+      if (!(cpfIsValid(cpf))){
+        window.confirm(
+          'Esse CPF é Inválido'
+        )
+      } else {
+
+        const response = await axios.post("clientes/", {
+          nome: nome,
+          data_nascimento: data_nascimento,
+          telefone: telefone,
+          celular: celular,
+          cnh: cnh,
+          cpf: cpf,
+          rg: rg,
+          cep: cep,
+          endereco: endereco,
+          n_casa: n_casa,
+          cidade: cidade,
+          estado: estado,
+          nome_mae: nome_mae,
+          renavam: renavam,
+          placa: placa,
+        });
+        console.log(response);
+        window.confirm("Cliente cadastrado com sucesso");
+
+      }
+
     } else {
       window.confirm(
         'Esse cliente já está cadastrado, verificar seção "Clientes"'
@@ -103,14 +120,19 @@ const CadastroCliente = (props) => {
     if (!redirectCadastroCliente) {
       setRedirectHome(true);
     }
+
+    if(!(cpfIsValid(cpf))){
+      setRedirectHome(false);
+    }
+
   };
 
   // render () {
 
   if (redirectHome === true) {
-    return <Redirect to={"/Clientes"}></Redirect>;
+    //return <Redirect to={"/cadastroCliente"}></Redirect>;
   } else if (redirectCadastroCliente === true) {
-    return <Redirect to={"/cadastroCliente"}></Redirect>;
+    //return <Redirect to={"/cadastroCliente"}></Redirect>;
   }
 
   return (
@@ -166,18 +188,16 @@ const CadastroCliente = (props) => {
                 </div>
                 <div className="col-lg-6">
                   <div className="forms-input">
-                    <TextField>
-                      required value={cpf}
+                  <label className="labels">CPF</label>
+                    <input
+                      required
                       onChange={(e) => setCpf(e.target.value)}
-                      onBlur={cpfIsValid}
-                      error={!!inputError}
-                      helperText={inputError}
                       label="CPF"
                       variant="outlined"
                       margin="normal"
                       id="cpf"
                       class="form-field form-lg"
-                    </TextField>
+                    />
                   </div>
                   <div className="forms-input">
                     <label className="labels">RG</label>

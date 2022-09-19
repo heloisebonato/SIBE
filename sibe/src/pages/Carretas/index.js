@@ -37,15 +37,15 @@ const Carretas = (props) => {
                     var { data } = await axios.get(`carretas?page=${page}`);
                     setCarretas(data);
                     //setClientesCarros(data);
-                    }
+                }
     
-                    if (props.match.params.placa != null){
-                        //router.get('/carretas/placa/:placa', AuthMiddleware, GetCarretaByPlaca);
-                        data = await axios.get(`carretas/placa/${props.match.params.placa}`);
-                        console.log(data.data);
-                        setCarretas(data.data);
-                        //setClientesCarros(data.data);
-                    }
+                if (props.match.params.placa != null){
+                    //router.get('/carretas/placa/:placa', AuthMiddleware, GetCarretaByPlaca);
+                    data = await axios.get(`carretas/placa/${props.match.params.placa}`);
+                    console.log(data.data);
+                    setCarretas(data.data);
+                    //setClientesCarros(data.data);
+                }
 
             }
 

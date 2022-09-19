@@ -291,3 +291,4 @@ export const GetInfoPesquisar = async (req: Request, res: Response) => {
 
     //res.status(404).send(null);
 }
+

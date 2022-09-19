@@ -12,6 +12,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 const HistoricoCliente = (props) => {
 
     const [historico, setHistorico] = useState([]);
+    const [nome, setNome] = useState("");
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
 
@@ -27,6 +28,8 @@ const HistoricoCliente = (props) => {
                 if (props.match.params.cliente_id != null){
                     data = await axios.get(`historico/${props.match.params.cliente_id}`)
                     setHistorico(data.data[0]);
+                    setNome(data.data[0][0].nome);
+                    console.log(nome)
                 }
 
                 
@@ -77,7 +80,7 @@ const HistoricoCliente = (props) => {
                 <div className="container tabela-lista-agendamentos">
                     <div className="row">
                         <div className="col-lg-6 py-5">
-                            <h2 className="subtitle">Histórico do Cliente</h2>
+                            <h2 className="subtitle">Histórico do Cliente - {nome}</h2>
                         </div>
                         <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
                             {/* <a className="btn btn-inadimplente"> <CheckCircleIcon />Agendamentos</a> */}
@@ -93,6 +96,8 @@ const HistoricoCliente = (props) => {
                                             <th className="text">Placa Carreta</th>
                                             <th className="text">Data Prevista Saída</th>
                                             <th className="text">Data Prevista Entrada</th>
+                                            <th className="text">Data Real Saída</th>
+                                            <th className="text">Data Real Entrada</th>
                                             <th className="text">Valor</th>
                                             <th className="text">Status</th>
                                             {/* <th className="text">Ações</th> */}
@@ -106,6 +111,8 @@ const HistoricoCliente = (props) => {
                                                     <td className="text">{historico.placa_carreta}</td>
                                                     <td className="text">{historico.data_prevista_saida}</td>
                                                     <td className="text">{historico.data_prevista_entrada}</td>
+                                                    <td className="text">{historico.data_saida}</td>
+                                                    <td className="text">{historico.data_entrada}</td>
                                                     <td className="text">R$ {historico.preco_total}</td>
                                                     <td className="text">{historico.status}</td>
                                                     {/* <td>
