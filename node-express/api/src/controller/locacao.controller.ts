@@ -252,43 +252,30 @@ export const GetInfoPesquisar = async (req: Request, res: Response) => {
         return data;
     }));
 
-    // const repository_carreta = getManager().getRepository(Carreta);
     
-    // const carreta = await repository_carreta.findOne({
-    //     where: { 
-    //         placa: req.params.valor 
-    //     }
-
-    //     });
-    
-    // if (carreta != null){
-    //     res.send(carreta);
-    // }
-    
-    // const repository_cliente = getManager().getRepository(Cliente);
-
-    // const clienteCpf = await repository_cliente.findOne({
-    //     where: { 
-    //         cpf: req.params.valor
-    //     }
-
-    //     });
-    
-    // if (clienteCpf != null){
-    //     res.send(clienteCpf);
-    // }
-
-    // const clienteNome = await repository_cliente.findOne({
-    //     where: { 
-    //         nome: req.params.valor
-    //     }
-
-    //     });
-    
-    // if (clienteNome != null){
-    //     res.send(clienteNome);
-    // }
 
     //res.status(404).send(null);
 }
 
+
+export const notificacao = async (req: Request, res: Response) => {
+
+    const query = `call notificacao();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
+}

@@ -17,6 +17,8 @@ const Nav = () => {
         nome: ''
     });
 
+    const [notificacoes, setNotificacao] = useState([]);
+
     const [rota, setRota] = useState("");
 
     useEffect( () => {
@@ -25,13 +27,48 @@ const Nav = () => {
                 const {data} = await axios.get('funcionario');
             
                 setFuncionario(data);
-                //console.log(funcionario);
+
+                getNotificacao();
             }
         )();
     }, []);
 
+
+    const getNotificacao = () => 
+
+        axios.get('/notificacao')
+        .then((response) => {
+            console.log("GET Response")
+            //console.log(response.data[0]);
+            setNotificacao(response.data[0]);
+            console.log(notificacoes);
+    
+            //response.send(data);
+        })
+        .catch(function (error) {
+            console.log("Error in getting notificações");
+        }); 
+
+
+        // axios.get("/notificacao").then((response) => {
+        //     const notificacoes_data = response.data;
+        //     setNotificacao(notificacoes_data);
+        //     console.log("teste notificao!!!!22222222222222222")
+        //     console.log(notificacoes);
+        // })
+
     const logout = async () => {
         await axios.post('logout', {});
+    }
+
+    const showNotification = async () => {
+        var element = document.getElementById("tb-notificacao");
+        if (element.classList.contains("d-lg-none")) {
+            element.classList.remove("d-lg-none");
+        } else {
+            element.classList.add("d-lg-none");
+        }
+        
     }
 
     const search = async () => {
@@ -80,8 +117,8 @@ const Nav = () => {
                 <NavLink to={`${rota}`} className="button-procurar"> <SearchIcon className="searchIcon" /> </NavLink>
             </div>
             <a className="navbar-item" href="#">
-                <IconButton color="inherit">
-                    <Badge badgeContent={4} color="secondary">
+                <IconButton color="inherit" onClick={showNotification}>
+                    <Badge badgeContent={notificacoes.length} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
@@ -89,6 +126,7 @@ const Nav = () => {
             <a className="navbar-item name-func px-3" href="#">
                 <PersonIcon color="white" />
                 {funcionario.nome}
+                
             </a>
             <div className="navbar-nav">
             <div className="nav-item text-nowrap">
@@ -97,7 +135,40 @@ const Nav = () => {
                 </Link>
             </div>
             </div>
+                <table className="table table-striped table-sm d-lg-none" id="tb-notificacao">
+                <thead className="infos-titles">
+                    <tr>
+                        <th className="text">Data Entrada</th>
+                        <th className="text">Data Prevista Entrada</th>
+                        <th className="text">Data Saída</th>
+                        <th className="text">Data Prevista Saída</th>
+                        <th className="text">Status Agendamento</th>
+                        <th className="text">Nome</th>
+                    </tr>
+                </thead>
+                <tbody className="infos-body">
+                    {notificacoes.sort((a, b) => b.locacao_id - a.locacao_id).map((notificacoes) => {
+                        return (
+                            <tr key={notificacoes.locacao_id}>
+                                <td className="text">{notificacoes.data_entrada}</td>
+                                <td className="text">{notificacoes.data_prevista_entrada}</td>
+                                <td className="text">{notificacoes.data_saida}</td>
+                                <td className="text">{notificacoes.data_prevista_saida}</td>
+                                <td className="text">{notificacoes.status_agendamento}</td>
+                                <td className="text">{notificacoes.nome}</td>
+                                <td>
+                                    <div className='btn-group mr-2'>
+                                        <Link to={`/locacoes/${notificacoes.locacao_id}`} exact className='btn btn-action btn-sm btn-outline-secondary'>Go</Link>
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+                </table>
             </header>
+
+            
         );
     // }
 }
