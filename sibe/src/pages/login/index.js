@@ -27,12 +27,12 @@ const Login = (props) => {
     }
 
     return (
-    <div class="login-box"> 
+    <div class="login-box">
         <div class="form-container">
         <form class="register-form" onSubmit={handleSubmit}>
-            <h1 class="title">Faça seu login</h1>
+            <h1 class="title">Login</h1>
             <input
-                id="logiin"
+                id="login"
                 class="form-field"
                 type="text"
                 placeholder="Login"
