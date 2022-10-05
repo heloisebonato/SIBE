@@ -21,7 +21,7 @@ const CadastroCarreta = (props) => {
         e.preventDefault()
         const { data } = await axios.get('carretas/placa/' + placa);
         console.log(data);
-        if (!data) {
+        if (!data.length) {
             const response = await axios.post('carretas/', {
                 placa: placa,
                 tipo: tipo,

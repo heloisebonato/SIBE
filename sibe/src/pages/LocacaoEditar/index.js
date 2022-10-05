@@ -152,14 +152,51 @@ const LocacaoEditar = (props) => {
 
         if (window.confirm('Você tem certeza que deseja editar este Agendamento?')) {
 
-            const response = await axios.put(`locacoes/${props.match.params.locacao_id}`, {
-                data_entrada: data_entrada,
-                data_prevista_entrada: data_prevista_entrada,
-                data_saida: data_saida,
-                data_prevista_saida: data_prevista_saida,
-                preco_total: preco_total,
-                status: status
-            });
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+
+            today = dd + '-' + mm + '-' + yyyy;
+
+
+            if (status === "operante"){
+                // console.log("Operante")
+                // setDataSaida(today)
+                const response = await axios.put(`locacoes/${props.match.params.locacao_id}`, {
+                    data_entrada: data_entrada,
+                    data_prevista_entrada: data_prevista_entrada,
+                    data_saida: today,
+                    data_prevista_saida: data_prevista_saida,
+                    preco_total: preco_total,
+                    status: status
+                });
+            } else if(status === "encerrado"){
+                // console.log("Encerrado")
+                // setDataEntrada(today)
+                const response = await axios.put(`locacoes/${props.match.params.locacao_id}`, {
+                    data_entrada: today,
+                    data_prevista_entrada: data_prevista_entrada,
+                    data_saida: data_saida,
+                    data_prevista_saida: data_prevista_saida,
+                    preco_total: preco_total,
+                    status: status
+                });
+            } else{
+                const response = await axios.put(`locacoes/${props.match.params.locacao_id}`, {
+                    data_entrada: data_entrada,
+                    data_prevista_entrada: data_prevista_entrada,
+                    data_saida: data_saida,
+                    data_prevista_saida: data_prevista_saida,
+                    preco_total: preco_total,
+                    status: status
+                });
+            }
+
+            // console.log(data_entrada)
+            // console.log(data_saida)
+
+            
         }
         setRedirectHome(true)
     }
@@ -176,7 +213,8 @@ const LocacaoEditar = (props) => {
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
+            console.log(document.getElementById('placa_carreta'))
+            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta) {
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
                     console.log("DATA: " + dataItem + "DATA_PRETENDIDA: " + data_prevista_saida_d);
                     var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
@@ -298,6 +336,24 @@ const LocacaoEditar = (props) => {
                                             />
                                         </div>
                                     </div>
+                                    <div className='col-lg-6 placa_carreta_none' >
+                                        <div className="forms-input">
+                                            <label className="labels">Placa da Carreta</label>
+                                            <input
+                                                id="placa_carreta"
+                                                className="form-field form-lg"
+                                                placeholder="Informe a Placa da Carreta"
+                                                type="hidden"
+                                                disabled="disabled"
+                                                value="invisible"
+                                                name="not_gonna_submit"
+                                                maxlength="15"
+                                                onChange={e => setPlacaCarreta(e.target.value)}
+                                                required
+                                                readonly
+                                            />
+                                        </div>
+                                    </div>
                                     <div className="col-lg-12 py-lg-5 my-lg-4">
 
                                         <Calendar
@@ -349,6 +405,7 @@ const LocacaoEditar = (props) => {
                                                 <option value="agendado">Agendado</option>
                                                 <option value="operante">Operante</option>
                                                 <option value="cancelado">Cancelado</option>
+                                                <option value="encerrado">Encerrado</option>
                                             </select>
                                         </div>
                                     </div>

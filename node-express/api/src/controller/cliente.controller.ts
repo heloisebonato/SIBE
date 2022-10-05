@@ -64,17 +64,39 @@ export const GetCliente = async (req: Request, res: Response) => {
     res.send(cliente);
 }
 
+// export const GetClienteByCpf = async (req: Request, res: Response) => {
+//     // const take = 15;
+//     // const page = parseInt(req.query.page as string || '1');
+
+
+//     const repository = getManager().getRepository(Cliente);
+
+//     const clientes = await repository.find();
+
+
+//     res.send(clientes.map(U => {
+//         const data = U;
+
+//         return data;
+//     }));
+
 export const GetClienteByCpf = async (req: Request, res: Response) => {
     const repository = getManager().getRepository(Cliente);
     //{relations: ['role']
-    const cliente = await repository.findOne({
+    const cliente = await repository.find({
         where: { 
             cpf: req.params.cpf 
         }
 
         });
+    
+    res.send(cliente.map(U => {
+        const data = U;
 
-    res.send(cliente);
+        return data;
+    }));
+
+    //res.send(cliente);
 }
 
 export const UpdateCliente = async (req: Request, res: Response) => {
@@ -100,4 +122,67 @@ export const DeleteCliente = async (req: Request, res: Response) => {
     await repository.delete(req.params.cliente_id);
 
     res.status(204).send(null);
+}
+
+export const GetHistoricoCliente = async (req: Request, res: Response) => {
+
+
+    const query = `call historicoCliente(` + req.params.cliente_id + `);`;
+
+    console.log(query);
+
+    const rawData = await getManager().query(query);
+
+    console.log(rawData);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+    // const repository_carreta = getManager().getRepository(Carreta);
+    
+    // const carreta = await repository_carreta.findOne({
+    //     where: { 
+    //         placa: req.params.valor 
+    //     }
+
+    //     });
+    
+    // if (carreta != null){
+    //     res.send(carreta);
+    // }
+    
+    // const repository_cliente = getManager().getRepository(Cliente);
+
+    // const clienteCpf = await repository_cliente.findOne({
+    //     where: { 
+    //         cpf: req.params.valor
+    //     }
+
+    //     });
+    
+    // if (clienteCpf != null){
+    //     res.send(clienteCpf);
+    // }
+
+    // const clienteNome = await repository_cliente.findOne({
+    //     where: { 
+    //         nome: req.params.valor
+    //     }
+
+    //     });
+    
+    // if (clienteNome != null){
+    //     res.send(clienteNome);
+    // }
+
+    //res.status(404).send(null);
 }

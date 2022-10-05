@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const Carretas = () => {
+const Carretas = (props) => {
 
     const [carretas, setCarretas] = useState([]);
     const [page, setPage] = useState(1);
@@ -19,14 +19,34 @@ const Carretas = () => {
     useEffect(() => {
         (
             async () => {
-                const { data } = await axios.get(`carretas?page=${page}`);
+                // const { data } = await axios.get(`carretas?page=${page}`);
 
-                setCarretas(data);
+                // setCarretas(data);
 
-                carretas.sort((a, b) => b.carreta_id - a.carreta_id);
-                console.log(carretas);
+                // carretas.sort((a, b) => b.carreta_id - a.carreta_id);
+                // console.log(carretas);
                 //setLastPage(data.meta.last_page);
                 //console.log(data.meta.last_page);
+
+                //console.log(props.match.params.placa);
+
+                var { data } = await axios.get(`carretas?page=${page}`);
+
+                if (props.match.params.placa == null){
+
+                    var { data } = await axios.get(`carretas?page=${page}`);
+                    setCarretas(data);
+                    //setClientesCarros(data);
+                }
+    
+                if (props.match.params.placa != null){
+                    //router.get('/carretas/placa/:placa', AuthMiddleware, GetCarretaByPlaca);
+                    data = await axios.get(`carretas/placa/${props.match.params.placa}`);
+                    console.log(data.data);
+                    setCarretas(data.data);
+                    //setClientesCarros(data.data);
+                }
+
             }
 
         )()
@@ -85,7 +105,6 @@ const Carretas = () => {
                                         <th className="text">Tipo</th>
                                         <th className="text">Preço</th>
                                         <th className="text">Status</th>
-                                        <th className="text">Volume(lt)</th>
                                         <th className="text">Ações</th>
                                     </tr>
                                 </thead>
@@ -98,7 +117,6 @@ const Carretas = () => {
                                                 <td className="text">{carreta.tipo}</td>
                                                 <td className="text">R$ {carreta.preco}</td>
                                                 <td className="text">{carreta.status}</td>
-                                                <td className="text">{carreta.volume}</td>
                                                 <td>
                                                     <div className='btn-group mr-2'>
                                                         <Link to={`/carreta/${carreta.carreta_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon/></Link>

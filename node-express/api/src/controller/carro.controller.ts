@@ -12,7 +12,7 @@ export const Carros = async (req: Request, res: Response) => {
 
     const carros = await repository.find();
 
-    console.log(carros);
+    //console.log(carros);
 
 
     res.send(carros.map(U => {

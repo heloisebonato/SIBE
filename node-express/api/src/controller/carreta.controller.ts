@@ -62,17 +62,35 @@ export const GetCarreta = async (req: Request, res: Response) => {
     res.send(carreta);
 }
 
+// export const GetCarretaByPlaca = async (req: Request, res: Response) => {
+//     const repository = getManager().getRepository(Carreta);
+    
+//     const carreta = await repository.findOne({
+//         where: { 
+//             placa: req.params.placa 
+//         }
+
+//         });
+
+//     res.send(carreta);
+// }
+
 export const GetCarretaByPlaca = async (req: Request, res: Response) => {
     const repository = getManager().getRepository(Carreta);
-    
-    const carreta = await repository.findOne({
+    //{relations: ['role']
+    const carreta = await repository.find({
         where: { 
             placa: req.params.placa 
         }
 
         });
+    
+    res.send(carreta.map(U => {
+        const data = U;
 
-    res.send(carreta);
+        return data;
+    }));
+
 }
 
 
