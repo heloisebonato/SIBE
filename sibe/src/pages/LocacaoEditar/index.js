@@ -213,7 +213,8 @@ const LocacaoEditar = (props) => {
         var flagDatas = false;
 
         carretasBloqueadas.forEach(function (arrayItem) {
-            if (document.getElementById('placa_carreta').value === arrayItem.placa_carreta) {
+            console.log(document.getElementById('placa_carreta'))
+            if (document.getElementById('placa_carreta').value == arrayItem.placa_carreta) {
                 arrayItem.arrayDatasBloqueadas.forEach(function (dataItem) {
                     console.log("DATA: " + dataItem + "DATA_PRETENDIDA: " + data_prevista_saida_d);
                     var data_alugada = dataItem.getFullYear() + '-' + (dataItem.getMonth() + 1) + '-' + dataItem.getDate();
@@ -332,6 +333,24 @@ const LocacaoEditar = (props) => {
                                                 onChange={e => checarDatas_entrada(e.target.value)}
                                                 defaultValue={data_prevista_entrada}
                                                 required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-6 placa_carreta_none' >
+                                        <div className="forms-input">
+                                            <label className="labels">Placa da Carreta</label>
+                                            <input
+                                                id="placa_carreta"
+                                                className="form-field form-lg"
+                                                placeholder="Informe a Placa da Carreta"
+                                                type="hidden"
+                                                disabled="disabled"
+                                                value="invisible"
+                                                name="not_gonna_submit"
+                                                maxlength="15"
+                                                onChange={e => setPlacaCarreta(e.target.value)}
+                                                required
+                                                readonly
                                             />
                                         </div>
                                     </div>

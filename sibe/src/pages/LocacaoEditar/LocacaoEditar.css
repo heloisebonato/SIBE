@@ -72,5 +72,8 @@ Text Definitions
     background-color: #2D4297;
     transition: .4s;
     color: #FFFFFF; }
+.placa_carreta_none{
+  display: none;
+}
 
 /*# sourceMappingURL=ListarClientes.css.map */

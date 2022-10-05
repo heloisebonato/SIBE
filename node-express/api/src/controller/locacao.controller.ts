@@ -279,3 +279,49 @@ export const notificacao = async (req: Request, res: Response) => {
 
     //res.status(404).send(null);
 }
+
+
+export const produtosAtivos = async (req: Request, res: Response) => {
+
+    const query = `call produtosAtivos();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
+}
+
+
+export const countCarretasLoc = async (req: Request, res: Response) => {
+
+    const query = `call countCarretas();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
+}
