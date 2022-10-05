@@ -51,6 +51,9 @@ export class Cliente {
     @Column("varchar", { length: 10 })
     celular: string;
 
+    @Column("varchar", { length: 11 })
+    data_cadastro: string;
+
     @OneToMany(() => Carro, carro => carro.cliente)
     carros: Carro[];
 

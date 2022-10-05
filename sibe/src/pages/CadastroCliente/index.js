@@ -22,6 +22,8 @@ const CadastroCliente = (props) => {
   const [renavam, setRenavam] = useState("");
   const [placa, setPlaca] = useState("");
 
+  const [data_cadastro, setDataCadastro] = useState(new Date().toJSON().slice(0, 10));
+
   const [redirectHome, setRedirectHome] = useState(false);
   const [redirectCadastroCliente, setCadastroCliente] = useState(false);
 
@@ -80,7 +82,7 @@ const CadastroCliente = (props) => {
     e.preventDefault();
 
     const { data } = await axios.get("clientes/cpf/" + cpf);
-    console.log(data);
+    console.log(data_cadastro);
     if (data.length === 0) {
 
       if (!(cpfIsValid(cpf))){
@@ -105,6 +107,7 @@ const CadastroCliente = (props) => {
           nome_mae: nome_mae,
           renavam: renavam,
           placa: placa,
+          data_cadastro: data_cadastro
         });
         console.log(response);
         window.confirm("Cliente cadastrado com sucesso");
@@ -342,6 +345,19 @@ const CadastroCliente = (props) => {
                       placeholder="Digite a cidade"
                       name="cidade"
                       onChange={(e) => setCidade(e.target.value)}
+                    />
+                  </div>
+                  {/* new Date().toJSON().slice(0, 10) */}
+                  <div className="forms-input" hidden>
+                    <label className="labels">Data Cadastro</label>
+                    <input
+                      id="data_cadastro"
+                      class="form-field form-md"
+                      type="text"
+                      name="data_cadastro"
+                      value={new Date().toJSON().slice(0, 10)}
+                      onChange={(e) => setDataCadastro(e.target.value)}
+                      readonly
                     />
                   </div>
                 </div>
