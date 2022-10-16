@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
 /**
 -------------------------
 Color Definitions
@@ -16,9 +15,9 @@ $white: #FFFFFF;
 $primary-grey: #6c757d;
 $grey: #e7e8e9;
 
-$blue: #2D4297;
+$blue: #1B4965;
 $blue--light: #DDF9FF;
-$blue--dark: #1d2b64;
+$blue--dark: #153C54;
 
 /**
 ------------------
@@ -36,5 +35,6 @@ $font--secondary-title: 25px;
 $font--family: "Montserrat";
 
 $weight--small: 400;
-$weight--medium: 600;
-$weight--bold: 800;
+$weight--medium: 500;
+$weight--bold: 700;
+$weight--black: 900;

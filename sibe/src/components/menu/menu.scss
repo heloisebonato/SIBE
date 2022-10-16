@@ -1,34 +1,40 @@
 @import '../../assets/scss/variaveis.scss';
 
 #sidebarMenu.sidebar{
+    background-color: $blue;
     .nav{
         .nav-item{
-            color: $blue;
+            color: $primary-light;
             font-size: $font--items3;
             font-weight: $weight--small;
             font-family: "Montserrat";
         }
         .MuiSvgIcon-root{
-            color: $blue;
+            color: $primary-light;
         }
         .nav-link{
             display: flex;
             align-items: center;
             font-size: $font--items3;
             font-family: $font--family, sans-serif;
-            color: $primary-dark;
+            color: $primary-light;
+            font-weight: $weight--medium;
         }
         .nav-link.active{
-                color: $white;
-                background-color: $blue;
-                font-weight: $weight--medium;
+                color: $blue;
+                background-color: $primary-light;
+                font-weight: $weight--bold;
                 margin-left: 10px;
                 margin-right: 10px;
-                border: 1px solid $blue;
+                border: 1px solid $primary-light;
                 border-radius: 5px;
+
                 .MuiSvgIcon-root{
-                    color: $white;
+                    color: $blue;
                     }
             }
+        .nav-link:hover{
+            font-weight: $weight--bold;
+        }
     }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -11,7 +11,7 @@ Text Definitions
 **/
 #listar-clientes .container .subtitle {
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 500;
   color: #0F1D2B;
   font-family: "Montserrat", sans-serif; }
 #listar-clientes .container .btn {
@@ -30,15 +30,15 @@ Text Definitions
   #listar-clientes .container .btn-inadimplente:hover {
     background-color: #f1f2f3; }
   #listar-clientes .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
+    color: #1B4965; }
 #listar-clientes .container .btn-criar {
-  background-color: #2D4297;
+  background-color: #1B4965;
   color: #FFFFFF;
-  border: 1px solid #2D4297;
+  border: 1px solid #1B4965;
   border-radius: 10px;
   transition: .4s; }
   #listar-clientes .container .btn-criar:hover {
-    background-color: #1d2b64; }
+    background-color: #153C54; }
   #listar-clientes .container .btn-criar .MuiSvgIcon-root {
     color: #FFFFFF; }
 #listar-clientes .container .btn-action:hover {
@@ -47,12 +47,12 @@ Text Definitions
   overflow-x: hidden;
   padding-bottom: 30px; }
   #listar-clientes .container .table-responsive .infos-titles {
-    background-color: #2D4297; }
+    background-color: #1B4965; }
     #listar-clientes .container .table-responsive .infos-titles .text {
       color: #FFFFFF;
       font-size: 15px;
       font-family: "Montserrat", sans-serif;
-      font-weight: 600; }
+      font-weight: 500; }
     #listar-clientes .container .table-responsive .infos-titles .conf {
       display: flex;
       justify-content: center;
@@ -84,22 +84,22 @@ Text Definitions
   #listar-clientes .container .table-responsive .infos-body .in {
     display: block !important; }
   #listar-clientes .container .table-responsive .infos-body .collapse .infos-collapse {
-    background-color: #1d2b64;
+    background-color: #153C54;
     color: #FFFFFF;
     font-size: 20px;
     font-family: "Montserrat", sans-serif; }
 #listar-clientes .pagination .page-item .page-link {
-  color: #2D4297;
-  border: 1px solid #2D4297;
+  color: #1B4965;
+  border: 1px solid #1B4965;
   background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600; }
+  font-weight: 500; }
   #listar-clientes .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
+    background-color: #1B4965;
     transition: .4s;
     color: #FFFFFF; }
 

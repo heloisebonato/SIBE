@@ -2,7 +2,7 @@ import axios from "axios";
 import React, {Component, useState} from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import logoSibe from "../../assets/images/logo-sibe.png";
+import logoSibe from "../../assets/images/logo-principal1.png";
 import "./nav.css"
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -10,6 +10,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const Nav = () => {
     const [funcionario, setFuncionario] = useState({
@@ -20,7 +21,7 @@ const Nav = () => {
         (
             async () => {
                 const {data} = await axios.get('funcionario');
-            
+
                 setFuncionario(data);
                 //console.log(funcionario);
             }
@@ -38,18 +39,21 @@ const Nav = () => {
             <button className="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="search">
+            <div className="search ml-lg-5">
                 <input className="form-control form-search" type="text" placeholder="Pesquisar" aria-label="Search"/>
                 <button className="button-procurar"> <SearchIcon className="searchIcon" /> </button>
             </div>
-            <a className="navbar-item" href="#">
+            <a className="navbar-item" href="/#">
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
             </a>
-            <a className="navbar-item name-func px-3" href="#">
+            <a className="navbar-item" href="/#">
+                <Link to={'/locacoes'} exact><CalendarMonthIcon /></Link>
+            </a>
+            <a className="navbar-item name-func px-3" href="/#">
                 <PersonIcon color="white" />
                 {funcionario?.nome}
             </a>
