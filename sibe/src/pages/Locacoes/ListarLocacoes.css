@@ -13,66 +13,108 @@ Text Definitions
   font-size: 40px;
   font-weight: 600;
   color: #0F1D2B;
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Montserrat", sans-serif;
+}
+
 #listar-agendamentos .container .btn {
   font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 5px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400; }
+  font-weight: 400;
+}
+
 #listar-agendamentos .container .btn-inadimplente {
   background-color: #FFFFFF;
   color: #0F1D2B;
   border: 1px solid #0F1D2B;
-  border-radius: 10px; }
-  #listar-agendamentos .container .btn-inadimplente:hover {
-    background-color: #f1f2f3; }
-  #listar-agendamentos .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
+  border-radius: 10px;
+}
+
+#listar-agendamentos .container .btn-inadimplente:hover {
+  background-color: #f1f2f3;
+}
+
+#listar-agendamentos .container .btn-inadimplente .MuiSvgIcon-root {
+  color: #2D4297;
+}
+
 #listar-agendamentos .container .btn-criar {
   background-color: #2D4297;
   color: #FFFFFF;
   border: 1px solid #2D4297;
   border-radius: 10px;
-  transition: .4s; }
-  #listar-agendamentos .container .btn-criar:hover {
-    background-color: #1d2b64; }
-  #listar-agendamentos .container .btn-criar .MuiSvgIcon-root {
-    color: #FFFFFF; }
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#listar-agendamentos .container .btn-criar:hover {
+  background-color: #1d2b64;
+}
+
+#listar-agendamentos .container .btn-criar .MuiSvgIcon-root {
+  color: #FFFFFF;
+}
+
 #listar-agendamentos .container .btn-action:hover {
-  background-color: #e7e8e9; }
+  background-color: #e7e8e9;
+}
+
 #listar-agendamentos .container .table .infos-titles {
   background-color: #2D4297;
-  width: 100%; }
-  #listar-agendamentos .container .table .infos-titles .text {
-    color: #FFFFFF;
-    font-size: 13px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; }
-  #listar-agendamentos .container .table .infos-titles th {
-    border: none; }
+  width: 100%;
+}
+
+#listar-agendamentos .container .table .infos-titles .text {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+#listar-agendamentos .container .table .infos-titles th {
+  border: none;
+}
+
 #listar-agendamentos .container .table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
   width: 300px;
-  padding-top: 20px; }
+  padding-top: 20px;
+}
+
 #listar-agendamentos .pagination .page-item .page-link {
   color: #2D4297;
   border: 1px solid #2D4297;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600; }
-  #listar-agendamentos .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
-    transition: .4s;
-    color: #FFFFFF; }
+  font-weight: 600;
+}
 
+#listar-agendamentos .pagination .page-item .page-link:hover {
+  background-color: #2D4297;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: #FFFFFF;
+}
 /*# sourceMappingURL=ListarLocacoes.css.map */

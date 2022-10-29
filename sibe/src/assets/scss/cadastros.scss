@@ -12,7 +12,7 @@
 .register-form .title {
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: flex-start;
     font-size: 18px;
     font-weight: 800;
     font-family: 'Montserrat', sans-serif;
@@ -24,7 +24,7 @@
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: flex-start;
     overflow-y: hidden;
 
     .form-cadastro {
@@ -43,7 +43,7 @@
         .title {
             justify-content: center;
             align-items: center;
-            display: flex;
+            display: flex-start;
             font-size: $font--secondary-title;
             font-weight: $weight--bold;
             font-family: $font--family sans-serif;

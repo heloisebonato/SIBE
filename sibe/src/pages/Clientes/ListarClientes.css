@@ -13,94 +13,165 @@ Text Definitions
   font-size: 40px;
   font-weight: 600;
   color: #0F1D2B;
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Montserrat", sans-serif;
+}
+
 #listar-clientes .container .btn {
   font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 5px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400; }
+  font-weight: 400;
+}
+
 #listar-clientes .container .btn-inadimplente {
   background-color: #FFFFFF;
   color: #0F1D2B;
   border: 1px solid #0F1D2B;
-  border-radius: 10px; }
-  #listar-clientes .container .btn-inadimplente:hover {
-    background-color: #f1f2f3; }
-  #listar-clientes .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
+  border-radius: 10px;
+}
+
+#listar-clientes .container .btn-inadimplente:hover {
+  background-color: #f1f2f3;
+}
+
+#listar-clientes .container .btn-inadimplente .MuiSvgIcon-root {
+  color: #2D4297;
+}
+
 #listar-clientes .container .btn-criar {
   background-color: #2D4297;
   color: #FFFFFF;
   border: 1px solid #2D4297;
   border-radius: 10px;
-  transition: .4s; }
-  #listar-clientes .container .btn-criar:hover {
-    background-color: #1d2b64; }
-  #listar-clientes .container .btn-criar .MuiSvgIcon-root {
-    color: #FFFFFF; }
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#listar-clientes .container .btn-criar:hover {
+  background-color: #1d2b64;
+}
+
+#listar-clientes .container .btn-criar .MuiSvgIcon-root {
+  color: #FFFFFF;
+}
+
 #listar-clientes .container .btn-action:hover {
-  background-color: #e7e8e9; }
+  background-color: #e7e8e9;
+}
+
 #listar-clientes .container .table-responsive {
   overflow-x: hidden;
-  padding-bottom: 30px; }
-  #listar-clientes .container .table-responsive .infos-titles {
-    background-color: #2D4297; }
-    #listar-clientes .container .table-responsive .infos-titles .text {
-      color: #FFFFFF;
-      font-size: 15px;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600; }
-    #listar-clientes .container .table-responsive .infos-titles .conf {
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-  #listar-clientes .container .table-responsive .infos-body .row:nth-of-type(2n+1) {
-    background-color: rgba(0, 0, 0, 0.05);
-    padding-bottom: 8px;
-    padding-top: 8px;
-    border-bottom: 1px solid #FFFFFF; }
-  #listar-clientes .container .table-responsive .infos-body .text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    text-transform: uppercase; }
-  #listar-clientes .container .table-responsive .infos-body .text-id {
-    width: 20px; }
-  #listar-clientes .container .table-responsive .infos-body .btn-carros {
-    border: 1px solid #6c757d;
-    font-size: 15px;
-    font-family: "Montserrat", sans-serif;
-    color: #0F1D2B; }
-    #listar-clientes .container .table-responsive .infos-body .btn-carros:hover {
-      background-color: #e7e8e9;
-      transition: .4s; }
-  #listar-clientes .container .table-responsive .infos-body .conf {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  #listar-clientes .container .table-responsive .infos-body .in {
-    display: block !important; }
-  #listar-clientes .container .table-responsive .infos-body .collapse .infos-collapse {
-    background-color: #1d2b64;
-    color: #FFFFFF;
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif; }
+  padding-bottom: 30px;
+}
+
+#listar-clientes .container .table-responsive .infos-titles {
+  background-color: #2D4297;
+}
+
+#listar-clientes .container .table-responsive .infos-titles .text {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+#listar-clientes .container .table-responsive .infos-titles .conf {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#listar-clientes .container .table-responsive .infos-body .row:nth-of-type(2n+1) {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+#listar-clientes .container .table-responsive .infos-body .text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+#listar-clientes .container .table-responsive .infos-body .text-id {
+  width: 20px;
+}
+
+#listar-clientes .container .table-responsive .infos-body .btn-carros {
+  border: 1px solid #6c757d;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: #0F1D2B;
+}
+
+#listar-clientes .container .table-responsive .infos-body .btn-carros:hover {
+  background-color: #e7e8e9;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#listar-clientes .container .table-responsive .infos-body .conf {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#listar-clientes .container .table-responsive .infos-body .in {
+  display: block !important;
+}
+
+#listar-clientes .container .table-responsive .infos-body .collapse .infos-collapse {
+  background-color: #1d2b64;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
 #listar-clientes .pagination .page-item .page-link {
   color: #2D4297;
   border: 1px solid #2D4297;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600; }
-  #listar-clientes .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
-    transition: .4s;
-    color: #FFFFFF; }
+  font-weight: 600;
+}
 
+#listar-clientes .pagination .page-item .page-link:hover {
+  background-color: #2D4297;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: #FFFFFF;
+}
 /*# sourceMappingURL=ListarClientes.css.map */
