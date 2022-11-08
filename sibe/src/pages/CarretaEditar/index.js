@@ -1,147 +1,148 @@
-import React, { Component, SyntheticEvent, useEffect, useState } from 'react';
-import Wrapper from '../../components/wrapper/wrapper';
-import "./styleEditarCarretas.css";
-import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import React, { Component, SyntheticEvent, useEffect, useState } from "react";
+import Wrapper from "../../components/wrapper/wrapper";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
+import "./CarretaEditar.css";
+
 
 const CarretaEditar = (props) => {
+  const [tipo, setTipo] = useState("");
+  const [preco, setPreco] = useState("");
+  const [placa, setPlaca] = useState("");
+  const [status, setStatus] = useState("");
 
-    const [tipo, setTipo] = useState("");
-    const [preco, setPreco] = useState("");
-    const [placa, setPlaca] = useState("");
-    const [status, setStatus] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
-    const [redirect, setRedirect] = useState(false);
+  const [carretas, setCarretas] = useState([]);
 
-    const [carretas, setCarretas] = useState([]);
+  const getCarretas = async () => {
+    const { data } = await axios.get("carretas/");
 
-    const getCarretas = async () => {
+    console.log("Carretas aqui");
+    //console.log(data);
 
-        const { data } = await axios.get('carretas/');
+    setCarretas(data);
+  };
 
-        console.log("Carretas aqui");
-        //console.log(data);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(
+        `carretas/${props.match.params.carreta_id}`
+      );
 
-        setCarretas(data);
+      setTipo(data.tipo);
+      setPreco(data.preco);
+      setPlaca(data.placa);
+      setStatus(data.status);
+    })();
+  }, []);
 
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    useEffect(() => {
-        (
-            async () => {
-                const { data } = await axios.get(`carretas/${props.match.params.carreta_id}`);
+    getCarretas();
 
-                setTipo(data.tipo);
-                setPreco(data.preco);
-                setPlaca(data.placa);
-                setStatus(data.status);
-            }
-        )()
-    }, [])
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        getCarretas();
-
-        if (window.confirm('Você tem certeza que deseja editar esta Carreta?')) {
-
-            const response = await axios.put(`carretas/${props.match.params.carreta_id}`, {
-                placa: placa,
-                tipo: tipo,
-                preco: preco,
-                status: status,
-            });
+    if (window.confirm("Você tem certeza que deseja editar esta Carreta?")) {
+      const response = await axios.put(
+        `carretas/${props.match.params.carreta_id}`,
+        {
+          placa: placa,
+          tipo: tipo,
+          preco: preco,
+          status: status,
         }
-        setRedirect(true)
+      );
     }
+    setRedirect(true);
+  };
 
+  // render () {
 
+  if (redirect === true) {
+    return <Redirect to={"/carretas"}></Redirect>;
+  }
 
-    // render () {
-
-    if (redirect === true) {
-        return <Redirect to={'/carretas'}></Redirect>
-    }
-
-    return (
-        <Wrapper>
-            <div className="login-box bg-light">
-                <div className="form-cadastro">
-                    <div class="container">
-                        <form className="register-form" onSubmit={handleSubmit}>
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1 className="title">Cadastro de Nova Carreta</h1>
-                                </div>
-                                <div className="col-12">
-                                    <h2 className="subtitle">Dados Básicos</h2>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="forms-input">
-                                        <label className='labels'>Placa da Carreta</label>
-                                        <input
-                                            id="placa"
-                                            className="form-field form-lg"
-                                            type="text"
-                                            placeholder="Digite a Placa"
-                                            name="placa"
-                                            onChange={e => setPlaca(e.target.value)}
-                                            defaultValue={placa}
-                                        />
-                                    </div>
-                                    <div className="forms-input">
-                                        <label className='labels'>Tipo da Carreta</label>
-                                        <input
-                                            id="tipo"
-                                            className="form-field"
-                                            type="text"
-                                            name="tipo"
-                                            onChange={e => setTipo(e.target.value)}
-                                            defaultValue={tipo}
-                                        />
-                                    </div>
-                                </div>
-                                <div className='col-lg-6'>
-                                    <div className="forms-input">
-                                        <label className="labels">Preço da Locação</label>
-                                        <input
-                                            id="preco"
-                                            className="form-field form-lg"
-                                            type="float"
-                                            placeholder="Informe o Preço da Locação"
-                                            name="preco"
-                                            maxlength="15"
-                                            onChange={e => setPreco(e.target.value)}
-                                            defaultValue={preco}
-                                        />
-                                    </div>
-                                    <div className="forms-input">
-                                        <label className='labels'>Status</label>
-                                        <select className="form-field select-box" name="status" id="status" onChange={e => setStatus(e.target.value)} defaultValue={status} >
-                                            <option value="">Selecione</option>
-                                            <option value="operante">Operante</option>
-                                            <option value="inoperante">Inoperante</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row pt-lg-4">
-                                <div className="col d-flex justify-content-center">
-                                    <button className="form-field button-submit" type="submit" >
-                                        {/* onClick={this.onClickCadastrar} */}
-                                        Editar Carretas
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+  return (
+    <Wrapper>
+      <div className="form-editar">
+        <div class="container-fluid">
+          <form className="register-form" onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-12">
+                <h1 className="title">Cadastro de Nova Carreta</h1>
+              </div>
+              <div className="col-12 pt-5">
+                <h2 className="subtitle">Dados Básicos</h2>
+              </div>
+              <div className="col-lg-6">
+                <div className="forms-input">
+                  <label className="labels">Placa da Carreta</label>
+                  <input
+                    id="placa"
+                    className="form-field form-lg"
+                    type="text"
+                    placeholder="Digite a Placa"
+                    name="placa"
+                    onChange={(e) => setPlaca(e.target.value)}
+                    defaultValue={placa}
+                  />
                 </div>
+                <div className="forms-input">
+                  <label className="labels">Tipo da Carreta</label>
+                  <input
+                    id="tipo"
+                    className="form-field"
+                    type="text"
+                    name="tipo"
+                    onChange={(e) => setTipo(e.target.value)}
+                    defaultValue={tipo}
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="forms-input">
+                  <label className="labels">Preço da Locação</label>
+                  <input
+                    id="preco"
+                    className="form-field form-lg"
+                    type="float"
+                    placeholder="Informe o Preço da Locação"
+                    name="preco"
+                    maxlength="15"
+                    onChange={(e) => setPreco(e.target.value)}
+                    defaultValue={preco}
+                  />
+                </div>
+                <div className="forms-input">
+                  <label className="labels">Status</label>
+                  <select
+                    className="form-field select-box"
+                    name="status"
+                    id="status"
+                    onChange={(e) => setStatus(e.target.value)}
+                    defaultValue={status}
+                  >
+                    <option value="">Selecione</option>
+                    <option value="operante">Operante</option>
+                    <option value="inoperante">Inoperante</option>
+                  </select>
+                </div>
+              </div>
             </div>
-        </Wrapper>
-    );
-    // }
-}
+            <div className="row pt-lg-4">
+              <div className="col d-flex justify-content-center">
+                <button className="form-field button-submit" type="submit">
+                  {/* onClick={this.onClickCadastrar} */}
+                  Editar Carretas
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  );
+  // }
+};
 
 export default CarretaEditar;

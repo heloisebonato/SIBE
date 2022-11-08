@@ -10,7 +10,7 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-.form-cadastro {
+.form-editar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +23,7 @@ Text Definitions
   margin: 30px;
 }
 
-.form-cadastro .register-form .title {
+.form-editar .register-form .title {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
@@ -37,10 +37,9 @@ Text Definitions
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
   color: #1d2b64;
-  margin-top: 20px;
 }
 
-.form-cadastro .register-form .subtitle {
+.form-editar .register-form .subtitle {
   font-size: 20px;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -48,13 +47,13 @@ Text Definitions
   margin: 20px;
 }
 
-.form-cadastro .register-form .forms-input {
+.form-editar .register-form .forms-input {
   display: -ms-grid;
   display: grid;
   margin: 20px;
 }
 
-.form-cadastro .register-form .forms-input .labels {
+.form-editar .register-form .forms-input .labels {
   font-size: 13px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -63,7 +62,7 @@ Text Definitions
   margin-top: .5rem;
 }
 
-.form-cadastro .register-form .form-field {
+.form-editar .register-form .form-field {
   margin: 10px 0 10px 0;
   padding: 15px;
   font-size: 13px;
@@ -74,19 +73,19 @@ Text Definitions
   background-color: transparent;
 }
 
-.form-cadastro .register-form input,
-.form-cadastro .register-form textarea {
+.form-editar .register-form input,
+.form-editar .register-form textarea {
   background: #f2f2f2;
   border-radius: 15px;
 }
 
-.form-cadastro .register-form input:focus,
-.form-cadastro .register-form textarea:focus {
+.form-editar .register-form input:focus,
+.form-editar .register-form textarea:focus {
   outline: 0;
   border: 2px solid #2D4297;
 }
 
-.form-cadastro .register-form .button-submit {
+.form-editar .register-form .button-submit {
   background-color: #FFFFFF;
   border: 2px solid #2D4297;
   color: #2D4297;
@@ -99,32 +98,14 @@ Text Definitions
   width: 40%;
 }
 
-.form-cadastro .register-form .button-submit:hover {
+.form-editar .register-form .button-submit:hover {
   background-color: #2D4297;
   color: #FFFFFF;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-.form-cadastro .register-form .button-submit:disabled {
+.form-editar .register-form .button-submit:disabled {
   cursor: default;
 }
-
-.form-cadastro .register-form .success-message {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #3f89f8;
-  padding: 15px;
-  color: white;
-}
-
-.form-cadastro .register-form .error {
-  border-style: solid;
-  border: 2px solid #ffa4a4;
-}
-
-@media (max-width: 992px) {
-  .form-cadastro .title {
-    font-size: 24px;
-  }
-}
-/*# sourceMappingURL=cadastros.css.map */
+/*# sourceMappingURL=CarretaEditar.css.map */

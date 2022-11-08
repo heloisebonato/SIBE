@@ -1,156 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 @import '../../assets/scss/variaveis.scss';
 
-#app {
-    flex: 1;
-    box-sizing: border-box;
-    margin: 24px;
-    overflow: hidden;
-}
-
-#editar-locacao {
-    .login-box {
-        display: flex;
-        min-height: 100vh;
-        justify-content: center;
+#historico {
+    .title {
+        justify-content: left;
         align-items: center;
         display: flex;
-        overflow-y: hidden;
-
-        .form-cadastro {
-            background-color: $white;
-            margin: auto;
-            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            padding: 70px;
-        }
-
-        .register-form {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            padding: 10px;
-
-            .title {
-                justify-content: center;
-                align-items: center;
-                display: flex;
-                font-size: $font--secondary-title;
-                font-weight: $weight--bold;
-                font-family: $font--family sans-serif;
-                padding: 10px 10px;
-                color: $blue;
-            }
-
-            .subtitle {
-                font-size: $font--items2;
-                font-weight: $weight--medium;
-                font-family: $font--family, sans-serif;
-                color: $primary-dark;
-                padding-bottom: 20px;
-                padding-top: 30px;
-            }
-
-            .form-field {
-                margin: 10px 0 10px 0;
-                padding: 15px;
-                font-size: $font--items3;
-                border: 1px solid $blue;
-                border-radius: 10px;
-                font-family: $font--family sans-serif;
-                font-weight: 400;
-                background-color: transparent;
-
-                &:active {
-                    border: 2px;
-                    box-shadow: $primary-light;
-                }
-            }
-
-            .forms-input {
-                font-size: $font--items3;
-                font-weight: $weight--small;
-                font-family: $font--family, sans-serif;
-                color: $primary-dark;
-                text-transform: uppercase;
-                margin-top: .5rem;
-            }
-
-            .form-xg {
-                width: 93%;
-            }
-
-            .form-lg {
-                width: 85%;
-            }
-
-            .form-md {
-                width: 60%;
-            }
-
-            .form-sm {
-                width: 40%;
-            }
-
-            input {
-                background: #f2f2f2;
-            }
-
-            .button-submit {
-                background-color: $white;
-                border: 2px solid $blue;
-                color: $blue;
-                cursor: pointer;
-                transition: 0.4s;
-                font-weight: $weight--medium;
-                margin-top: 30px;
-                width: 50%;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: $font--family, sans-serif;
-                font-size: $font--items;
-            }
-
-            .button-submit:hover {
-                background-color: $blue;
-                color: #FFFFFF;
-                transition: 0.4s;
-            }
-
-            .button-submit:disabled {
-                cursor: default;
-            }
-
-            #app {
-                flex: 1;
-                box-sizing: border-box;
-                margin: 24px;
-                overflow: hidden;
-            }
-
-            .forms-input {
-                display: flex;
-                justify-content: center;
-                align-items: start;
-                flex-direction: column;
-            }
-
-        }
-
-        .success-message {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #3f89f8;
-            padding: 15px;
-            color: white;
-        }
-
-        .error {
-            border-style: solid;
-            border: 2px solid #ffa4a4;
-        }
-
-
+        font-size: 35px;
+        font-weight: 800;
+        font-family: $font--family, sans-serif;
+        color: $blue--dark;
     }
 
+    .subtitle {
+        color: $primary-dark;
+        font-size: $font--items2;
+        font-family: $font--family, sans-serif;
+        font-weight: $weight--medium;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        font-size: $font--items;
+        background-color: $blue;
+        font-family: $font--family, sans-serif;
+        font-weight: $weight--small;
+        color: $white;
+        border: 1px solid $blue;
+        border-radius: 10px;
+        transition: .4s;
+
+        &:hover {
+            background-color: $blue--dark;
+            color: $white;
+            transition: .6s;
+        }
+
+        .MuiSvgIcon-root {
+            color: $white;
+        }
+    }
+
+    .btn-action {
+        &:hover {
+            border-color: none;
+            background-color: $blue--dark;
+        }
+    }
+
+    .table {
+        .infos-titles {
+            background-color: $blue;
+
+            .text {
+                color: $white;
+                font-size: $font--items;
+                font-family: $font--family, sans-serif;
+                font-weight: $weight--medium;
+            }
+
+            th {
+                border: none;
+            }
+        }
+
+        .infos-body {
+            .text {
+                font-family: $font--family, sans-serif;
+                font-weight: $weight--small;
+                font-size: $font--items;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .pagination .page-item .page-link {
+        color: $blue;
+        border: 1px solid $blue;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font--items;
+        font-family: $font--family;
+        font-weight: $weight--medium;
+
+        &:hover {
+            background-color: $blue;
+            transition: .4s;
+            color: $white;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .title {
+            font-size: 20px;
+        }
+    }
 }

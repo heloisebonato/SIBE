@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -9,70 +10,108 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-#listar-agendamentos .container .subtitle {
-  font-size: 40px;
-  font-weight: 600;
-  color: #0F1D2B;
-  font-family: "Montserrat", sans-serif; }
-#listar-agendamentos .container .btn {
-  font-size: 15px;
+#historico .title {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
+  font-size: 35px;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400; }
-#listar-agendamentos .container .btn-inadimplente {
-  background-color: #FFFFFF;
+  color: #1d2b64;
+}
+
+#historico .subtitle {
   color: #0F1D2B;
-  border: 1px solid #0F1D2B;
-  border-radius: 10px; }
-  #listar-agendamentos .container .btn-inadimplente:hover {
-    background-color: #f1f2f3; }
-  #listar-agendamentos .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
-#listar-agendamentos .container .btn-criar {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+#historico .btn {
+  font-size: 15px;
   background-color: #2D4297;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #FFFFFF;
   border: 1px solid #2D4297;
   border-radius: 10px;
-  transition: .4s; }
-  #listar-agendamentos .container .btn-criar:hover {
-    background-color: #1d2b64; }
-  #listar-agendamentos .container .btn-criar .MuiSvgIcon-root {
-    color: #FFFFFF; }
-#listar-agendamentos .container .btn-action:hover {
-  background-color: #e7e8e9; }
-#listar-agendamentos .container .table .infos-titles {
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#historico .btn:hover {
+  background-color: #1d2b64;
+  color: #FFFFFF;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+#historico .btn .MuiSvgIcon-root {
+  color: #FFFFFF;
+}
+
+#historico .btn-action:hover {
+  border-color: none;
+  background-color: #1d2b64;
+}
+
+#historico .table .infos-titles {
   background-color: #2D4297;
-  width: 100%; }
-  #listar-agendamentos .container .table .infos-titles .text {
-    color: #FFFFFF;
-    font-size: 13px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; }
-  #listar-agendamentos .container .table .infos-titles th {
-    border: none; }
-#listar-agendamentos .container .table .infos-body .text {
+}
+
+#historico .table .infos-titles .text {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+#historico .table .infos-titles th {
+  border: none;
+}
+
+#historico .table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
-  width: 300px;
-  padding-top: 20px; }
-#listar-agendamentos .pagination .page-item .page-link {
+}
+
+#historico .pagination .page-item .page-link {
   color: #2D4297;
   border: 1px solid #2D4297;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600; }
-  #listar-agendamentos .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
-    transition: .4s;
-    color: #FFFFFF; }
+  font-weight: 600;
+}
 
-/*# sourceMappingURL=ListarLocacoes.css.map */
+#historico .pagination .page-item .page-link:hover {
+  background-color: #2D4297;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: #FFFFFF;
+}
+
+@media (max-width: 992px) {
+  #historico .title {
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=HistoricoCliente.css.map */

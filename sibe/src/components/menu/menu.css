@@ -13,15 +13,25 @@ Text Definitions
   color: #2D4297;
   font-size: 13px;
   font-weight: 400;
-  font-family: "Montserrat"; }
+  font-family: "Montserrat";
+}
+
 #sidebarMenu.sidebar .nav .MuiSvgIcon-root {
-  color: #2D4297; }
+  color: #2D4297;
+}
+
 #sidebarMenu.sidebar .nav .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
-  color: #0F1D2B; }
+  color: #0F1D2B;
+}
+
 #sidebarMenu.sidebar .nav .nav-link.active {
   color: #FFFFFF;
   background-color: #2D4297;
@@ -29,8 +39,10 @@ Text Definitions
   margin-left: 10px;
   margin-right: 10px;
   border: 1px solid #2D4297;
-  border-radius: 5px; }
-  #sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
-    color: #FFFFFF; }
+  border-radius: 5px;
+}
 
+#sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
+  color: #FFFFFF;
+}
 /*# sourceMappingURL=menu.css.map */

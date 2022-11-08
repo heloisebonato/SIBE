@@ -10,9 +10,18 @@ Text Definitions
 ------------------
 **/
 .dashboard .title {
-  font-size: 40px;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 35px;
   font-weight: 800;
-  font-family: "Montserrat";
-  color: #0F1D2B; }
-
+  font-family: "Montserrat", sans-serif;
+  color: #1d2b64;
+}
 /*# sourceMappingURL=Dashboard..css.map */
