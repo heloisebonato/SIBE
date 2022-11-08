@@ -3,7 +3,7 @@ import {AuthMiddleware} from "./middleware/auth.middleware";
 
 import {AuthenticatedFuncionario, Login, Logout, Register, UpdateInfoFuncionario, UpdateSenha } from "./controller/auth.controller";
 import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, UpdateFuncionario } from "./controller/funcionario.controller";
-import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, GetHistoricoCliente, UpdateCliente } from "./controller/cliente.controller";
+import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, GetHistoricoCliente, GetNovosClientes, UpdateCliente } from "./controller/cliente.controller";
 import { Carretas, CreateCarreta, GetCarreta, UpdateCarreta, DeleteCarreta, GetCarretaByPlaca } from "./controller/carreta.controller";
 import { Carros, CreateCarro, CreateCarroCliente, DeleteCarro, GetCarro, GetCarroByPlaca, GetCarrosByCliente, UpdateCarro } from "./controller/carro.controller";
 import { countCarretasLoc, CreateLocacao, GetInfoPesquisar, Locacoes, Locacoes_, Locacoes_por_Id, notificacao, produtosAtivos, UpdateLocacao } from "./controller/locacao.controller";
@@ -28,6 +28,7 @@ export const routes = (router: Router) => {
     router.get('/clientes/cpf/:cpf', AuthMiddleware, GetClienteByCpf);
     router.put('/clientes/:cliente_id', AuthMiddleware, UpdateCliente);
     router.delete('/clientes/:cliente_id', AuthMiddleware, DeleteCliente);
+    router.get('/novosclientes', AuthMiddleware, GetNovosClientes);
 
     router.get('/historico/:cliente_id', AuthMiddleware, GetHistoricoCliente);
 

@@ -34,7 +34,7 @@ const Dashboard = (props) => {
     // console.log(getResponse())
 
     const [countCarretasLoc, setcountCarretasLoc] = useState([]);
-    const [userDataState, setuserDataState] = useState(0);
+    const [userDataState, setuserDataState] = useState([]);
 
     const [labels_1, setLabels] = useState([]);
     const [value_1, setValue_1] = useState();
@@ -63,7 +63,7 @@ const Dashboard = (props) => {
 
 
     const [produtosAtivos, setProdutosAtivos] = useState([]);
-
+    const [novosClientes, setNovosClientes] = useState(0);
 
     const [clientes, setClientes] = useState([]);
     const [clientes_carros, setClientesCarros] = useState([]);
@@ -141,6 +141,10 @@ const Dashboard = (props) => {
                     var data = await axios.get(`/produtosativos`);
                     setProdutosAtivos(data.data[0]);
 
+                    var data = await axios.get(`/novosclientes`);
+                    setNovosClientes(data.data[0][0])
+                    console.log(data.data[0][0]);
+
                     var data = await axios.get(`/countCarretasLoc`).then(data => {
                         setcountCarretasLoc(data.data[0]);
                         updateChart(data.data[0])
@@ -202,6 +206,9 @@ const Dashboard = (props) => {
                     <div className="row">
                         <div className="col-lg-6 py-5">
                             <h2 className="subtitle">Dashboard</h2>
+                        </div>
+                        <div className="col-lg-6 py-5">
+                            <h4>{novosClientes.contagem_novos_clientes} Novos Clientes na Última Semana</h4>
                         </div>
                     </div>
                     <div className="row">

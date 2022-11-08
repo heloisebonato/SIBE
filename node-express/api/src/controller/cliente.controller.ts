@@ -186,3 +186,29 @@ export const GetHistoricoCliente = async (req: Request, res: Response) => {
 
     //res.status(404).send(null);
 }
+
+export const GetNovosClientes = async (req: Request, res: Response) => {
+
+
+    const query = `call novosClientes();`;
+
+    console.log(query);
+
+    const rawData = await getManager().query(query);
+
+    console.log(rawData);
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+    
+    // if (clienteNome != null){
+    //     res.send(clienteNome);
+    // }
+
+    //res.status(404).send(null);
+}
