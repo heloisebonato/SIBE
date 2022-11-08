@@ -96,5 +96,16 @@
             border: 2px solid #ffa4a4;
         }
     }
+    .pagination{
+        .page-item{
+            .page-link:hover {
+                background-color: #2D4297;
+                transition: .4s;
+                color: #FFFFFF; }
+        }
+    }
+    .placa_carreta_none{
+        display: none;
+      }
 
 }

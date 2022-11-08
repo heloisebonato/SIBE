@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -89,6 +88,10 @@ Text Definitions
   background-color: #FFFFFF;
   border: 2px solid #2D4297;
   color: #2D4297;
+  border: 1px solid #2D4297;
+  background-color: #FFFFFF;
+  border: 2px solid #2D4297;
+  color: #2D4297;
   cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -108,6 +111,9 @@ Text Definitions
 .form-editar .register-form .button-submit:disabled {
   cursor: default;
 }
+.placa_carreta_none{
+  display: none;
+}
 
 .form-editar .register-form .success-message {
   font-family: 'Montserrat', sans-serif;
@@ -116,8 +122,7 @@ Text Definitions
   color: white;
 }
 
-.form-editar .register-form .error {
-  border-style: solid;
-  border: 2px solid #ffa4a4;
+.form-editar .placa_carreta_none {
+  display: none;
 }
 /*# sourceMappingURL=LocacaoEditar.css.map */
