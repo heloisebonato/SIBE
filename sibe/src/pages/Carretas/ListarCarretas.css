@@ -9,68 +9,100 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-.container .subtitle {
-  font-size: 40px;
-  font-weight: 600;
-  color: #0F1D2B;
-  font-family: "Montserrat", sans-serif; }
-.container .btn {
-  font-size: 15px;
+.title {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
+  font-size: 35px;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400; }
-.container .btn-inadimplente {
-  background-color: #FFFFFF;
-  color: #0F1D2B;
-  border: 1px solid #0F1D2B;
-  border-radius: 10px; }
-  .container .btn-inadimplente:hover {
-    background-color: #f1f2f3; }
-  .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
-.container .btn-criar {
+  color: #1d2b64;
+}
+
+.btn {
+  font-size: 15px;
   background-color: #2D4297;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #FFFFFF;
   border: 1px solid #2D4297;
   border-radius: 10px;
-  transition: .4s; }
-  .container .btn-criar:hover {
-    background-color: #1d2b64; }
-  .container .btn-criar .MuiSvgIcon-root {
-    color: #FFFFFF; }
-.container .btn-action:hover {
-  background-color: #e7e8e9; }
-.container .table .infos-titles {
-  background-color: #2D4297; }
-  .container .table .infos-titles .text {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; }
-  .container .table .infos-titles th {
-    border: none; }
-.container .table .infos-body .text {
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.btn:hover {
+  background-color: #1d2b64;
+  color: #FFFFFF;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.btn .MuiSvgIcon-root {
+  color: #FFFFFF;
+}
+
+.btn-action:hover {
+  border-color: none;
+  background-color: #1d2b64;
+}
+
+.table .infos-titles {
+  background-color: #2D4297;
+}
+
+.table .infos-titles .text {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.table .infos-titles th {
+  border: none;
+}
+
+.table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .pagination .page-item .page-link {
   color: #2D4297;
   border: 1px solid #2D4297;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600; }
-  .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
-    transition: .4s;
-    color: #FFFFFF; }
+  font-weight: 600;
+}
 
-/*# sourceMappingURL=ListarClientes.css.map */
+.pagination .page-item .page-link:hover {
+  background-color: #2D4297;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: #FFFFFF;
+}
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 24px;
+  }
+}
+/*# sourceMappingURL=ListarCarretas.css.map */

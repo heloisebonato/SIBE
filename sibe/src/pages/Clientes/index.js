@@ -78,18 +78,17 @@ const Clientes = (props) => {
     return (
         <Wrapper>
             <div id="listar-clientes">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 py-5">
-                            <h2 className="subtitle">Clientes</h2>
+                <div className="container-fluid">
+                    <div className="row py-5">
+                        <div className="col-6 d-flex justify-content-start align-items-center">
+                            <h2 className="title pl-5">Clientes</h2>
                         </div>
-                        <div className="col-lg-6 py-5 d-flex justify-content-center align-items-center">
-                            <a className="btn btn-inadimplente"> <PersonOutlineIcon />Clientes Inadimplentes</a>
-                            <NavLink to={'/cadastroCliente'} className="nav-link"><a className="btn btn-criar"> <PersonAddAltIcon /> Criar Cliente</a></NavLink>
+                        <div className="col-6 d-flex justify-content-end align-items-center">
+                            <NavLink to={'/cadastroCliente'} className="nav-link"><a className="btn btn-criar" href="#/"> <PersonAddAltIcon /> Criar Cliente</a></NavLink>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 p-0">
                             <div className="table-responsive">
                                 <div className="infos-titles">
                                     <div className="row">
@@ -128,14 +127,14 @@ const Clientes = (props) => {
                                                 </div>
                                                 <div className="col-lg-4 conf">
                                                     <div className='btn-group mr-2'>
-                                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
-                                                        <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                        <Link to={`/cliente/${cliente.cliente_id}/editar`} exact className='btn btn-action btn-sm'><EditIcon /></Link>
+                                                        <a href='#/' className='btn btn-action btn-sm'
                                                             onClick={() => del_carro(cliente.cliente_id)}
                                                         ><DeleteIcon /></a>
                                                         <button className="btn btn-carros" type="button" data-toggle="collapse" data-target={`#collapse${cliente.cliente_id}`} aria-expanded="false" aria-controls={`collapse${cliente.cliente_id}`}>
                                                             <DirectionsCarIcon /> Veículos
                                                         </button>
-                                                        <Link to={`/historico/${cliente.cliente_id}`} exact className="btn btn-action btn-sm btn-outline-secondary"> Histórico</Link>
+                                                        <Link to={`/historico/${cliente.cliente_id}`} exact className="btn btn-action btn-sm"> Histórico</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,8 +152,7 @@ const Clientes = (props) => {
                                                                             <div className="text px-lg-3">Status</div>
                                                                             <div className="text px-lg-3">#</div>
                                                                             <div className="text px-lg-3">Ações</div>
-                                                                            <NavLink to={`/cadastroCarro/${cliente.cliente_id}`} className="nav-link"><a className="btn btn-criar"> Adicionar Veículo</a></NavLink>
-                                                                            
+                                                                            <NavLink to={`/cadastroCarro/${cliente.cliente_id}`} className="nav-link"><a className="btn btn-criar" href="#/"> Adicionar Veículo</a></NavLink>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -173,7 +171,7 @@ const Clientes = (props) => {
                                                                                         <div>
                                                                                             <div className='btn-group'>
                                                                                                 <Link to={`/carro/${carro.carro_id}/editar`} exact className='btn btn-action btn-sm btn-outline-secondary'><EditIcon /></Link>
-                                                                                                <a href='#' className='btn btn-action btn-sm btn-outline-secondary'
+                                                                                                <a href='#/' className='btn btn-action btn-sm btn-outline-secondary'
                                                                                                     onClick={() => del(carro.carro_id)}
                                                                                                 ><DeleteIcon /></a>
                                                                                             </div>

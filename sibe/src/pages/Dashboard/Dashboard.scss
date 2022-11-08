@@ -1,0 +1,14 @@
+@import "../../assets/scss/variaveis.scss";
+
+.dashboard{
+    .title{
+        justify-content: left;
+            align-items: center;
+            display: flex;
+            font-size: 35px;
+            font-weight: 800;
+            font-family: $font--family, sans-serif;
+            color: $blue--dark;
+    }
+}
+

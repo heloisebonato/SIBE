@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+/**
+-------------------------
+Color Definitions
+-------------------------
+**/
+/**
+------------------
+Text Definitions
+------------------
+**/
+.dashboard .title {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 35px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  color: #1d2b64;
+}
+/*# sourceMappingURL=Dashboard..css.map */
