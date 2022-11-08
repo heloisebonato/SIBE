@@ -23,6 +23,7 @@ import CadastroLocacao from './pages/CadastroLocacao';
 import Locacoes from './pages/Locacoes';
 import LocacaoEditar from './pages/LocacaoEditar';
 import CarroEditar from './pages/CarroEditar';
+import CadastroEngates from "./pages/CadastroEngates";
 
 
 export default function App() {
@@ -50,7 +51,9 @@ export default function App() {
 
       <Route path={'/locacoes'} component={Locacoes}/> 
       <Route path={'/cadastroLocacao'} component={CadastroLocacao}/>
-      <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>    
+      <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>
+
+      <Route path={'/cadastroEngate'} component={CadastroEngates}/>
 
       
       </BrowserRouter>

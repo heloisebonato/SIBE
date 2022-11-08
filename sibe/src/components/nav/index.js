@@ -55,7 +55,7 @@ const Nav = () => {
             </a>
             <a className="navbar-item name-func px-3" href="/#">
                 <PersonIcon color="white" />
-                {funcionario?.nome}
+                {funcionario.nome}
             </a>
             <div className="navbar-nav">
             <div className="nav-item text-nowrap">
