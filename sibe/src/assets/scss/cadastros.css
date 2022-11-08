@@ -1,99 +1,60 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
-
-.register-form .title {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: flex-start;
-  font-size: 18px;
-  font-weight: 800;
-  font-family: 'Montserrat', sans-serif;
-  padding: 10px 10px;
-}
-
-.login-box {
+/**
+-------------------------
+Color Definitions
+-------------------------
+**/
+/**
+------------------
+Text Definitions
+------------------
+**/
+.form-cadastro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: flex-start;
-  overflow-y: hidden;
+  margin: 30px;
 }
 
-.login-box .form-cadastro {
-  background-color: #FFFFFF;
-  margin: auto;
-  -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-          box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  padding: 80px;
-}
-
-.login-box .register-form {
+.form-cadastro .register-form .title {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  padding: 10px;
-}
-
-.login-box .register-form .title {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: flex-start;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 800;
-  font-family: "Montserrat" sans-serif;
-  padding: 10px 10px;
-  color: #2D4297;
+  font-family: "Montserrat", sans-serif;
+  color: #1d2b64;
+  margin-top: 20px;
 }
 
-.login-box .register-form .subtitle {
+.form-cadastro .register-form .subtitle {
   font-size: 20px;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   color: #0F1D2B;
-  padding-bottom: 20px;
-  padding-top: 30px;
+  margin: 20px;
 }
 
-.login-box .register-form .form-field {
-  margin: 10px 0 10px 0;
-  padding: 15px;
-  font-size: 13px;
-  border: 1px solid #2D4297;
-  border-radius: 10px;
-  font-family: "Montserrat" sans-serif;
-  font-weight: 400;
-  background-color: transparent;
+.form-cadastro .register-form .forms-input {
+  display: -ms-grid;
+  display: grid;
+  margin: 20px;
 }
 
-.login-box .register-form .form-field:active {
-  border: 2px;
-  -webkit-box-shadow: #f1f2f3;
-          box-shadow: #f1f2f3;
-}
-
-.login-box .register-form .forms-input {
+.form-cadastro .register-form .forms-input .labels {
   font-size: 13px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -102,96 +63,68 @@
   margin-top: .5rem;
 }
 
-.login-box .register-form .form-xg {
-  width: 93%;
+.form-cadastro .register-form .form-field {
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 13px;
+  border: 2px solid #e7e8e9;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  background-color: transparent;
 }
 
-.login-box .register-form .form-lg {
-  width: 85%;
-}
-
-.login-box .register-form .form-md {
-  width: 60%;
-}
-
-.login-box .register-form .form-sm {
-  width: 40%;
-}
-
-.login-box .register-form input {
+.form-cadastro .register-form input,
+.form-cadastro .register-form textarea {
   background: #f2f2f2;
+  border-radius: 15px;
 }
 
-.login-box .register-form .button-submit {
+.form-cadastro .register-form input:focus,
+.form-cadastro .register-form textarea:focus {
+  outline: 0;
+  border: 2px solid #2D4297;
+}
+
+.form-cadastro .register-form .button-submit {
   background-color: #FFFFFF;
   border: 2px solid #2D4297;
   color: #2D4297;
   cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 30px;
-  width: 50%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  transition: 0.4s;
+  width: 40%;
 }
 
-.login-box .register-form .button-submit:hover {
+.form-cadastro .register-form .button-submit:hover {
   background-color: #2D4297;
   color: #FFFFFF;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-.login-box .register-form .button-submit:disabled {
+.form-cadastro .register-form .button-submit:disabled {
   cursor: default;
 }
 
-.login-box .register-form #app {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 24px;
-  overflow: hidden;
-}
-
-.login-box .register-form .forms-input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.login-box .success-message {
+.form-cadastro .register-form .success-message {
   font-family: 'Montserrat', sans-serif;
   background-color: #3f89f8;
   padding: 15px;
   color: white;
 }
 
-.login-box .error {
+.form-cadastro .register-form .error {
   border-style: solid;
   border: 2px solid #ffa4a4;
+}
+
+@media (max-width: 992px) {
+  .form-cadastro .title {
+    font-size: 24px;
+  }
 }
 /*# sourceMappingURL=cadastros.css.map */

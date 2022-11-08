@@ -4,7 +4,7 @@
     margin: 24px;
     overflow: hidden;
   }
-  
+
   .register-form .title{
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
   overflow-y: hidden;
 } */
 
-.login-box{
+.login{
     background: #2D4297;
     display: flex;
     min-height: 100vh;

@@ -9,15 +9,31 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-#listar-clientes .container .subtitle {
-  font-size: 40px;
-  font-weight: 600;
-  color: #0F1D2B;
+#listar-clientes .title {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 35px;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
+  color: #1d2b64;
 }
 
-#listar-clientes .container .btn {
+#listar-clientes .btn {
   font-size: 15px;
+  background-color: #2D4297;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  border: 1px solid #2D4297;
+  -webkit-transition: .4s;
+  transition: .4s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,64 +43,52 @@ Text Definitions
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 5px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
 }
 
-#listar-clientes .container .btn-inadimplente {
-  background-color: #FFFFFF;
-  color: #0F1D2B;
-  border: 1px solid #0F1D2B;
-  border-radius: 10px;
+#listar-clientes .btn:hover {
+  background-color: #1d2b64;
+  color: #FFFFFF;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
 
-#listar-clientes .container .btn-inadimplente:hover {
-  background-color: #f1f2f3;
-}
-
-#listar-clientes .container .btn-inadimplente .MuiSvgIcon-root {
-  color: #2D4297;
-}
-
-#listar-clientes .container .btn-criar {
+#listar-clientes .btn-criar {
   background-color: #2D4297;
   color: #FFFFFF;
-  border: 1px solid #2D4297;
+  border: 2px solid #FFFFFF;
   border-radius: 10px;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-#listar-clientes .container .btn-criar:hover {
+#listar-clientes .btn-criar:hover {
   background-color: #1d2b64;
 }
 
-#listar-clientes .container .btn-criar .MuiSvgIcon-root {
+#listar-clientes .btn-criar .MuiSvgIcon-root {
   color: #FFFFFF;
 }
 
-#listar-clientes .container .btn-action:hover {
-  background-color: #e7e8e9;
-}
-
-#listar-clientes .container .table-responsive {
+#listar-clientes .table-responsive {
   overflow-x: hidden;
   padding-bottom: 30px;
 }
 
-#listar-clientes .container .table-responsive .infos-titles {
+#listar-clientes .table-responsive .infos-titles {
   background-color: #2D4297;
+  height: 70px;
+  display: -ms-grid;
+  display: grid;
 }
 
-#listar-clientes .container .table-responsive .infos-titles .text {
+#listar-clientes .table-responsive .infos-titles .text {
   color: #FFFFFF;
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 
-#listar-clientes .container .table-responsive .infos-titles .conf {
+#listar-clientes .table-responsive .infos-titles .conf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,38 +100,24 @@ Text Definitions
           align-items: center;
 }
 
-#listar-clientes .container .table-responsive .infos-body .row:nth-of-type(2n+1) {
-  background-color: rgba(0, 0, 0, 0.05);
+#listar-clientes .table-responsive .infos-body .row:nth-of-type(2n+1) {
   padding-bottom: 8px;
   padding-top: 8px;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #e7e8e9;
 }
 
-#listar-clientes .container .table-responsive .infos-body .text {
+#listar-clientes .table-responsive .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
 }
 
-#listar-clientes .container .table-responsive .infos-body .text-id {
+#listar-clientes .table-responsive .infos-body .text-id {
   width: 20px;
 }
 
-#listar-clientes .container .table-responsive .infos-body .btn-carros {
-  border: 1px solid #6c757d;
-  font-size: 15px;
-  font-family: "Montserrat", sans-serif;
-  color: #0F1D2B;
-}
-
-#listar-clientes .container .table-responsive .infos-body .btn-carros:hover {
-  background-color: #e7e8e9;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-#listar-clientes .container .table-responsive .infos-body .conf {
+#listar-clientes .table-responsive .infos-body .conf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,11 +129,11 @@ Text Definitions
           align-items: center;
 }
 
-#listar-clientes .container .table-responsive .infos-body .in {
+#listar-clientes .table-responsive .infos-body .in {
   display: block !important;
 }
 
-#listar-clientes .container .table-responsive .infos-body .collapse .infos-collapse {
+#listar-clientes .table-responsive .infos-body .collapse .infos-collapse {
   background-color: #1d2b64;
   color: #FFFFFF;
   font-size: 20px;
@@ -173,5 +163,11 @@ Text Definitions
   -webkit-transition: .4s;
   transition: .4s;
   color: #FFFFFF;
+}
+
+@media (max-width: 992px) {
+  #listar-clientes .title {
+    font-size: 24px;
+  }
 }
 /*# sourceMappingURL=ListarClientes.css.map */

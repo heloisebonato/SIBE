@@ -30,13 +30,13 @@ const CadastroCliente = (props) => {
   const [clientes, setClientes] = useState([]);
 
   const getClienteByCpf = async () => {
-    const { data } = await axios.get("clientes/cpf/" + cpf);
+    const {data} = await axios.get("clientes/cpf/" + cpf);
 
     if (data) {
       if (
-        window.confirm(
-          'Esse cliente já está cadastrado, verificar seção "Clientes"'
-        )
+          window.confirm(
+              'Esse cliente já está cadastrado, verificar seção "Clientes"'
+          )
       ) {
         setCadastroCliente(true);
       }
@@ -49,48 +49,44 @@ const CadastroCliente = (props) => {
   const [inputError, setInputError] = useState("");
 
   function cpfIsValid(strCPF) {
-
     var Soma;
     var Resto;
     Soma = 0;
-    if (strCPF == "00000000000") {
+    if (strCPF === "00000000000") {
       return false;
     }
 
-    for (var i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+    for (var i = 1; i <= 9; i++)
+      Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
 
-      if ((Resto == 10) || (Resto == 11))  Resto = 0;
-      if (Resto != parseInt(strCPF.substring(9, 10)) ) {
+    if (Resto === 10 || Resto === 11) Resto = 0;
+    if (Resto !== parseInt(strCPF.substring(9, 10))) {
       return false;
     }
 
     Soma = 0;
-    for (var i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+    for (var i = 1; i <= 10; i++)
+      Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
 
-      if ((Resto == 10) || (Resto == 11))  Resto = 0;
-      if (Resto != parseInt(strCPF.substring(10, 11) ) ) {
+    if (Resto === 10 || Resto === 11) Resto = 0;
+    if (Resto !== parseInt(strCPF.substring(10, 11))) {
       return false;
     }
 
     return true;
-
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { data } = await axios.get("clientes/cpf/" + cpf);
+    const {data} = await axios.get("clientes/cpf/" + cpf);
     console.log(data_cadastro);
     if (data.length === 0) {
-
-      if (!(cpfIsValid(cpf))){
-        window.confirm(
-          'Esse CPF é Inválido'
-        )
+      if (!cpfIsValid(cpf)) {
+        window.confirm("Esse CPF é Inválido");
       } else {
-
         const response = await axios.post("clientes/", {
           nome: nome,
           data_nascimento: data_nascimento,
@@ -111,12 +107,10 @@ const CadastroCliente = (props) => {
         });
         console.log(response);
         window.confirm("Cliente cadastrado com sucesso");
-
       }
-
     } else {
       window.confirm(
-        'Esse cliente já está cadastrado, verificar seção "Clientes"'
+          'Esse cliente já está cadastrado, verificar seção "Clientes"'
       );
     }
 
@@ -124,10 +118,9 @@ const CadastroCliente = (props) => {
       setRedirectHome(true);
     }
 
-    if(!(cpfIsValid(cpf))){
+    if (!cpfIsValid(cpf)) {
       setRedirectHome(false);
     }
-
   };
 
   // render () {
@@ -139,10 +132,9 @@ const CadastroCliente = (props) => {
   }
 
   return (
-    <Wrapper>
-      <div className="login-box bg-light">
+      <Wrapper>
         <div className="form-cadastro">
-          <div class="container">
+          <div class="container-fluid">
             <form className="register-form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-12">
@@ -155,75 +147,75 @@ const CadastroCliente = (props) => {
                   <div className="forms-input">
                     <label className="labels">Nome Completo</label>
                     <input
-                      id="nome"
-                      class="form-field form-lg"
-                      type="text"
-                      placeholder="Digite o nome completo"
-                      name="nome"
-                      onChange={(e) => setNome(e.target.value)}
-                      required
+                        id="nome"
+                        class="form-field form-lg"
+                        type="text"
+                        placeholder="Digite o nome completo"
+                        name="nome"
+                        onChange={(e) => setNome(e.target.value)}
+                        required
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">Data de Nascimento</label>
                     <input
-                      id="data_nascimento"
-                      class="form-field"
-                      type="date"
-                      name="data_nascimento"
-                      onChange={(e) => setDtNasc(e.target.value)}
-                      required
+                        id="data_nascimento"
+                        class="form-field"
+                        type="date"
+                        name="data_nascimento"
+                        onChange={(e) => setDtNasc(e.target.value)}
+                        required
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">Celular</label>
                     <input
-                      id="celular"
-                      class="form-field"
-                      type="text"
-                      placeholder="Digite o telefone celular"
-                      name="celular"
-                      maxlength="10"
-                      onChange={(e) => setCelular(e.target.value)}
-                      required
+                        id="celular"
+                        class="form-field"
+                        type="text"
+                        placeholder="Digite o telefone celular"
+                        name="celular"
+                        maxlength="10"
+                        onChange={(e) => setCelular(e.target.value)}
+                        required
                     />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="forms-input">
-                  <label className="labels">CPF</label>
+                    <label className="labels">CPF</label>
                     <input
-                      required
-                      onChange={(e) => setCpf(e.target.value)}
-                      label="CPF"
-                      variant="outlined"
-                      margin="normal"
-                      id="cpf"
-                      class="form-field form-lg"
+                        required
+                        onChange={(e) => setCpf(e.target.value)}
+                        label="CPF"
+                        variant="outlined"
+                        margin="normal"
+                        id="cpf"
+                        class="form-field form-lg"
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">RG</label>
                     <input
-                      id="rg"
-                      placeholder="Digite o RG"
-                      class="form-field form-md"
-                      type="text"
-                      name="rg"
-                      maxlength="15"
-                      onChange={(e) => setRg(e.target.value)}
+                        id="rg"
+                        placeholder="Digite o RG"
+                        class="form-field form-md"
+                        type="text"
+                        name="rg"
+                        maxlength="15"
+                        onChange={(e) => setRg(e.target.value)}
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">Telefone (opcional)</label>
                     <input
-                      id="telefone"
-                      class="form-field"
-                      type="text"
-                      placeholder="Digite o telefone"
-                      name="telefone"
-                      maxlength="10"
-                      onChange={(e) => setTelefone(e.target.value)}
+                        id="telefone"
+                        class="form-field"
+                        type="text"
+                        placeholder="Digite o telefone"
+                        name="telefone"
+                        maxlength="10"
+                        onChange={(e) => setTelefone(e.target.value)}
                     />
                   </div>
                 </div>
@@ -234,14 +226,14 @@ const CadastroCliente = (props) => {
                   <div className="forms-input">
                     <label className="labels">CNH</label>
                     <input
-                      id="cnh"
-                      class="form-field form-lg"
-                      type="text"
-                      placeholder="Digite a CNH"
-                      name="cnh"
-                      maxlength="15"
-                      onChange={(e) => setCnh(e.target.value)}
-                      required
+                        id="cnh"
+                        class="form-field form-lg"
+                        type="text"
+                        placeholder="Digite a CNH"
+                        name="cnh"
+                        maxlength="15"
+                        onChange={(e) => setCnh(e.target.value)}
+                        required
                     />
                   </div>
                 </div>
@@ -249,12 +241,12 @@ const CadastroCliente = (props) => {
                   <div className="forms-input">
                     <label className="labels">Nome da Mãe</label>
                     <input
-                      id="nome_mae"
-                      class="form-field form-lg"
-                      placeholder="Digite o nome da mãe"
-                      type="text"
-                      name="nome_mae"
-                      onChange={(e) => setNomeMae(e.target.value)}
+                        id="nome_mae"
+                        class="form-field form-lg"
+                        placeholder="Digite o nome da mãe"
+                        type="text"
+                        name="nome_mae"
+                        onChange={(e) => setNomeMae(e.target.value)}
                     />
                   </div>
                 </div>
@@ -262,12 +254,12 @@ const CadastroCliente = (props) => {
                   <div className="forms-input">
                     <label className="labels">Endereço</label>
                     <input
-                      id="endereco"
-                      class="form-field form-xg"
-                      type="text"
-                      placeholder="Digite o endereço"
-                      name="endereco"
-                      onChange={(e) => setEndereco(e.target.value)}
+                        id="endereco"
+                        class="form-field form-xg"
+                        type="text"
+                        placeholder="Digite o endereço"
+                        name="endereco"
+                        onChange={(e) => setEndereco(e.target.value)}
                     />
                   </div>
                 </div>
@@ -275,22 +267,22 @@ const CadastroCliente = (props) => {
                   <div className="forms-input">
                     <label className="labels">CEP</label>
                     <input
-                      id="cep"
-                      class="form-field form-md"
-                      type="text"
-                      placeholder="Digite o CEP"
-                      name="cep"
-                      maxlength="10"
-                      onChange={(e) => setCep(e.target.value)}
+                        id="cep"
+                        class="form-field form-md"
+                        type="text"
+                        placeholder="Digite o CEP"
+                        name="cep"
+                        maxlength="10"
+                        onChange={(e) => setCep(e.target.value)}
                     />
                   </div>
                   <div className="forms-input">
                     <label className="labels">Estado</label>
                     <select
-                      class="form-field select-box"
-                      name="estado"
-                      id="estado"
-                      onChange={(e) => setEstado(e.target.value)}
+                        class="form-field select-box"
+                        name="estado"
+                        id="estado"
+                        onChange={(e) => setEstado(e.target.value)}
                     >
                       <option value="">Selecione</option>
                       <option value="AC">AC</option>
@@ -321,62 +313,85 @@ const CadastroCliente = (props) => {
                       <option value="SP">SP</option>
                       <option value="TO">TO</option>
                     </select>
+                    <div className="col-lg-6">
+                      <div className="forms-input">
+                        <label className="labels">Número</label>
+                        <input
+                            id="n_casa"
+                            class="form-field form-sm"
+                            type="text"
+                            placeholder="Digite o número"
+                            name="n_casa"
+                            maxlength="10"
+                            onChange={(e) => setN_casa(e.target.value)}
+                        />
+                      </div>
+                      <div className="forms-input">
+                        <label className="labels">Cidade</label>
+                        <input
+                            id="cidade"
+                            class="form-field form-md"
+                            type="text"
+                            placeholder="Digite a cidade"
+                            name="cidade"
+                            onChange={(e) => setCidade(e.target.value)}
+                        />
+                      </div>
+                      {/* new Date().toJSON().slice(0, 10) */}
+                      <div className="forms-input" hidden>
+                        <label className="labels">Data Cadastro</label>
+                        <input
+                            id="data_cadastro"
+                            class="form-field form-md"
+                            type="text"
+                            name="data_cadastro"
+                            value={new Date().toJSON().slice(0, 10)}
+                            onChange={(e) => setDataCadastro(e.target.value)}
+                            readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="forms-input">
+                      <label className="labels">Número</label>
+                      <input
+                          id="n_casa"
+                          class="form-field form-sm"
+                          type="text"
+                          placeholder="Digite o número"
+                          name="n_casa"
+                          maxlength="10"
+                          onChange={(e) => setN_casa(e.target.value)}
+                      />
+                    </div>
+                    <div className="forms-input">
+                      <label className="labels">Cidade</label>
+                      <input
+                          id="cidade"
+                          class="form-field form-md"
+                          type="text"
+                          placeholder="Digite a cidade"
+                          name="cidade"
+                          onChange={(e) => setCidade(e.target.value)}
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="col-lg-6">
-                  <div className="forms-input">
-                    <label className="labels">Número</label>
-                    <input
-                      id="n_casa"
-                      class="form-field form-sm"
-                      type="text"
-                      placeholder="Digite o número"
-                      name="n_casa"
-                      maxlength="10"
-                      onChange={(e) => setN_casa(e.target.value)}
-                    />
+                <div className="row pt-lg-4">
+                  <div className="col d-flex justify-content-center">
+                    <button class="form-field button-submit" type="submit">
+                      {/* onClick={this.onClickCadastrar} */}
+                      Cadastrar
+                    </button>
                   </div>
-                  <div className="forms-input">
-                    <label className="labels">Cidade</label>
-                    <input
-                      id="cidade"
-                      class="form-field form-md"
-                      type="text"
-                      placeholder="Digite a cidade"
-                      name="cidade"
-                      onChange={(e) => setCidade(e.target.value)}
-                    />
-                  </div>
-                  {/* new Date().toJSON().slice(0, 10) */}
-                  <div className="forms-input" hidden>
-                    <label className="labels">Data Cadastro</label>
-                    <input
-                      id="data_cadastro"
-                      class="form-field form-md"
-                      type="text"
-                      name="data_cadastro"
-                      value={new Date().toJSON().slice(0, 10)}
-                      onChange={(e) => setDataCadastro(e.target.value)}
-                      readonly
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="row pt-lg-4">
-                <div className="col d-flex justify-content-center">
-                  <button class="form-field button-submit" type="submit">
-                    {/* onClick={this.onClickCadastrar} */}
-                    Cadastrar
-                  </button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
   );
-  // }
-};
+}
 
 export default CadastroCliente;

@@ -4,21 +4,29 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logoSibe from "../../assets/images/logo-sibe.png";
 import "./nav.css";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
+import { PopperUnstyled } from "@mui/base";
+import {
+  Paper,
+  Tooltip,
+  Badge,
+  IconButton,
+  List,
+  ListItem,
+  Divider,
+  ListItemText,
+  Typography,
+  ListItemButton,
+} from "@mui/material";
 
 const Nav = () => {
   const [funcionario, setFuncionario] = useState({
     nome: "",
   });
-
-  const [notificacoes, setNotificacao] = useState([]);
-
   const [rota, setRota] = useState("");
 
   useEffect(() => {
@@ -56,6 +64,16 @@ const Nav = () => {
   const logout = async () => {
     await axios.post("logout", {});
   };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "notifications-popup" : undefined;
+
+  const [notificacoes, setNotificacao] = useState([]);
 
   const showNotification = async () => {
     var element = document.getElementById("tb-notificacao");
@@ -96,7 +114,7 @@ const Nav = () => {
   return (
     <header className="navbar sticky-top flex-md-nowrap p-0 shadow">
       <a className="navbar-brand col-md-3 col-lg-2 mx-0 mr-lg-2" href="#/">
-        <img alt="logo sibe" class="logo" src={logoSibe}></img>
+        <img alt="logo-sibe" class="logo" src={logoSibe}></img>
       </a>
       <button
         className="navbar-toggler position-absolute d-md-none collapsed"
@@ -125,11 +143,46 @@ const Nav = () => {
         </NavLink>
       </div>
       <a className="navbar-item" href="#/">
-        <IconButton color="inherit" onClick={showNotification}>
-          <Badge badgeContent={notificacoes.length} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
+        <Tooltip title="Notificações">
+          <IconButton
+            color="inherit"
+            onClick={handleClick}
+            aria-describedby={id}
+            type="button"
+          >
+            <Badge badgeContent={notificacoes.length} color="secondary">
+              <NotificationsIcon />
+              <PopperUnstyled id={id} open={open} anchorEl={anchorEl}>
+                <Paper elevation={1}>
+                  <List>
+                    <Typography className="text-item">Agendamentos</Typography>
+                    <ListItem>
+                    {notificacoes
+                      .sort((a, b) => b.locacao_id - a.locacao_id)
+                        .map((notificacoes) => {
+                          return(
+                      <><ListItemText key={notificacoes.locacao_id}
+                              primary={<Typography className="text-title">Carreta: {notificacoes.placa_carreta}</Typography>}
+                              secondary={<Typography className="text" component="span">Status: {notificacoes.status_agendamento}</Typography>}
+                            ></ListItemText><ListItemButton className="btn-group">
+                                <Link
+                                  to={`/locacoes/${notificacoes.locacao_id}`}
+                                  exact
+                                  className="btn-go btn-sm"
+                                >
+                                  Go
+                                </Link>
+                              </ListItemButton>
+                              <Divider /></>
+                      );
+                  })}
+                    </ListItem>
+                  </List>
+                </Paper>
+              </PopperUnstyled>
+            </Badge>
+          </IconButton>
+        </Tooltip>
       </a>
       <a className="navbar-item name-func px-3" href="#/">
         <PersonIcon color="white" />
@@ -137,53 +190,18 @@ const Nav = () => {
       </a>
       <div className="navbar-nav">
         <div className="nav-item text-nowrap">
-          <Link to="/login" className="nav-link px-3" href="#" onClick={logout}>
-            <LogoutIcon />
-          </Link>
+          <Tooltip title="Sair">
+            <Link
+              to="/login"
+              className="nav-link px-3"
+              href="#"
+              onClick={logout}
+            >
+              <LogoutIcon />
+            </Link>
+          </Tooltip>
         </div>
       </div>
-      <table
-        className="table table-striped table-sm d-lg-none"
-        id="tb-notificacao"
-      >
-        <thead className="infos-titles">
-          <tr>
-            <th className="text">Data Entrada</th>
-            <th className="text">Data Prevista Entrada</th>
-            <th className="text">Data Saída</th>
-            <th className="text">Data Prevista Saída</th>
-            <th className="text">Status Agendamento</th>
-            <th className="text">Nome</th>
-          </tr>
-        </thead>
-        <tbody className="infos-body">
-          {notificacoes
-            .sort((a, b) => b.locacao_id - a.locacao_id)
-            .map((notificacoes) => {
-              return (
-                <tr key={notificacoes.locacao_id}>
-                  <td className="text">{notificacoes.data_entrada}</td>
-                  <td className="text">{notificacoes.data_prevista_entrada}</td>
-                  <td className="text">{notificacoes.data_saida}</td>
-                  <td className="text">{notificacoes.data_prevista_saida}</td>
-                  <td className="text">{notificacoes.status_agendamento}</td>
-                  <td className="text">{notificacoes.nome}</td>
-                  <td>
-                    <div className="btn-group mr-2">
-                      <Link
-                        to={`/locacoes/${notificacoes.locacao_id}`}
-                        exact
-                        className="btn btn-action btn-sm btn-outline-secondary"
-                      >
-                        Go
-                      </Link>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
     </header>
   );
   // }
