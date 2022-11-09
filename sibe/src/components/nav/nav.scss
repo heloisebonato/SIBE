@@ -161,8 +161,8 @@
 .navbar-item.name-func {
     color: $blue;
     font-size: $font--items;
-    font-family: "Montserrat";
-    font-weight: $weight--small;
+    font-family: $font--family2, sans-serif;
+    font-weight: $weight--medium;
     text-decoration: none;
     transition: .3s;
     display: flex;

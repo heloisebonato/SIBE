@@ -76,21 +76,11 @@ const Engates = (props) => {
 
   return (
     <Wrapper>
-      {/* <div className="pt-3 pb-2 mb-3 border-bottom">
-                <Link to="/users/create" className="btn btn-sm btn-outline-secondary">Add</Link>
-            </div> */}
-
       <div className="row">
         <div className="col-lg-6 py-lg-5 py-3">
           <h2 className="title pl-5">Engates</h2>
         </div>
         <div className="col-lg-6 py-lg-5 py-3 d-flex justify-content-lg-end justify-content-center align-items-center">
-          {/* <NavLink to={"/locacoes"} className="nav-link">
-            <a className="btn" href="#locacoes">
-              {" "}
-              <CheckCircleIcon /> Carretas Locadas
-            </a>
-          </NavLink> */}
           <NavLink to={"/cadastroEngate"} className="nav-link">
             <a className="btn" href="#cadastroCarreta">
               {" "}
@@ -103,7 +93,7 @@ const Engates = (props) => {
         <Thead className="infos-titles">
           <Tr>
             <Th className="text">#</Th>
-            <Th className="text">Nome</Th>
+            <Th className="text">Modelo</Th>
             <Th className="text">Marca</Th>
             <Th className="text">Preço</Th>
             <Th className="text">Ações</Th>

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component, useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import logoSibe from "../../assets/images/logo-principal.png";
+import logoSibe from "../../assets/images/logo-principal1.png";
 import "./nav.css";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
@@ -75,14 +75,6 @@ const Nav = () => {
 
   const [notificacoes, setNotificacao] = useState([]);
 
-  const showNotification = async () => {
-    var element = document.getElementById("tb-notificacao");
-    if (element.classList.contains("d-lg-none")) {
-      element.classList.remove("d-lg-none");
-    } else {
-      element.classList.add("d-lg-none");
-    }
-  };
 
   const search = async () => {
     const value = document.getElementById("search").value;

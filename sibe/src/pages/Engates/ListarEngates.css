@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -10,30 +11,40 @@ Text Definitions
 ------------------
 **/
 .title {
-  justify-content: left;
-  align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 35px;
   font-weight: 800;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #153C54;
 }
 
 .btn {
   font-size: 15px;
   background-color: #1B4965;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #FFFFFF;
   border: 1px solid #1B4965;
   border-radius: 10px;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
+
 .btn:hover {
   background-color: #153C54;
   color: #FFFFFF;
-  transition: 0.6s;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
+
 .btn .MuiSvgIcon-root {
   color: #FFFFFF;
 }
@@ -46,17 +57,20 @@ Text Definitions
 .table .infos-titles {
   background-color: #1B4965;
 }
+
 .table .infos-titles .text {
   color: #FFFFFF;
   font-size: 15px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
+
 .table .infos-titles th {
   border: none;
 }
+
 .table .infos-body .text {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
@@ -66,16 +80,24 @@ Text Definitions
   color: #1B4965;
   border: 1px solid #1B4965;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 15px;
-  font-family: "Montserrat";
+  font-family: "Poppins";
   font-weight: 500;
 }
+
 .pagination .page-item .page-link:hover {
   background-color: #1B4965;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
   color: #FFFFFF;
 }
 
@@ -83,92 +105,5 @@ Text Definitions
   .title {
     font-size: 24px;
   }
-}/*# sourceMappingURL=ListarEngates.css.map */@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
-/**
--------------------------
-Color Definitions
--------------------------
-**/
-/**
-------------------
-Text Definitions
-------------------
-**/
-.title {
-    justify-content: left;
-    align-items: center;
-    display: flex;
-    font-size: 35px;
-    font-weight: 800;
-    font-family: "Montserrat", sans-serif;
-    color: #153C54;
-  }
-  
-  .btn {
-    font-size: 15px;
-    background-color: #1B4965;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    color: #FFFFFF;
-    border: 1px solid #1B4965;
-    border-radius: 10px;
-    transition: 0.4s;
-  }
-  .btn:hover {
-    background-color: #153C54;
-    color: #FFFFFF;
-    transition: 0.6s;
-  }
-  .btn .MuiSvgIcon-root {
-    color: #FFFFFF;
-  }
-  
-  .btn-action:hover {
-    border-color: none;
-    background-color: #153C54;
-  }
-  
-  .table .infos-titles {
-    background-color: #1B4965;
-  }
-  .table .infos-titles .text {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-  }
-  .table .infos-titles th {
-    border: none;
-  }
-  .table .infos-body .text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
-  
-  .pagination .page-item .page-link {
-    color: #1B4965;
-    border: 1px solid #1B4965;
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-family: "Montserrat";
-    font-weight: 500;
-  }
-  .pagination .page-item .page-link:hover {
-    background-color: #1B4965;
-    transition: 0.4s;
-    color: #FFFFFF;
-  }
-  
-  @media (max-width: 992px) {
-    .title {
-      font-size: 24px;
-    }
-  }/*# sourceMappingURL=ListarCarretas.css.map */
-  
-  
-  
+}
+/*# sourceMappingURL=ListarEngates.css.map */

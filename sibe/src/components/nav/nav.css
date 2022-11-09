@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -27,20 +28,29 @@ Text Definitions
   top: 0;
   background: #FFFFFF;
 }
+
 .navbar .search {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: auto;
   border: 1px solid #1B4965;
   border-radius: 20px;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 35%;
 }
+
 .navbar .search .form-search {
   font-family: "Montserrat";
   font-size: 15px;
   margin-left: 13px;
 }
+
 .navbar .search .button-procurar {
   color: #FFFFFF;
   font-size: 15px;
@@ -50,21 +60,31 @@ Text Definitions
   padding-top: 5px;
   padding-left: 10px;
   font-family: "Montserrat";
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid transparent;
   border-radius: 0px 20px 20px 0px;
   background-color: transparent;
 }
+
 .navbar .search .button-procurar:hover {
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
   background-color: #1B4965;
   border: 1px solid #1B4965;
 }
+
 .navbar .search .searchIcon {
   color: #1B4965;
 }
+
 .navbar .search .searchIcon:hover {
   color: #FFFFFF;
 }
@@ -72,6 +92,7 @@ Text Definitions
 #notifications-popup {
   padding-top: 20px;
 }
+
 #notifications-popup .text-item {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
@@ -79,12 +100,14 @@ Text Definitions
   color: #0F1D2B;
   margin-left: 15px;
 }
+
 #notifications-popup .MuiPaper-elevation {
   border-radius: 10px;
   background-color: #FFFFFF;
   margin-top: 35px;
-  border: 1px solid rgb(224, 227, 231);
+  border: 1px solid #e0e3e7;
 }
+
 #notifications-popup .MuiList-root {
   overflow: auto;
   padding: 10px 0px;
@@ -95,57 +118,76 @@ Text Definitions
   width: 400px;
   height: 330px;
 }
+
 #notifications-popup .MuiListItem-root {
   display: inline-block;
 }
+
 #notifications-popup .MuiListItemText-root {
   margin-top: 15px;
 }
+
 #notifications-popup .text-title {
   font-family: "Montserrat", sans-serif;
   color: #0F1D2B;
   font-weight: 400;
 }
+
 #notifications-popup .text {
   font-family: "Montserrat", sans-serif;
 }
+
 #notifications-popup .MuiListItemButton-root {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 500;
 }
+
 #notifications-popup .MuiListItemButton-root:hover {
   background-color: transparent;
 }
+
 #notifications-popup .btn-group {
   margin-bottom: 10px;
 }
+
 #notifications-popup .btn-group .btn-go {
   background-color: #1B4965;
   color: #FFFFFF;
   border: 1px solid #1B4965;
   border-radius: 10px;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
+
 #notifications-popup .btn-group .btn-go:hover {
   text-decoration: none;
   background-color: #153C54;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 .navbar-item {
   display: block;
 }
+
 .navbar-item .css-zylse7-MuiButtonBase-root-MuiIconButton-root {
   width: 5px;
   height: 5px;
   padding: 0px;
   margin: 28px;
 }
+
 .navbar-item .css-zylse7-MuiButtonBase-root-MuiIconButton-root:hover {
   background-color: transparent;
 }
@@ -153,16 +195,25 @@ Text Definitions
 .navbar-item.name-func {
   color: #1B4965;
   font-size: 15px;
-  font-family: "Montserrat";
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   text-decoration: none;
-  transition: 0.3s;
+  -webkit-transition: .3s;
+  transition: .3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .navbar-item.name-func:hover {
-  transition: 0.3s;
+  -webkit-transition: .3s;
+  transition: .3s;
   color: #22316f;
   text-decoration: underline;
 }
@@ -193,4 +244,5 @@ Text Definitions
     border: 1px solid #1B4965;
     border-radius: 20px;
   }
-}/*# sourceMappingURL=nav.css.map */
+}
+/*# sourceMappingURL=nav.css.map */

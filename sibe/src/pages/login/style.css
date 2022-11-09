@@ -1,21 +1,21 @@
-#app{
-    flex: 1;
-    box-sizing: border-box;
-    margin: 24px;
-    overflow: hidden;
-  }
+#app {
+  flex: 1;
+  box-sizing: border-box;
+  margin: 24px;
+  overflow: hidden;
+}
 
-  .register-form .title{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: 18px;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 10px;
-  }
+.register-form .title {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 10px;
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
 /* body {
   background: #2D4297;
@@ -27,14 +27,14 @@
   overflow-y: hidden;
 } */
 
-.login{
-    background: #1B4965;
-    display: flex;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    overflow-y: hidden;
+.login {
+  background: #1B4965;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  overflow-y: hidden;
 }
 
 .form-container {
@@ -96,7 +96,8 @@ input {
   font-weight: 700;
   margin-top: 30px;
 }
-.button-submit:hover{
+
+.button-submit:hover {
   background-color: #13374d;
   color: #FFFFFF;
   transition: 0.4s;
@@ -106,14 +107,25 @@ input {
   cursor: default;
 }
 
-#app{
+#app {
   flex: 1;
   box-sizing: border-box;
   margin: 24px;
   overflow: hidden;
 }
 
-.login .register-form .title{
+
+.forms-input .labels {
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #0F1D2B;
+  text-transform: uppercase;
+  margin-top: .5rem;
+
+}
+
+.login .register-form .title {
   justify-content: center;
   align-items: center;
   display: flex;

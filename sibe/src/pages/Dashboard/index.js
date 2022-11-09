@@ -4,8 +4,8 @@ import React, { useEffect, useState, useRef } from "react";
 import Wrapper from "../../components/wrapper/wrapper";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
-//import {Bar} from 'react-chartjs-2'
-
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { Bar, CategoryScale } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 //import UserData from "./Data";
@@ -27,6 +27,7 @@ const Dashboard = (props) => {
 
   const [labels_1, setLabels] = useState([]);
   const [value_1, setValue_1] = useState();
+  const [notificacoes, setNotificacao] = useState([]);
 
   const [userData, setUserData] = useState({
     labels: 0,
@@ -92,23 +93,41 @@ const Dashboard = (props) => {
           label: "Carretas",
           data: value,
           backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
+            "#d1ff33",
+            "#f50057",
+            "#ffea00",
+            "#ff9100",
+            "#dd33fa",
           ],
           borderColor: "black",
-          borderWidth: 2,
+          borderWidth: 1,
+          borderRadius: 4,
           order: 1,
         },
       ],
     });
   };
 
+  const getNotificacao = () =>
+    axios
+      .get("/notificacao")
+      .then((response) => {
+        console.log("GET Response");
+        //console.log(response.data[0]);
+        setNotificacao(response.data[0]);
+        console.log(notificacoes);
+
+        //response.send(data);
+      })
+      .catch(function (error) {
+        console.log("Error in getting notificações");
+      });
+
   useEffect(() => {
     (async () => {
       //console.log(data)
+
+      getNotificacao();
 
       if (props.match.params.cpf == null) {
         var { data } = await axios.get(`clientes?page=${page}`);
@@ -180,124 +199,91 @@ const Dashboard = (props) => {
 
   return (
     <Wrapper>
-      <div id="listar-clientes">
+      <div className="dashboard">
         <div className="row">
-          <div className="col-lg-6 py-5">
-            <div className="container">
+          <div className="col-lg-6 pt-5">
+            <h2 className="title pl-5">Dashboard</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3">
+            <div className="box-new-clients mx-5 mt-5">
               <div className="row">
-                <div className="col-lg-6 py-5">
-                  <h2 className="subtitle">Dashboard</h2>
-                </div>
-                <div className="col-lg-6 py-5">
-                  <h4>
-                    {novosClientes.contagem_novos_clientes} Novos Clientes na
-                    Última Semana
+                <div className="col">
+                  <h4 className="title">Novos clientes</h4>
+                  <p className="text"> na última semana</p>
+                  <h4 className="number">
+                    {novosClientes.contagem_novos_clientes}
                   </h4>
-                </div>
-              </div>
-              <div className="row">
-                <h4>Produtos Ativos</h4>
-                <div className="col-lg-12">
-                  <div className="table-responsive">
-                    <div className="infos-titles">
-                      <div className="row">
-                        <div className="col-lg-1 conf">
-                          <div className="text">#</div>
-                        </div>
-                        <div className="col-lg-3 conf">
-                          <div className="text">Nome</div>
-                        </div>
-                        <div className="col-lg-2 conf">
-                          <div className="text">Data Saída</div>
-                        </div>
-                        <div className="col-lg-2 conf">
-                          <div className="text">Data Prevista Entrada</div>
-                        </div>
-                        <div className="col-lg-4 conf">
-                          <div className="text">Ações</div>
-                        </div>
-                      </div>
-                    </div>
-                    {produtosAtivos
-                      .sort((a, b) => b.locacao_id - a.locacao_id)
-                      .map((produtosAtivos) => {
-                        return (
-                          <div className="infos-body">
-                            <div
-                              className="row"
-                              key={produtosAtivos.locacao_id}
-                            >
-                              <div className="col-lg-1 conf">
-                                <div className="text">
-                                  {produtosAtivos.locacao_id}
-                                </div>
-                              </div>
-                              <div className="col-lg-3 conf">
-                                <div className="text">
-                                  {produtosAtivos.nome}
-                                </div>
-                              </div>
-                              <div className="col-lg-2 conf">
-                                <div className="text">
-                                  {produtosAtivos.data_saida}
-                                </div>
-                              </div>
-                              <div className="col-lg-2 conf">
-                                <div className="text">
-                                  {produtosAtivos.data_prevista_saida}
-                                </div>
-                              </div>
-                              <div className="col-lg-4 conf">
-                                <div className="btn-group mr-2">
-                                  <div className="btn-group mr-2">
-                                    <Link
-                                      to={`/locacao/${produtosAtivos.locacao_id}/editar`}
-                                      exact
-                                      className="btn btn-action btn-sm btn-outline-secondary"
-                                    >
-                                      <EditIcon />
-                                    </Link>
-                                  </div>
-
-                                  <Link
-                                    to={`/historico/${produtosAtivos.cliente_id}`}
-                                    exact
-                                    className="btn btn-action btn-sm btn-outline-secondary"
-                                  >
-                                    {" "}
-                                    Histórico
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-lg-6 py-5">
+          <div className="col-3">
+            <div className="box-notificacoes mx-5 mt-5">
+              <div className="row">
+                <div className="col">
+                  <h4 className="title pl-4">Número agendamentos</h4>
+                  <p className="text">status atrasado</p>
+                  <h4 className="number">{notificacoes.length}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 className="subtitle pt-lg-5">Produtos Ativos</h4>
+        <Table className="table px-4">
+          <Thead className="infos-titles">
+            <Tr>
+              <Th className="text">#</Th>
+              <Th className="text">Nome</Th>
+              <Th className="text">Data saída</Th>
+              <Th className="text">Data prevista entrada</Th>
+              <Th className="text">Ações</Th>
+            </Tr>
+          </Thead>
+          <Tbody className="infos-body">
+            {produtosAtivos
+              .sort((a, b) => b.locacao_id - a.locacao_id)
+              .map((produtosAtivos) => {
+                return (
+                  <Tr key={produtosAtivos.locacao_id}>
+                    <Td className="text">{produtosAtivos.locacao_id}</Td>
+                    <Td className="text">{produtosAtivos.nome}</Td>
+                    <Td className="text">{produtosAtivos.data_saida}</Td>
+                    <Td className="text">
+                      {produtosAtivos.data_prevista_saida}
+                    </Td>
+                    <div className="btn-group mr-2">
+                      <Link
+                        to={`/locacao/${produtosAtivos.locacao_id}/editar`}
+                        exact
+                        className="btn btn-action btn-sm"
+                      >
+                        <EditIcon />
+                      </Link>
+                      <Link
+                        to={`/historico/${produtosAtivos.cliente_id}`}
+                        exact
+                        className="btn btn-action btn-sm"
+                      >
+                        {" "}
+                        Histórico
+                      </Link>
+                    </div>
+                  </Tr>
+                );
+              })}
+          </Tbody>
+        </Table>
+        <div className="row">
+          <div className="col-lg-6 py-5 px-5 mx-5">
             <h2 className="subtitle">Carretas Mais Locadas</h2>
             <Bar data={userData} />
           </div>
         </div>
       </div>
-      <nav>
-        <ul className="pagination mx-lg-3">
-          <li className="page-item">
-            <a href={prev} className="page-link" onClick={prev}>
-              Anterior
-            </a>
-          </li>
-          <li className="page-item">
-            <a href={next} className="page-link" onClick={next}>
-              Próximo
-            </a>
-          </li>
-        </ul>
-      </nav>
     </Wrapper>
   );
 };

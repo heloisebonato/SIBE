@@ -1,11 +1,120 @@
 @import "../../assets/scss/variaveis.scss";
- 
-.dashboard{
-    .title{
-        font-size: $font--primary-title;
-        font-weight: $weight--bold;
-        font-family: "Montserrat";
-        color: $primary-dark;
+
+.dashboard {
+    overflow-y: hidden;
+
+    .title {
+        justify-content: left;
+        align-items: center;
+        display: flex;
+        font-size: 35px;
+        font-weight: 800;
+        font-family: $font--family2, sans-serif;
+        color: #153C54;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        font-weight: 600;
+        font-family: $font--family, sans-serif;
+        color: #0F1D2B;
+        margin: 20px;
+    }
+
+
+    .table {
+        .infos-body {
+            .btn-group {
+                margin-top: 10px;
+
+                .btn-action {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+
+    .box-new-clients {
+        width: 200px;
+        height: 160px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            font-size: 18px;
+            font-family: $font--family2, sans-serif;
+            color: #0F1D2B;
+            font-weight: 600;
+            padding-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 10px;
+        }
+
+        .text {
+            font-size: 12px;
+            font-family: $font--family2, sans-serif;
+            color: #0F1D2B;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 10px;
+        }
+
+        .number {
+            font-size: 50px;
+            font-family: $font--family2, sans-serif;
+            color: #00a152;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .box-notificacoes{
+        width: 200px;
+        height: auto;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            font-size: 17px;
+            font-family: $font--family2, sans-serif;
+            color: #0F1D2B;
+            font-weight: 600;
+            padding-top: 15px;
+        }
+        .text {
+            font-size: 12px;
+            font-family: $font--family2, sans-serif;
+            color: #0F1D2B;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 5px;
+        }
+        .number {
+            font-size: 50px;
+            font-family: $font--family2, sans-serif;
+            color: #ff1744;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
     }
 }
-
