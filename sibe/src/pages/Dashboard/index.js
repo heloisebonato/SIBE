@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 //import {Bar} from 'react-chartjs-2'
 
-import { Bar } from "react-chartjs-2";
-//import { Chart as ChartJS } from "chart.js/auto";
+import { Bar, CategoryScale } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
 //import UserData from "./Data";
 
 // function getResponse() {
