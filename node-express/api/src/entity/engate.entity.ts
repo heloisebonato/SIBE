@@ -13,7 +13,7 @@ export class Engate {
     @Column("varchar", { length: 20 })
     marca: string;
 
-    @Column()
-    cliente_id: number;
+    @Column("float")
+    preco: number;
 
 }

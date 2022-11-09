@@ -23,6 +23,7 @@ import LocacaoEditar from './pages/LocacaoEditar';
 import CarroEditar from './pages/CarroEditar';
 import CadastroEngates from "./pages/CadastroEngates";
 import HistoricoCliente from './pages/HistoricoCliente';
+import Engates from "./pages/Engates";
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
           <Route path={'/cadastroLocacao'} component={CadastroLocacao}/>
           <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>
 
+          <Route path={'/engates'} component={Engates}/>
           <Route path={'/cadastroEngate'} component={CadastroEngates}/>
 
           <Route exact path={'/clientes/cpf/:cpf'} component={Clientes}/>
