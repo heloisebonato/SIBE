@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 const CadastroEngates= (props) => {
 
     const [nome, setNome] = useState("");
-    const [codigo, setCodigo] = useState("");
+    const [preco, setPreco] = useState("");
     const [marca, setMarca] = useState("");
 
     const [redirectHome, setRedirectHome] = useState(false);
@@ -16,21 +16,20 @@ const CadastroEngates= (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const { data } = await axios.get('' + marca);
+        //const { data } = await axios.get('' + marca);
+
+        const response = await axios.post("engates/", {
+            nome: nome,
+            marca: marca,
+            preco, preco
+        });
+
+        window.confirm('Engate cadastrado com sucesso')
 
         //setClienteId(props.match.params.cliente_id);
-        console.log(data);
-        if (!data) {
-            const response = await axios.post('carros/', {
-                nome: nome,
-                codigo: codigo,
-                marca: marca,
-                cliente_id: props.match.params.cliente_id,
-            });
-            console.log(response);
+        console.log(response);
+        if (!response) {
             window.confirm('Engate cadastrado com sucesso')
-        } else {
-            window.confirm('Esse engate já está cadastrado!')
         }
 
         if (!redirectCadastroEngates) {
@@ -40,9 +39,9 @@ const CadastroEngates= (props) => {
     }
 
     if (redirectHome === true) {
-        return <Redirect to={'/'}></Redirect>
+        return <Redirect to={'/engates'}></Redirect>
     } else if (redirectCadastroEngates === true) {
-        return <Redirect to={'/clientes'}></Redirect>
+        return <Redirect to={'/engates'}></Redirect>
     }
 
     return (
@@ -60,24 +59,15 @@ const CadastroEngates= (props) => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="forms-input">
-                                        <label className='labels'>Código do Engate</label>
+                                        <label className='labels'>Preço do Engate</label>
                                         <input
-                                            id="codigo"
+                                            id="precp"
                                             class="form-field form-lg"
                                             type="text"
-                                            placeholder="Digite o código"
-                                            name="codigo"
-                                            onChange={e => setCodigo(e.target.value)}
+                                            placeholder="Digite o Preço"
+                                            name="preco"
+                                            onChange={e => setPreco(e.target.value)}
                                             required
-                                        />
-                                        <input
-                                            id="id"
-                                            class="form-field form-lg"
-                                            type="text"
-                                            name="id"
-                                            value={props.match.params.cliente_id}
-                                            required
-                                            hidden
                                         />
                                     </div>
                                     <div className="forms-input">

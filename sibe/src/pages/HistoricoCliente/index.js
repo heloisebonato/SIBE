@@ -16,17 +16,21 @@ const HistoricoCliente = (props) => {
 
   useEffect(() => {
     (async () => {
-      console.log("historico");
-      console.log(props.match.params.cliente_id);
+      //console.log("historico");
+      //console.log(props.match.params.cliente_id);
 
       var { data } = await axios.get(
         `historico/${props.match.params.cliente_id}`
       );
-
+      console.log(props.match.params.cliente_id);
       if (props.match.params.cliente_id != null) {
         data = await axios.get(`historico/${props.match.params.cliente_id}`);
-        setHistorico(data.data[0]);
-        setNome(data.data[0][0].nome);
+        console.log(data);
+        if(data.data[0].length){
+          setHistorico(data.data[0]);
+          setNome(data.data[0][0].nome);
+        }
+        
         console.log(nome);
       }
 

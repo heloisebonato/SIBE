@@ -39,7 +39,7 @@ class Menu extends React.Component {
                             </NavLink>
                         </li>
                         <li  className="nav-item">
-                            <NavLink to={'/cadastroEngate'} exact className="nav-link">
+                            <NavLink to={'/engates'} exact className="nav-link">
                             <AddCircleIcon />
                                 Engates
                             </NavLink>
