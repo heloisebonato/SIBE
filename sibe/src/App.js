@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from "react";
 import "./index.css";
 import "./dashboard.css";
 import axios from 'axios';
 import Login from './pages/login';
-
-
 
 import Nav from './components/nav';
 import Menu from './components/menu';
@@ -27,10 +25,7 @@ import CadastroEngates from "./pages/CadastroEngates";
 import HistoricoCliente from './pages/HistoricoCliente';
 
 export default function App() {
-
   return (
-
-
       <div>
         <BrowserRouter>
           <Route path={'/'} exact component={Dashboard}/>
@@ -63,7 +58,5 @@ export default function App() {
 
           </BrowserRouter>
       </div>
-
-
   );
 }
