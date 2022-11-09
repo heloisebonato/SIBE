@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -9,68 +10,94 @@ Color Definitions
 Text Definitions
 ------------------
 **/
-.container .subtitle {
-  font-size: 40px;
-  font-weight: 600;
-  color: #0F1D2B;
-  font-family: "Montserrat", sans-serif; }
-.container .btn {
-  font-size: 15px;
+.form-editar {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 30px;
+}
+.form-editar .register-form .title {
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  font-size: 35px;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400; }
-.container .btn-inadimplente {
-  background-color: #FFFFFF;
+  color: #153C54;
+}
+.form-editar .register-form .subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   color: #0F1D2B;
-  border: 1px solid #0F1D2B;
-  border-radius: 10px; }
-  .container .btn-inadimplente:hover {
-    background-color: #f1f2f3; }
-  .container .btn-inadimplente .MuiSvgIcon-root {
-    color: #2D4297; }
-.container .btn-criar {
-  background-color: #2D4297;
-  color: #FFFFFF;
-  border: 1px solid #2D4297;
+  margin: 20px;
+}
+.form-editar .register-form .forms-input {
+  display: grid;
+  margin: 20px;
+}
+.form-editar .register-form .forms-input .labels {
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #0F1D2B;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+.form-editar .register-form .form-field {
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 13px;
+  border: 2px solid #e7e8e9;
   border-radius: 10px;
-  transition: .4s; }
-  .container .btn-criar:hover {
-    background-color: #1d2b64; }
-  .container .btn-criar .MuiSvgIcon-root {
-    color: #FFFFFF; }
-.container .btn-action:hover {
-  background-color: #e7e8e9; }
-.container .table .infos-titles {
-  background-color: #2D4297; }
-  .container .table .infos-titles .text {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; }
-  .container .table .infos-titles th {
-    border: none; }
-.container .table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  text-transform: uppercase; }
-
-.pagination .page-item .page-link {
-  color: #2D4297;
-  border: 1px solid #2D4297;
+  background-color: transparent;
+}
+.form-editar .register-form input,
+.form-editar .register-form textarea {
+  background: #f2f2f2;
+  border-radius: 15px;
+}
+.form-editar .register-form input:focus,
+.form-editar .register-form textarea:focus {
+  outline: 0;
+  border: 2px solid #1B4965;
+}
+.form-editar .register-form .button-submit {
   background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: "Montserrat";
-  font-weight: 600; }
-  .pagination .page-item .page-link:hover {
-    background-color: #2D4297;
-    transition: .4s;
-    color: #FFFFFF; }
-
-/*# sourceMappingURL=ListarClientes.css.map */
+  border: 2px solid #2D4297;
+  color: #2D4297;
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 700;
+  margin-top: 30px;
+  transition: 0.4s;
+  width: 40%;
+}
+.form-editar .register-form .button-submit:hover {
+  background-color: #2D4297;
+  color: #FFFFFF;
+  transition: 0.4s;
+}
+.form-editar .register-form .button-submit:disabled {
+  cursor: default;
+}
+.form-editar .register-form .success-message {
+  font-family: "Montserrat", sans-serif;
+  background-color: #3f89f8;
+  padding: 15px;
+  color: white;
+}
+.form-editar .register-form .error {
+  border-style: solid;
+  border: 2px solid #ffa4a4;
+}
+.form-editar .pagination .page-item .page-link:hover {
+  background-color: #2D4297;
+  transition: 0.4s;
+  color: #FFFFFF;
+}
+.form-editar .placa_carreta_none {
+  display: none;
+}/*# sourceMappingURL=LocacaoEditar.css.map */

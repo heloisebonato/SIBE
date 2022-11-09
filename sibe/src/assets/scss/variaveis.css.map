@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAQ,oGAA4F;AACpG;;;;GAIG;AAgBH;;;;GAIG",
-"sources": ["variaveis.scss"],
-"names": [],
-"file": "variaveis.css"
-}
+{"version":3,"sources":["variaveis.scss"],"names":[],"mappings":"AAAQ,oGAAA;AACR;;;;EAAA;AAoBA;;;;EAAA","file":"variaveis.css"}

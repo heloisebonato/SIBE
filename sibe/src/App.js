@@ -24,40 +24,45 @@ import Locacoes from './pages/Locacoes';
 import LocacaoEditar from './pages/LocacaoEditar';
 import CarroEditar from './pages/CarroEditar';
 import CadastroEngates from "./pages/CadastroEngates";
-
+import HistoricoCliente from './pages/HistoricoCliente';
 
 export default function App() {
 
   return (
- 
 
-  <div>
-    <BrowserRouter>
-      <Route path={'/'} exact component={Dashboard}/>
-      <Route path={'/funcionarios'} component={Funcionario}/>
-      <Route path={'/registrar'} component={Register}/>   
-      <Route path={'/login'} component={Login}/>  
-      <Route path={'/cadastroCliente'} component={CadastroCliente}/>
-      <Route path={'/clientes'} component={Clientes}/> 
-      <Route path={'/cliente/:cliente_id/editar'} component={ClienteEditar}/> 
 
-      <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
-      <Route path={'/carretas'} component={Carretas}/>
-      <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/> 
+      <div>
+        <BrowserRouter>
+          <Route path={'/'} exact component={Dashboard}/>
+          <Route path={'/funcionarios'} component={Funcionario}/>
+          <Route path={'/registrar'} component={Register}/>
+          <Route path={'/login'} component={Login}/>
+          <Route path={'/cadastroCliente'} component={CadastroCliente}/>
+          <Route exact path={'/clientes'} component={Clientes}/>
+          <Route path={'/cliente/:cliente_id/editar'} component={ClienteEditar}/>
 
-      <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/> 
+          <Route path={'/cadastroCarreta'} component={CadastroCarreta}/>
+          <Route exact path={'/carretas'} component={Carretas}/>
+          <Route path={'/carreta/:carreta_id/editar'} component={CarretaEditar}/>
 
-      <Route path={'/cadastroCarro/:cliente_id'} component={CadastroCarro}/>
+          <Route path={'/carro/:carro_id/editar'} component={CarroEditar}/>
 
-      <Route path={'/locacoes'} component={Locacoes}/> 
-      <Route path={'/cadastroLocacao'} component={CadastroLocacao}/>
-      <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>
+          <Route path={'/cadastroCarro/:cliente_id'} component={CadastroCarro}/>
 
-      <Route path={'/cadastroEngate'} component={CadastroEngates}/>
+          <Route path={'/locacoes'} component={Locacoes}/>
+          <Route path={'/cadastroLocacao'} component={CadastroLocacao}/>
+          <Route path={'/locacao/:locacao_id/editar'} component={LocacaoEditar}/>
 
-      
-      </BrowserRouter>
-  </div>
+          <Route path={'/cadastroEngate'} component={CadastroEngates}/>
+
+          <Route exact path={'/clientes/cpf/:cpf'} component={Clientes}/>
+          <Route exact path={'/carretas/placa/:placa'} component={Carretas}/>
+
+          <Route exact path={'/historico/:cliente_id'} component={HistoricoCliente}/>
+
+
+          </BrowserRouter>
+      </div>
 
 
   );

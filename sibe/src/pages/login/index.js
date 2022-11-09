@@ -28,6 +28,7 @@ const Login = (props) => {
 
     return (
     <div class="login-box">
+
         <div class="form-container">
         <form class="register-form" onSubmit={handleSubmit}>
             <h1 class="title">Login</h1>

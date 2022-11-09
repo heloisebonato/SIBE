@@ -3,6 +3,7 @@ import { stat } from "fs";
 import {getManager} from "typeorm";
 import {Carreta} from "../entity/carreta.entity";
 import { Carro } from "../entity/carro.entity";
+import { Cliente } from "../entity/cliente.entity";
 import {Locacao} from "../entity/locacao.entity";
 //import bcyptjs from "bcryptjs";
 
@@ -230,4 +231,97 @@ export const DeleteCarreta = async (req: Request, res: Response) => {
     await repository.delete(req.params.carreta_id);
 
     res.status(204).send(null);
+}
+
+export const GetInfoPesquisar = async (req: Request, res: Response) => {
+
+
+    const query = `call filterSearch('` + req.params.valor + `');`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+    
+
+    //res.status(404).send(null);
+}
+
+
+export const notificacao = async (req: Request, res: Response) => {
+
+    const query = `call notificacao();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
+}
+
+
+export const produtosAtivos = async (req: Request, res: Response) => {
+
+    const query = `call produtosAtivos();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
+}
+
+
+export const countCarretasLoc = async (req: Request, res: Response) => {
+
+    const query = `call countCarretas();`;
+
+    const rawData = await getManager().query(query);
+
+
+    //const repository = getManager().getRepository(Locacao);
+
+    //const locacoes = await repository.find();
+
+
+    res.send(rawData.map(U => {
+        const data = U;
+
+        return data;
+    }));
+
+
+    //res.status(404).send(null);
 }

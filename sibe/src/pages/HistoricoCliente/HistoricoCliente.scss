@@ -1,7 +1,7 @@
-@import "../../assets/scss/variaveis.scss";
- 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+@import '../../assets/scss/variaveis.scss';
 
-#listar-clientes {
+#historico {
     .title {
         justify-content: left;
         align-items: center;
@@ -12,6 +12,14 @@
         color: $blue--dark;
     }
 
+    .subtitle {
+        color: $primary-dark;
+        font-size: $font--items2;
+        font-family: $font--family, sans-serif;
+        font-weight: $weight--medium;
+        margin-bottom: 20px;
+    }
+
     .btn {
         font-size: $font--items;
         background-color: $blue;
@@ -19,27 +27,13 @@
         font-weight: $weight--small;
         color: $white;
         border: 1px solid $blue;
-        transition: .4s;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-            background-color: $blue--dark;
-            color: $white;
-            transition: .6s;
-        }
-    }
-
-    .btn-criar {
-        background-color: $blue;
-        color: $white;
-        border: 2px solid $white;
         border-radius: 10px;
         transition: .4s;
 
         &:hover {
             background-color: $blue--dark;
+            color: $white;
+            transition: .6s;
         }
 
         .MuiSvgIcon-root {
@@ -47,14 +41,16 @@
         }
     }
 
-    .table-responsive {
-        overflow-x: hidden;
-        padding-bottom: 30px;
+    .btn-action {
+        &:hover {
+            border-color: none;
+            background-color: $blue--dark;
+        }
+    }
 
+    .table {
         .infos-titles {
             background-color: $blue;
-            height: 70px;
-            display: grid;
 
             .text {
                 color: $white;
@@ -63,52 +59,20 @@
                 font-weight: $weight--medium;
             }
 
-            .conf {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            th {
+                border: none;
             }
         }
 
         .infos-body {
-            .row:nth-of-type(2n+1) {
-                padding-bottom: 8px;
-                padding-top: 8px;
-                border-bottom: 1px solid $grey;
-            }
-
             .text {
                 font-family: $font--family, sans-serif;
                 font-weight: $weight--small;
                 font-size: $font--items;
                 text-transform: uppercase;
             }
-
-            .text-id {
-                width: 20px;
-            }
-
-            .conf {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .in {
-                display: block !important;
-            }
-
-            .collapse {
-                .infos-collapse {
-                    background-color: $blue--dark;
-                    color: $white;
-                    font-size: $font--items2;
-                    font-family: $font--family, sans-serif;
-                }
-            }
         }
     }
-
 
     .pagination .page-item .page-link {
         color: $blue;
@@ -130,7 +94,7 @@
 
     @media (max-width: 992px) {
         .title {
-            font-size: 24px;
+            font-size: 20px;
         }
     }
-}
+} 

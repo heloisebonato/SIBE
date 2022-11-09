@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import './menu.css'
+import './menu.css';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
@@ -20,12 +20,12 @@ class Menu extends React.Component {
                                     Dashboard
                             </NavLink>
                         </li>
-                        <li  className="nav-item">
+                        {/* <li  className="nav-item">
                             <NavLink to={'/funcionarios'} className="nav-link">
                             <PeopleIcon />
                                 Funcionários
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li  className="nav-item">
                             <NavLink to={'/clientes'} className="nav-link">
                             <GroupsIcon />

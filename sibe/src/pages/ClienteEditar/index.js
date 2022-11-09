@@ -101,9 +101,9 @@ const ClienteEditar = (props) => {
 
     return (
         <Wrapper>
-            <div className="login-box bg-light">
+            <div className="login-box">
                 <div className="form-cadastro">
-                    <div class="container">
+                    <div class="container-fluid">
                         <form className="register-form" onSubmit={handleSubmit}>
                             <div className="row">
                                 <div className="col-12">

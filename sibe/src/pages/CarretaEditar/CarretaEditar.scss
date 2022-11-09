@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
-@import '../../assets/scss/variaveis.scss';
-
+@import "../../assets/scss/variaveis.scss";
+ 
 
 .form-editar {
     display: flex;
@@ -84,29 +84,6 @@
                 cursor: default;
             }
         }
-        .success-message {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #3f89f8;
-            padding: 15px;
-            color: white;
-        }
-
-        .error {
-            border-style: solid;
-            border: 2px solid #ffa4a4;
-        }
     }
-    .pagination{
-        .page-item{
-            .page-link:hover {
-                background-color: #2D4297;
-                transition: .4s;
-                color: #FFFFFF; }
-        }
-    }
-    .placa_carreta_none{
-        display: none;
-      }
 
 }
- 
