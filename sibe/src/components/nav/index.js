@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component, useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import logoSibe from "../../assets/images/logo-sibe.png";
+import logoSibe from "../../assets/images/logo-principal.png";
 import "./nav.css";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
@@ -205,6 +205,7 @@ const Nav = () => {
     </header>
   );
   // }
-};
+}
+
 
 export default Nav;

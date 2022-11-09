@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -10,74 +10,52 @@ Text Definitions
 ------------------
 **/
 #listar-agendamentos .container .title {
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: left;
+  align-items: center;
   display: flex;
   font-size: 35px;
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
-  color: #1d2b64;
+  color: #153C54;
 }
-
 #listar-agendamentos .container .btn {
   font-size: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 5px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
-
 #listar-agendamentos .container .btn-criar {
-  background-color: #2D4297;
+  background-color: #1B4965;
   color: #FFFFFF;
-  border: 1px solid #2D4297;
+  border: 1px solid #1B4965;
   border-radius: 10px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  transition: 0.4s;
 }
-
 #listar-agendamentos .container .btn-criar:hover {
-  background-color: #1d2b64;
+  background-color: #153C54;
 }
-
 #listar-agendamentos .container .btn-criar .MuiSvgIcon-root {
   color: #FFFFFF;
 }
-
 #listar-agendamentos .container .btn-action:hover {
   background-color: #e7e8e9;
 }
-
 #listar-agendamentos .container .table .infos-titles {
-  background-color: #2D4297;
+  background-color: #1B4965;
   width: 100%;
 }
-
 #listar-agendamentos .container .table .infos-titles .text {
   color: #FFFFFF;
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
-
 #listar-agendamentos .container .table .infos-titles th {
   border: none;
 }
-
 #listar-agendamentos .container .table .infos-body .text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -86,35 +64,24 @@ Text Definitions
   width: 300px;
   padding-top: 20px;
 }
-
 #listar-agendamentos .pagination .page-item .page-link {
-  color: #2D4297;
-  border: 1px solid #2D4297;
+  color: #1B4965;
+  border: 1px solid #1B4965;
   background-color: #FFFFFF;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   font-size: 15px;
   font-family: "Montserrat";
-  font-weight: 600;
+  font-weight: 500;
 }
-
 #listar-agendamentos .pagination .page-item .page-link:hover {
-  background-color: #2D4297;
-  -webkit-transition: .4s;
-  transition: .4s;
+  background-color: #1B4965;
+  transition: 0.4s;
   color: #FFFFFF;
 }
-
 @media (max-width: 992px) {
   #listar-agendamentos .title {
     font-size: 24px;
   }
-}
-/*# sourceMappingURL=ListarLocacoes.css.map */
+}/*# sourceMappingURL=ListarLocacoes.css.map */

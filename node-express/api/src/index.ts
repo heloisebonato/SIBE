@@ -24,6 +24,7 @@ import { Cliente } from './entity/cliente.entity';
 import { Carreta } from './entity/carreta.entity';
 import { Carro } from './entity/carro.entity';
 import { Locacao } from './entity/locacao.entity';
+import { Engate } from './entity/engate.entity';
 
 createConnection({
     type: "mysql",
@@ -39,7 +40,8 @@ createConnection({
         Cliente,
         Carreta,
         Carro,
-        Locacao
+        Locacao,
+        Engate
     ],
     logging: false,
     synchronize: true

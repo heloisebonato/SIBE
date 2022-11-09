@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAQ,oGAA4F;AAEpG;;;;GAIG;AAgBH;;;;GAIG;ACvBC,iBAAM;EACF,SAAS,ED4BK,IAAI;EC3BlB,WAAW,EDkCJ,GAAG;ECjCV,WAAW,EAAE,YAAY;EACzB,KAAK,EDKE,OAAO",
-"sources": ["../../assets/scss/variaveis.scss","Dashboard..scss"],
-"names": [],
-"file": "Dashboard..css"
-}
+{"version":3,"sources":["../../assets/scss/variaveis.scss","Dashboard.scss","Dashboard.css"],"names":[],"mappings":"AAAQ,oGAAA;AACR;;;;EAAA;AAoBA;;;;EAAA;AClBI;EACI,eD2Bc;EC1Bd,gBDiCO;EChCP,yBAAA;EACA,cDIO;AEKf","file":"Dashboard.css"}

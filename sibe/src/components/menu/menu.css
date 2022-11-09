@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
 /**
 -------------------------
 Color Definitions
@@ -9,40 +9,38 @@ Color Definitions
 Text Definitions
 ------------------
 **/
+#sidebarMenu.sidebar {
+  background-color: #1B4965;
+}
 #sidebarMenu.sidebar .nav .nav-item {
-  color: #2D4297;
+  color: #f1f2f3;
   font-size: 13px;
   font-weight: 400;
   font-family: "Montserrat";
 }
-
 #sidebarMenu.sidebar .nav .MuiSvgIcon-root {
-  color: #2D4297;
+  color: #f1f2f3;
 }
-
 #sidebarMenu.sidebar .nav .nav-link {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
-  color: #0F1D2B;
+  color: #f1f2f3;
+  font-weight: 500;
 }
-
 #sidebarMenu.sidebar .nav .nav-link.active {
-  color: #FFFFFF;
-  background-color: #2D4297;
-  font-weight: 600;
+  color: #1B4965;
+  background-color: #f1f2f3;
+  font-weight: 700;
   margin-left: 10px;
   margin-right: 10px;
-  border: 1px solid #2D4297;
+  border: 1px solid #f1f2f3;
   border-radius: 5px;
 }
-
 #sidebarMenu.sidebar .nav .nav-link.active .MuiSvgIcon-root {
-  color: #FFFFFF;
+  color: #1B4965;
 }
-/*# sourceMappingURL=menu.css.map */
+#sidebarMenu.sidebar .nav .nav-link:hover {
+  font-weight: 700;
+}/*# sourceMappingURL=menu.css.map */

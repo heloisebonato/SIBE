@@ -5,6 +5,7 @@
     background-color: $blue;
 }
 
+
 .logo {
     width: 75%;
     height: 100%;
@@ -153,7 +154,6 @@
 
         &:hover {
             background-color: transparent;
-            border-radius: transparent;
         }
     }
 }
@@ -207,4 +207,4 @@
             border-radius: 20px;
         }
     }
-}
+} 

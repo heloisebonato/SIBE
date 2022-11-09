@@ -6,6 +6,7 @@ import { CreateFuncionario, DeleteFuncionario, Funcionarios, GetFuncionario, Upd
 import { Clientes, CreateCliente, DeleteCliente, GetCliente, GetClienteByCpf, GetHistoricoCliente, GetNovosClientes, UpdateCliente } from "./controller/cliente.controller";
 import { Carretas, CreateCarreta, GetCarreta, UpdateCarreta, DeleteCarreta, GetCarretaByPlaca } from "./controller/carreta.controller";
 import { Carros, CreateCarro, CreateCarroCliente, DeleteCarro, GetCarro, GetCarroByPlaca, GetCarrosByCliente, UpdateCarro } from "./controller/carro.controller";
+import { Engates, CreateEngate, GetEngate, GetEngateByName, UpdateEngate, DeleteEngate } from "./controller/engate.controller";
 import { countCarretasLoc, CreateLocacao, GetInfoPesquisar, Locacoes, Locacoes_, Locacoes_por_Id, notificacao, produtosAtivos, UpdateLocacao } from "./controller/locacao.controller";
 
 export const routes = (router: Router) => {
@@ -55,7 +56,14 @@ export const routes = (router: Router) => {
     router.get('/locacoes', Locacoes_);
     router.get('/locacoes/:locacao_id', Locacoes_por_Id);
     router.put('/locacoes/:locacao_id', AuthMiddleware, UpdateLocacao);
+    
 
+    router.get('/engates', AuthMiddleware, Engates);
+    router.post('/engates', CreateEngate);
+    router.get('/engates/:codigo', AuthMiddleware, GetEngate);
+    router.get('/engates/nome/:nome', AuthMiddleware, GetEngateByName);
+    router.put('/engates/:codigo', AuthMiddleware, UpdateEngate);
+    router.delete('/engates/:codigo', AuthMiddleware, DeleteEngate);
     router.get('/pesquisar/:valor', AuthMiddleware, GetInfoPesquisar);
 
     router.get('/notificacao', AuthMiddleware, notificacao);

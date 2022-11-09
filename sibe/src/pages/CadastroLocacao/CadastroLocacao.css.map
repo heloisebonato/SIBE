@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,OAAO,CAAC,4FAAI;ACAZ,OAAO,CAAC,4FAAI;AAEZ;;;;GAIG;AAgBH;;;;GAIG;ADvBH,AAOQ,aAPK,CACT,YAAY,CAMR,kBAAkB,CAAA;EACd,KAAK,ECCF,OAAO;EDAV,SAAS,ECiBP,IAAI;EDhBN,WAAW,ECsBR,YAAY,EDtBa,UAAU;CACzC",
-    "sources": [
-        "CadastroLocacao.scss",
-        "../../assets/scss/variaveis.scss"
-    ],
-    "names": [],
-    "file": "CadastroLocacao.css"
-}
+{"version":3,"sources":["CadastroLocacao.scss","../../assets/scss/variaveis.scss","CadastroLocacao.css"],"names":[],"mappings":"AAAQ,oGAAA;ACAA,oGAAA;AACR;;;;EAAA;AAoBA;;;;EAAA;ADXQ;EACI,cAAA;EACA,eCgBE;EDfF,qCAAA;AEGZ","file":"CadastroLocacao.css"}
