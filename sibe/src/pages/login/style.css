@@ -28,7 +28,7 @@
 } */
 
 .login{
-    background: #2D4297;
+    background: #1B4965;
     display: flex;
     min-height: 100vh;
     justify-content: center;
@@ -89,15 +89,15 @@ input {
 
 .button-submit {
   background-color: #FFFFFF;
-  border: 2px solid #2D4297;
-  color: #2D4297;
+  border: 2px solid #1B4965;
+  color: #1B4965;
   cursor: pointer;
   transition: 0.4s;
   font-weight: 700;
   margin-top: 30px;
 }
 .button-submit:hover{
-  background-color: #2D4297;
+  background-color: #13374d;
   color: #FFFFFF;
   transition: 0.4s;
 }
@@ -113,12 +113,14 @@ input {
   overflow: hidden;
 }
 
-.register-form .title{
+.login .register-form .title{
   justify-content: center;
   align-items: center;
   display: flex;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 800;
   font-family: 'Montserrat', sans-serif;
   padding: 10px 10px;
+  text-transform: uppercase;
+  color: #13374d;
 }
