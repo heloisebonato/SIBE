@@ -1,7 +1,7 @@
 
 # SIBE: Sistema Informativo Bonato Engates 
 <img src="https://user-images.githubusercontent.com/43188658/198845056-cf3fd707-48c5-4432-8502-6176804cc73f.png" alt="logo do projeto sibe"/>
-<p align="left"><img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/></p>
+<p align="left"><img src="https://img.shields.io/badge/STATUS-FINISH-blue"/></p>
 
 # Introdução
 <p> SIBE é um projeto desenvolvido para o Trabalho de Conclusão de Curso (TCC) em Sistemas de Informação. É um sistema web de gestão para empresas do ramo de locação de carretas e venda de engates para veículos. </p>
